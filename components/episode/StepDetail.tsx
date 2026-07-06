@@ -9,7 +9,9 @@
 import Link from "next/link";
 import { BAND_META, reachedMajority, rewardBand, tallyVotes } from "@/lib/adapters";
 import type { Consensus, Step } from "@/lib/manifest";
+import { narrateStep } from "@/lib/narrate";
 import { getStateRenderer } from "@/components/state/registry";
+import { Narration } from "@/components/Narration";
 
 export function StepDetail({
   step,
@@ -40,6 +42,8 @@ export function StepDetail({
           </span>
         </div>
       )}
+
+      <Narration live text={narrateStep(step, scale, index, total)} />
 
       <div style={{ display: "flex", flexWrap: "wrap", alignItems: "baseline", gap: 10 }}>
         <span className="mono muted">

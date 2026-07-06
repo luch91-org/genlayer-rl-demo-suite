@@ -10,7 +10,9 @@
 import Link from "next/link";
 import { BAND_META, learningView, rewardBand, stepCount } from "@/lib/adapters";
 import type { Manifest } from "@/lib/manifest";
+import { narrateLearning } from "@/lib/narrate";
 import { useManifest } from "@/lib/store";
+import { Narration } from "./Narration";
 
 export function Overview({ domainId }: { domainId: string }) {
   const result = useManifest(domainId);
@@ -45,9 +47,18 @@ function OverviewBody({ manifest }: { manifest: Manifest }) {
         {domain.name}
       </p>
       <p style={{ maxWidth: 680 }}>{domain.plain_blurb}</p>
-      <p className="muted" style={{ maxWidth: 680, fontSize: 14 }}>
+      <p className="muted" style={{ maxWidth: 680, fontSize: 14, marginBottom: 16 }}>
         {domain.world}
       </p>
+
+      <Narration
+        text={narrateLearning(
+          domain.plain_name,
+          lv.startAverage,
+          lv.finalAverage,
+          randomFinal,
+        )}
+      />
 
       <div className="stat-grid" style={{ marginTop: 18 }}>
         <div className="stat">

@@ -80,24 +80,26 @@ function LiveBody({ manifest, domainId }: { manifest: Manifest; domainId: string
         </button>
       </div>
 
-      {status.kind === "loading" && (
-        <div className="panel">
-          <p className="mono muted" style={{ margin: 0 }}>
-            Reading the chain. On-chain reads can take a few seconds.
-          </p>
-        </div>
-      )}
-
-      {status.kind === "error" && (
-        <div className="error-card mono">
-          <strong>Live read failed.</strong> {status.message}
-          <div style={{ marginTop: 8 }}>
-            <button type="button" className="navbtn" onClick={read}>
-              Try again
-            </button>
+      <div aria-live="polite">
+        {status.kind === "loading" && (
+          <div className="panel">
+            <p className="mono muted" style={{ margin: 0 }}>
+              Reading the chain. On-chain reads can take a few seconds.
+            </p>
           </div>
-        </div>
-      )}
+        )}
+
+        {status.kind === "error" && (
+          <div className="error-card mono">
+            <strong>Live read failed.</strong> {status.message}
+            <div style={{ marginTop: 8 }}>
+              <button type="button" className="navbtn" onClick={read}>
+                Try again
+              </button>
+            </div>
+          </div>
+        )}
+      </div>
 
       {status.kind === "ok" && (
         <div>

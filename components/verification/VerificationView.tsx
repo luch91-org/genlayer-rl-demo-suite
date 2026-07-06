@@ -11,7 +11,9 @@
 import Link from "next/link";
 import { firstConsensusStep, reachedMajority, tallyVotes } from "@/lib/adapters";
 import type { Consensus, Manifest, ValidatorVote } from "@/lib/manifest";
+import { narrateConsensus } from "@/lib/narrate";
 import { useManifest } from "@/lib/store";
+import { Narration } from "@/components/Narration";
 
 const VOTE_META: Record<
   string,
@@ -90,6 +92,8 @@ function Receipt({
 
   return (
     <div style={{ marginTop: 16 }}>
+      <Narration text={narrateConsensus(consensus)} />
+
       <div style={{ display: "flex", alignItems: "center", gap: 12, flexWrap: "wrap", marginBottom: 12 }}>
         <span className={`outcome-badge ${agreed ? "outcome-majority" : "outcome-none"}`}>
           {agreed ? "majority agreed" : "no majority"}

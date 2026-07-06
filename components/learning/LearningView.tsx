@@ -9,7 +9,9 @@
 import { BAND_META, learningView, rewardBand } from "@/lib/adapters";
 import { buildPath, linearScale } from "@/lib/chart";
 import type { Manifest } from "@/lib/manifest";
+import { narrateLearning } from "@/lib/narrate";
 import { useManifest } from "@/lib/store";
+import { Narration } from "@/components/Narration";
 import { LearningChart } from "./LearningChart";
 
 export function LearningView({ domainId }: { domainId: string }) {
@@ -41,6 +43,15 @@ function LearningBody({ manifest }: { manifest: Manifest }) {
         {manifest.domain.plain_name} &middot; reward per episode, smoothed over a window of{" "}
         {view.window}
       </p>
+
+      <Narration
+        text={narrateLearning(
+          manifest.domain.plain_name,
+          view.startAverage,
+          view.finalAverage,
+          randomFinal,
+        )}
+      />
 
       <div className="stat-grid" style={{ margin: "14px 0 18px" }}>
         <div className="stat">

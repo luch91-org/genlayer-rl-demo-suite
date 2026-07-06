@@ -42,6 +42,9 @@ export function AppShell({ children }: { children: React.ReactNode }) {
 
   return (
     <>
+      <a className="skip-link" href="#main">
+        Skip to content
+      </a>
       <header className="topbar">
         <div className="topbar-inner">
           <div className="brand">
@@ -77,7 +80,25 @@ export function AppShell({ children }: { children: React.ReactNode }) {
         </div>
       </header>
 
-      <main className="wrap">{children}</main>
+      <main className="wrap" id="main">
+        {children}
+      </main>
+
+      <footer className="site-footer">
+        <div className="site-footer-inner">
+          <span>
+            A pure reader of each agent&apos;s published manifest. The reward function is immutable
+            on-chain; the agent optimizes it and cannot rewrite it.
+          </span>
+          <a
+            href="https://github.com/luch91-org"
+            target="_blank"
+            rel="noreferrer"
+          >
+            source and the four agent repositories
+          </a>
+        </div>
+      </footer>
     </>
   );
 }
