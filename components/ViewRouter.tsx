@@ -6,6 +6,7 @@
  */
 
 import { EpisodeView } from "./episode/EpisodeView";
+import { LearningView } from "./learning/LearningView";
 import { Overview } from "./Overview";
 import { ViewPlaceholder } from "./ViewPlaceholder";
 
@@ -15,6 +16,8 @@ export function ViewRouter({ domain, view }: { domain: string; view: string }) {
       return <Overview domainId={domain} />;
     case "episode":
       return <EpisodeView domainId={domain} />;
+    case "learning":
+      return <LearningView domainId={domain} />;
     default:
       return <ViewPlaceholder view={view} />;
   }
