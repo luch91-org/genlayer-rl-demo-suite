@@ -1,0 +1,110 @@
+/*
+ * Design tokens for the GenLayer RL Demo Suite.
+ * Instrument-panel aesthetic: lab bench, not marketing site.
+ * Color is semantic and consistent everywhere, but NEVER the only signal --
+ * every state also carries a shape, icon, or text label (accessibility floor).
+ */
+
+:root {
+  /* Surfaces */
+  --cream: #fbfaf3; /* page background */
+  --paper: #ffffff; /* panels */
+  --ink: #0b0b14; /* text */
+  --ink-soft: #4a4a55; /* secondary text */
+
+  /* Semantic. blue = the agent and anything interactive; red = trouble;
+     green splits in two because pure green is invisible on cream. */
+  --blue: #0000ff;
+  --red: #ff0000;
+  --green-sig: #00ff00; /* brand mark and fills only */
+  --green-ink: #068a06; /* green text and borders */
+
+  /* Washes and lines */
+  --blue-wash: #eaeaff;
+  --red-wash: #ffecec;
+  --green-wash: #e7f7e7;
+  --grid-line: #e6e5da;
+  --hairline: #d9d8cc;
+
+  /* Reward bands (paired with glyphs in the UI, never color alone) */
+  --band-poor: var(--red);
+  --band-fair: #b8860b; /* amber-ink, readable on cream */
+  --band-strong: var(--green-ink);
+
+  --radius: 10px;
+  --panel-pad: 16px;
+
+  /* Fonts are wired via next/font in layout.tsx; these are the variable hooks. */
+  --font-display: var(--font-space-grotesk), system-ui, sans-serif;
+  --font-mono: var(--font-ibm-plex-mono), ui-monospace, "SFMono-Regular", monospace;
+  --font-body: var(--font-inter), system-ui, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background: var(--cream);
+  color: var(--ink);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* All numbers and data readouts are mono -- it sells the instrument feel. */
+.mono,
+.readout {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+}
+
+h1,
+h2,
+h3,
+.display {
+  font-family: var(--font-display);
+  letter-spacing: -0.01em;
+}
+
+a {
+  color: var(--blue);
+}
+
+/* Visible focus everywhere -- keyboard operability is a floor, not an extra. */
+:focus-visible {
+  outline: 3px solid var(--blue);
+  outline-offset: 2px;
+}
+
+/* Respect reduced-motion globally; components opt back into motion carefully. */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+.panel {
+  background: var(--paper);
+  border: 1px solid var(--hairline);
+  border-radius: var(--radius);
+  padding: var(--panel-pad);
+}
+
+.wrap {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 24px 20px 64px;
+}
+
+.error-card {
+  background: var(--red-wash);
+  border: 1px solid var(--red);
+  border-radius: var(--radius);
+  padding: 12px 14px;
+  color: var(--ink);
+}
