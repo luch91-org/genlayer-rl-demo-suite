@@ -8,6 +8,7 @@
 import { EpisodeView } from "./episode/EpisodeView";
 import { LearningView } from "./learning/LearningView";
 import { Overview } from "./Overview";
+import { VerificationView } from "./verification/VerificationView";
 import { ViewPlaceholder } from "./ViewPlaceholder";
 
 export function ViewRouter({ domain, view }: { domain: string; view: string }) {
@@ -18,6 +19,8 @@ export function ViewRouter({ domain, view }: { domain: string; view: string }) {
       return <EpisodeView domainId={domain} />;
     case "learning":
       return <LearningView domainId={domain} />;
+    case "verification":
+      return <VerificationView domainId={domain} />;
     default:
       return <ViewPlaceholder view={view} />;
   }

@@ -490,3 +490,123 @@ a {
   align-items: center;
   gap: 6px;
 }
+
+/* ---------- verification / receipt ---------- */
+
+.receipt-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 14px;
+  align-items: start;
+}
+
+@media (max-width: 760px) {
+  .receipt-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.principle-box {
+  border-left: 3px solid var(--blue);
+  background: var(--blue-wash);
+  border-radius: 0 8px 8px 0;
+  padding: 10px 14px;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.outcome-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 12px;
+  border-radius: 999px;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  font-weight: 500;
+  border: 1px solid var(--hairline);
+}
+
+.outcome-majority {
+  color: var(--green-ink);
+  border-color: var(--green-ink);
+  background: var(--green-wash);
+}
+
+.outcome-none {
+  color: var(--red);
+  border-color: var(--red);
+  background: var(--red-wash);
+}
+
+.validator-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 9px 12px;
+  border: 1px solid var(--hairline);
+  border-left-width: 4px;
+  border-radius: 8px;
+  margin-bottom: 7px;
+  background: var(--paper);
+}
+
+.vote-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 600;
+  min-width: 82px;
+}
+
+.vote-shape {
+  width: 11px;
+  height: 11px;
+  flex: none;
+  border: 2px solid currentColor;
+}
+
+.vote-shape-agree {
+  border-radius: 999px;
+  background: currentColor;
+}
+
+.vote-shape-disagree {
+  border-radius: 999px;
+  background: transparent;
+}
+
+.vote-shape-idle {
+  border-radius: 2px;
+  background: transparent;
+  border-style: dashed;
+}
+
+.vote-shape-timeout {
+  border-radius: 2px;
+  background: currentColor;
+}
+
+.validator-model {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  color: var(--ink);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.tally-bar {
+  display: flex;
+  height: 10px;
+  border-radius: 5px;
+  overflow: hidden;
+  border: 1px solid var(--hairline);
+  margin: 10px 0;
+}
+
+.tally-seg {
+  height: 100%;
+}
