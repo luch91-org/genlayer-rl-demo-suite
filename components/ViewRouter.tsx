@@ -5,6 +5,7 @@
  * change here plus its component.
  */
 
+import { EpisodeView } from "./episode/EpisodeView";
 import { Overview } from "./Overview";
 import { ViewPlaceholder } from "./ViewPlaceholder";
 
@@ -12,6 +13,8 @@ export function ViewRouter({ domain, view }: { domain: string; view: string }) {
   switch (view) {
     case "overview":
       return <Overview domainId={domain} />;
+    case "episode":
+      return <EpisodeView domainId={domain} />;
     default:
       return <ViewPlaceholder view={view} />;
   }
