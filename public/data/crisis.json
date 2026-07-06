@@ -10,9 +10,9 @@
   "provenance": {
     "repo": "genlayer-rl-crisis-negotiator",
     "commit": "1fd8b52",
-    "sdk": "genlayer-py 0.18.0",
+    "sdk": "genlayer-py >=0.18.0",
     "runner_pin": "py-genlayer:1jb45aa8ynh2a9c9xn3b7qqh8sm5q93hwfp7jqmwsfhh8jpz09h6",
-    "generated_at": "2026-07-05T00:00:00Z"
+    "generated_at": "2026-07-06T13:56:54.256167+00:00"
   },
   "contract": {
     "address": "0xE0CBc71F7a3e87523F4A3833d4DdBE8a47595220",
@@ -8043,7 +8043,7 @@
   },
   "runs": [
     {
-      "id": "live-capture-2026-07-05",
+      "id": "live-capture",
       "mode": "live",
       "label": "Live studionet step (2 of 4 agreed)",
       "episodes": [
