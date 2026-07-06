@@ -150,6 +150,10 @@ export const ManifestSchema = z.object({
 
 export type Manifest = z.infer<typeof ManifestSchema>;
 export type Domain = z.infer<typeof DomainSchema>;
+export type LearningSchemaShape = z.infer<typeof LearningSchema>;
+export type RewardShape = z.infer<typeof RewardSchema>;
+export type Action = z.infer<typeof ActionSchema>;
+export type Tx = z.infer<typeof TxSchema>;
 export type Run = z.infer<typeof RunSchema>;
 export type Episode = z.infer<typeof EpisodeSchema>;
 export type Step = z.infer<typeof StepSchema>;
