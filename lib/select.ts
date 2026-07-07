@@ -13,7 +13,7 @@
 import { episodeAt, stepAt } from "./adapters";
 import type { Episode, Manifest, Run, Step } from "./manifest";
 
-export const VIEWS = ["overview", "episode", "learning", "verification", "live"] as const;
+export const VIEWS = ["episode", "learning", "verification", "live"] as const;
 export type View = (typeof VIEWS)[number];
 
 export function isView(v: string): v is View {
@@ -49,7 +49,7 @@ export function resolveSelection(
   manifest: Manifest,
   partial: Partial<Selection> & { domainId: string },
 ): ResolvedSelection {
-  const view: View = partial.view && isView(partial.view) ? partial.view : "overview";
+  const view: View = partial.view && isView(partial.view) ? partial.view : "episode";
 
   const runs = manifest.runs;
   const run =
@@ -105,7 +105,7 @@ export function selectionFromParams(
   const step = get("step");
   return {
     domainId,
-    view: isView(view) ? view : "overview",
+    view: isView(view) ? view : "episode",
     runId: get("run"),
     episodeIndex: ep !== undefined ? Number.parseInt(ep, 10) : 0,
     stepIndex: step !== undefined ? Number.parseInt(step, 10) : 0,

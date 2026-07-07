@@ -30,6 +30,22 @@ agree/disagree/idle/timeout on the leader's single numeric score. They do not
 each emit an independent number. The schema and UI reflect that reality and do
 not invent per-validator scores.
 
+## Screens
+
+- `/` is the overview: a card per agent with its live status, headline score, and
+  a learning-curve sparkline. Each card opens that agent's screen.
+- `/{domain}/episode/` is the instrument panel: world state and the on-chain
+  judge side by side, a step timeline you can play or scrub, the policy
+  inspector, and an inspect drawer for the raw per-step detail.
+- `/{domain}/learning/`, `/{domain}/verification/`, and `/{domain}/live/` are the
+  learning curve, the full on-chain receipt, and a live contract read. They are
+  reached from the in-screen view nav, not a second header row.
+
+A single global Replay / Live toggle in the header switches the world-state
+source everywhere: Replay reads the recorded run, Live reads the deployed
+contract. GenLayer studionet has no public explorer, so addresses and
+transaction hashes are shown in full to copy rather than linked out.
+
 ## Tech stack
 
 - Next.js 15 (App Router) with static export

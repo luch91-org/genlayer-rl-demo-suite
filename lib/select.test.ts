@@ -46,9 +46,9 @@ const manifest = {
 } as unknown as Manifest;
 
 describe("resolveSelection", () => {
-  it("defaults to overview and the first run", () => {
+  it("defaults to the episode view and the first run", () => {
     const r = resolveSelection(manifest, { domainId: "crisis" });
-    expect(r.selection.view).toBe("overview");
+    expect(r.selection.view).toBe("episode");
     expect(r.selection.runId).toBe("live");
     expect(r.run?.id).toBe("live");
     expect(r.step?.action.id).toBe("a");
@@ -87,7 +87,7 @@ describe("resolveSelection", () => {
       domainId: "crisis",
       view: "bogus" as never,
     });
-    expect(r.selection.view).toBe("overview");
+    expect(r.selection.view).toBe("episode");
   });
 });
 

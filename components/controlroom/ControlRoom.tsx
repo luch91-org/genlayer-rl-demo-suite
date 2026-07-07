@@ -17,7 +17,7 @@ import type { Manifest, Run } from "@/lib/manifest";
 import { useManifest } from "@/lib/store";
 import { JudgeGauge } from "@/components/JudgeGauge";
 import { getStateRenderer } from "@/components/state/registry";
-import { EpisodePlayer } from "./EpisodePlayer";
+import { EpisodePlayer } from "@/components/episode/EpisodePlayer";
 
 function pickPlayerRun(runs: Run[]): Run | undefined {
   return (

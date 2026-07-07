@@ -4,7 +4,8 @@
  * The episode player: a step rail plus transport controls that auto-advance
  * through a run. The selected index is owned by the parent so the world-state
  * and judge panels update in step. Autoplay is user-initiated and stops at the
- * end; speed scales the dwell time.
+ * end; speed scales the dwell time. An optional Inspect action opens the deep
+ * detail drawer for the current step.
  */
 
 import { useEffect } from "react";
@@ -23,6 +24,7 @@ export function EpisodePlayer({
   onPlaying,
   speed,
   onSpeed,
+  onInspect,
 }: {
   run: Run;
   scale: [number, number];
@@ -32,6 +34,7 @@ export function EpisodePlayer({
   onPlaying: (p: boolean) => void;
   speed: number;
   onSpeed: (s: number) => void;
+  onInspect?: () => void;
 }) {
   const steps = run.episodes[0]?.steps ?? [];
   const atEnd = index >= steps.length - 1;
@@ -114,6 +117,11 @@ export function EpisodePlayer({
             <>
               <span className="muted"> epsilon</span> {step.epsilon.toFixed(2)}
             </>
+          )}
+          {onInspect && (
+            <button type="button" className="inspect-btn" onClick={onInspect}>
+              Inspect transaction {"→"}
+            </button>
           )}
         </p>
       )}

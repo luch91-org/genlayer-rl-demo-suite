@@ -1,6 +1,7 @@
 import { describe, expect, it } from "vitest";
 import {
   BAND_META,
+  judgeConsensus,
   learningView,
   reachedMajority,
   rewardBand,
@@ -8,7 +9,7 @@ import {
   stepCount,
   tallyVotes,
 } from "./adapters";
-import type { Consensus, LearningSchemaShape, Run } from "./manifest";
+import type { Consensus, LearningSchemaShape, Run, Step } from "./manifest";
 
 describe("rewardBand", () => {
   it("splits the scale into thirds", () => {
@@ -104,6 +105,45 @@ describe("consensus tallies", () => {
   it("reads the recorded majority outcome", () => {
     expect(reachedMajority(consensus)).toBe(true);
     expect(reachedMajority({ ...consensus, outcome: "NO_MAJORITY" })).toBe(false);
+  });
+});
+
+describe("judgeConsensus follows the selected step", () => {
+  // Three steps: two LLM-judged with different leader scores, one deterministic.
+  const steps: Step[] = [
+    {
+      i: 0,
+      action: { id: "a", label: "a" },
+      reward: 2,
+      reward_kind: "llm",
+      consensus: { outcome: "MAJORITY", leader_score: 2, validators: [] },
+    },
+    {
+      i: 1,
+      action: { id: "b", label: "b" },
+      reward: 9,
+      reward_kind: "deterministic",
+    },
+    {
+      i: 2,
+      action: { id: "c", label: "c" },
+      reward: 8.4,
+      reward_kind: "llm",
+      consensus: { outcome: "MAJORITY", leader_score: 8.4, validators: [] },
+    },
+  ];
+
+  it("shows the selected step's leader score, not another step's", () => {
+    expect(judgeConsensus(steps[0])?.leader_score).toBe(2);
+    expect(judgeConsensus(steps[2])?.leader_score).toBe(8.4);
+  });
+
+  it("shows no consensus for a deterministic step", () => {
+    expect(judgeConsensus(steps[1])).toBeNull();
+  });
+
+  it("is null for an absent step", () => {
+    expect(judgeConsensus(undefined)).toBeNull();
   });
 });
 

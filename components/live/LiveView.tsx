@@ -11,6 +11,7 @@ import { useCallback, useEffect, useState } from "react";
 import type { Manifest } from "@/lib/manifest";
 import { readLiveState, type LiveState } from "@/lib/live";
 import { useManifest } from "@/lib/store";
+import { CopyButton } from "@/components/CopyField";
 import { getStateRenderer } from "@/components/state/registry";
 
 type Status =
@@ -64,11 +65,7 @@ function LiveBody({ manifest, domainId }: { manifest: Manifest; domainId: string
       <div className="toolbar" style={{ marginTop: 12 }}>
         <span className="chip">contract {shortAddr(contract.address)}</span>
         <span className="chip">{contract.chain}</span>
-        {contract.explorer && (
-          <a className="chip" href={contract.explorer} target="_blank" rel="noreferrer">
-            explorer
-          </a>
-        )}
+        <CopyButton value={contract.address} label="contract address" />
         <button
           type="button"
           className="navbtn"

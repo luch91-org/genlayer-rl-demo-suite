@@ -1,11 +1,10 @@
 /*
- * Maps a (domain, view) pair to the component that renders it. The overview is
- * the interactive control room; the rest are the per-phase views. This is the
- * one place that knows the set of views, so adding a view is a one-line change
- * here plus its component.
+ * Maps a (domain, view) pair to the component that renders it. The episode
+ * instrument panel is the default view; the rest are the learning curve, the
+ * on-chain receipt, and the live read. This is the one place that knows the set
+ * of views, so adding a view is a one-line change here plus its component.
  */
 
-import { ControlRoom } from "./controlroom/ControlRoom";
 import { EpisodeView } from "./episode/EpisodeView";
 import { LearningView } from "./learning/LearningView";
 import { LiveView } from "./live/LiveView";
@@ -14,8 +13,6 @@ import { ViewPlaceholder } from "./ViewPlaceholder";
 
 export function ViewRouter({ domain, view }: { domain: string; view: string }) {
   switch (view) {
-    case "overview":
-      return <ControlRoom domainId={domain} />;
     case "episode":
       return <EpisodeView domainId={domain} />;
     case "learning":

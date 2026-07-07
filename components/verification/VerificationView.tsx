@@ -13,6 +13,7 @@ import { firstConsensusStep, reachedMajority, tallyVotes } from "@/lib/adapters"
 import type { Consensus, Manifest, ValidatorVote } from "@/lib/manifest";
 import { narrateConsensus } from "@/lib/narrate";
 import { useManifest } from "@/lib/store";
+import { CopyField } from "@/components/CopyField";
 import { Narration } from "@/components/Narration";
 
 const VOTE_META: Record<
@@ -145,18 +146,7 @@ function Receipt({
             <div className="stat-label">Transaction</div>
             {tx ? (
               <div className="mono" style={{ fontSize: 13 }}>
-                <div className="kv-row">
-                  <span className="muted">hash</span>
-                  <span>
-                    {tx.explorer ? (
-                      <a href={tx.explorer} target="_blank" rel="noreferrer">
-                        {tx.hash.slice(0, 10)}…{tx.hash.slice(-8)}
-                      </a>
-                    ) : (
-                      `${tx.hash.slice(0, 10)}…${tx.hash.slice(-8)}`
-                    )}
-                  </span>
-                </div>
+                <CopyField label="hash" value={tx.hash} />
                 <div className="kv-row">
                   <span className="muted">chain</span>
                   <span>{manifest.contract.chain}</span>
@@ -167,18 +157,16 @@ function Receipt({
                     <span>{tx.elapsed_s}s</span>
                   </div>
                 )}
-                <div className="kv-row">
-                  <span className="muted">contract</span>
-                  <span>
-                    {manifest.contract.address.slice(0, 8)}…{manifest.contract.address.slice(-6)}
-                  </span>
-                </div>
+                <CopyField label="contract" value={manifest.contract.address} />
               </div>
             ) : (
               <p className="mono muted" style={{ margin: 0 }}>
                 no transaction recorded
               </p>
             )}
+            <p className="mono muted" style={{ fontSize: 11, marginTop: 8 }}>
+              studionet has no public explorer; the hash and address are shown in full to copy.
+            </p>
             <div style={{ marginTop: 12 }}>
               <Link className="chip" href={`/${domainId}/episode/`}>
                 see this step in context

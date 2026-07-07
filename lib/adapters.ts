@@ -180,6 +180,16 @@ export function firstConsensusStep(manifest: Manifest): { run: Run; step: Step }
   return null;
 }
 
+/**
+ * The consensus the Judge panel should show for a step, or null when the step
+ * was scored by a fixed rule (deterministic) and so carries no committee. The
+ * panel and its test read this one rule, so the Judge always tracks the
+ * currently selected step and never a different one.
+ */
+export function judgeConsensus(step: Step | undefined): Consensus | null {
+  return step?.consensus ?? null;
+}
+
 export function episodeAt(run: Run, index: number): Episode | undefined {
   return run.episodes[index];
 }
