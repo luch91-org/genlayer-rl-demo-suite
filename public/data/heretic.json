@@ -9,10 +9,10 @@
   },
   "provenance": {
     "repo": "genlayer-rl-scientific-heretic",
-    "commit": "14bdbd5",
+    "commit": "3602fea",
     "sdk": "genlayer-py >=0.18.0",
     "runner_pin": "py-genlayer:1jb45aa8ynh2a9c9xn3b7qqh8sm5q93hwfp7jqmwsfhh8jpz09h6",
-    "generated_at": "2026-07-06T13:59:31.821931+00:00"
+    "generated_at": "2026-07-07T11:27:09.053467+00:00"
   },
   "contract": {
     "address": "0xDd169FA2FA5D258f1CCBc8CAe61eA652733435F6",
@@ -8042,6 +8042,152 @@
     }
   },
   "runs": [
+    {
+      "id": "policy-rollout",
+      "mode": "mock",
+      "label": "Trained policy, deterministic replay",
+      "episodes": [
+        {
+          "i": 1,
+          "steps": [
+            {
+              "i": 0,
+              "action": {
+                "id": "propose_1",
+                "label": "propose 2",
+                "args": {
+                  "type": "propose"
+                }
+              },
+              "state_before": {
+                "num_hypotheses": 0,
+                "hypothesis_validated": [],
+                "hypothesis_score_x100": [],
+                "round": 0
+              },
+              "state_after": {
+                "num_hypotheses": 1,
+                "hypothesis_validated": [
+                  0
+                ],
+                "hypothesis_score_x100": [
+                  907
+                ],
+                "round": 1
+              },
+              "reward": 9.07,
+              "reward_kind": "deterministic",
+              "reason": "proposed hypothesis (merit base 8.6)"
+            },
+            {
+              "i": 1,
+              "action": {
+                "id": "test",
+                "label": "test",
+                "args": {
+                  "type": "test"
+                }
+              },
+              "state_before": {
+                "num_hypotheses": 1,
+                "hypothesis_validated": [
+                  0
+                ],
+                "hypothesis_score_x100": [
+                  907
+                ],
+                "round": 1
+              },
+              "state_after": {
+                "num_hypotheses": 1,
+                "hypothesis_validated": [
+                  1
+                ],
+                "hypothesis_score_x100": [
+                  907
+                ],
+                "round": 2
+              },
+              "reward": 9.0,
+              "reward_kind": "deterministic",
+              "reason": "[validated] tested a falsifiable, high-merit hypothesis"
+            },
+            {
+              "i": 2,
+              "action": {
+                "id": "propose_2",
+                "label": "propose 3",
+                "args": {
+                  "type": "propose"
+                }
+              },
+              "state_before": {
+                "num_hypotheses": 1,
+                "hypothesis_validated": [
+                  1
+                ],
+                "hypothesis_score_x100": [
+                  907
+                ],
+                "round": 2
+              },
+              "state_after": {
+                "num_hypotheses": 2,
+                "hypothesis_validated": [
+                  1,
+                  0
+                ],
+                "hypothesis_score_x100": [
+                  907,
+                  810
+                ],
+                "round": 3
+              },
+              "reward": 8.1,
+              "reward_kind": "deterministic",
+              "reason": "proposed hypothesis (merit base 8.8)"
+            },
+            {
+              "i": 3,
+              "action": {
+                "id": "test",
+                "label": "test",
+                "args": {
+                  "type": "test"
+                }
+              },
+              "state_before": {
+                "num_hypotheses": 2,
+                "hypothesis_validated": [
+                  1,
+                  0
+                ],
+                "hypothesis_score_x100": [
+                  907,
+                  810
+                ],
+                "round": 3
+              },
+              "state_after": {
+                "num_hypotheses": 2,
+                "hypothesis_validated": [
+                  1,
+                  1
+                ],
+                "hypothesis_score_x100": [
+                  907,
+                  810
+                ],
+                "round": 4
+              },
+              "reward": 9.0,
+              "reward_kind": "deterministic",
+              "reason": "[validated] tested a falsifiable, high-merit hypothesis"
+            }
+          ]
+        }
+      ]
+    },
     {
       "id": "live-capture",
       "mode": "live",

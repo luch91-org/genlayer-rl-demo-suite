@@ -12,6 +12,7 @@ import { usePathname } from "next/navigation";
 import { DOMAIN_IDS } from "@/lib/manifest";
 import { VIEWS, type View } from "@/lib/select";
 import { useManifests } from "@/lib/store";
+import { ContractChip } from "./ContractChip";
 
 const VIEW_LABELS: Record<View, string> = {
   overview: "Overview",
@@ -40,6 +41,9 @@ export function AppShell({ children }: { children: React.ReactNode }) {
     ? activeDomain
     : DOMAIN_IDS[0];
 
+  const activeManifest = manifests?.find((r) => r.id === currentDomain);
+  const contract = activeManifest && activeManifest.ok ? activeManifest.manifest.contract : null;
+
   return (
     <>
       <a className="skip-link" href="#main">
@@ -47,19 +51,25 @@ export function AppShell({ children }: { children: React.ReactNode }) {
       </a>
       <header className="topbar">
         <div className="topbar-inner">
-          <div className="brand">
-            <span className="brand-mark">GenLayer RL Demo Suite</span>
-            <span className="brand-sub">agents learning judgment on-chain</span>
+          <div className="brand-row">
+            <div className="brand">
+              <span className="brand-mark">GenLayer RL Demo Suite</span>
+              <span className="brand-sub">agents learning judgment on-chain</span>
+            </div>
+            {contract && (
+              <ContractChip address={contract.address} explorer={contract.explorer} />
+            )}
           </div>
 
           <nav className="tabs tabs-domains" aria-label="Domains">
-            {DOMAIN_IDS.map((id) => (
+            {DOMAIN_IDS.map((id, i) => (
               <Link
                 key={id}
                 href={`/${id}/overview/`}
                 className="tab"
                 aria-current={id === activeDomain ? "page" : undefined}
               >
+                <span className="tab-num">{String(i + 1).padStart(2, "0")}</span>
                 {labelFor(id)}
               </Link>
             ))}

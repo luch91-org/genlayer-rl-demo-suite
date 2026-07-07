@@ -7,14 +7,15 @@
  * the generic key-value renderer, so the app never breaks on an unknown domain.
  */
 
+import { CrisisState } from "./CrisisState";
 import { GenericState } from "./GenericState";
 import { InterpreterState } from "./InterpreterState";
 import type { StateRenderer } from "./types";
 
 const REGISTRY: Record<string, StateRenderer> = {
-  // Diplomatic Interpreter is the only domain whose recorded runs carry state
-  // (polarization). The others use the generic renderer until they publish
-  // richer state in their manifests.
+  // Crisis renders zones and resources; Interpreter renders its polarization
+  // meter. Domains without a bespoke renderer use the generic key-value view.
+  crisis: CrisisState,
   interpreter: InterpreterState,
 };
 
