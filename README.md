@@ -3,6 +3,11 @@
 One hosted dashboard for watching four reinforcement-learning agents learn
 human-like judgment from an on-chain LLM committee on GenLayer.
 
+**Live: https://luch91-org.github.io/genlayer-rl-demo-suite/**
+
+Part of [GenLayer RL Agent Autonomy](https://github.com/luch91-org). Each agent
+has its own repository, linked in the table below.
+
 Each agent lives in its own repository and publishes a single `manifest.json`
 describing its contract, reward function, learning curve, and recorded runs.
 This suite is a pure reader of those manifests. It never imports source from the
@@ -13,10 +18,10 @@ published artifacts.
 
 | Tab | Repository | The agent learns to |
 |---|---|---|
-| Crisis Negotiator | `genlayer-rl-crisis-negotiator` | Dispatch drones, ambulances, and supplies without wasting capacity |
-| Protocol Immunologist | `genlayer-rl-protocol-immunologist` | Pause, rotate signers, and hedge only when a threat is real |
-| Scientific Heretic | `genlayer-rl-scientific-heretic` | Propose novel, falsifiable, plausible hypotheses |
-| Diplomatic Interpreter | `genlayer-rl-diplomatic-interpreter` | Draft compromise text that lowers polarization |
+| Crisis Negotiator | [`genlayer-rl-crisis-negotiator`](https://github.com/luch91-org/genlayer-rl-crisis-negotiator) | Dispatch drones, ambulances, and supplies without wasting capacity |
+| Protocol Immunologist | [`genlayer-rl-protocol-immunologist`](https://github.com/luch91-org/genlayer-rl-protocol-immunologist) | Pause, rotate signers, and hedge only when a threat is real |
+| Scientific Heretic | [`genlayer-rl-scientific-heretic`](https://github.com/luch91-org/genlayer-rl-scientific-heretic) | Propose novel, falsifiable, plausible hypotheses |
+| Diplomatic Interpreter | [`genlayer-rl-diplomatic-interpreter`](https://github.com/luch91-org/genlayer-rl-diplomatic-interpreter) | Draft compromise text that lowers polarization |
 
 ## Architecture
 
