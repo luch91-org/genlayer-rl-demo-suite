@@ -5,6 +5,10 @@ human-like judgment from an on-chain LLM committee on GenLayer.
 
 **Live: https://luch91-org.github.io/genlayer-rl-demo-suite/**
 
+![The instrument panel replaying a trained crisis-response episode: the world state, the on-chain judge score, the step timeline, and the policy inspector all advance together, step by step.](docs/instrument-panel.gif)
+
+*Recorded from the live dashboard: the instrument panel stepping through a trained crisis-response rollout. Each step updates the world state, the judge's score, the reward chip, and the policy inspector that explains why the agent chose that action.*
+
 Part of [GenLayer RL Agent Autonomy](https://github.com/luch91-org). Each agent
 has its own repository, linked in the table below.
 
