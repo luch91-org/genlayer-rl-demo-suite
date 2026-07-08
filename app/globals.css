@@ -1268,11 +1268,12 @@ body {
   gap: 14px;
 }
 
+/* Stacked, not side by side: each state renderer draws its own multi-column
+   card grid, which needs the full drawer width or its labels overlap. */
 .drawer-states {
-  display: grid;
-  grid-template-columns: 1fr auto 1fr;
+  display: flex;
+  flex-direction: column;
   gap: 10px;
-  align-items: start;
 }
 
 .drawer-state-col {
@@ -1280,9 +1281,10 @@ body {
 }
 
 .drawer-arrow {
-  align-self: center;
+  text-align: center;
   color: var(--ink-soft);
   font-size: 18px;
+  line-height: 1;
 }
 
 .drawer-facts {

@@ -94,7 +94,7 @@ export function InspectDrawer({
                 )}
               </div>
               <div className="drawer-arrow" aria-hidden="true">
-                {"→"}
+                {"↓"}
               </div>
               <div className="drawer-state-col">
                 <div className="stat-label">state after</div>
