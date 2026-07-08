@@ -12,6 +12,7 @@ import type { Manifest } from "@/lib/manifest";
 import { readLiveState, type LiveState } from "@/lib/live";
 import { useManifest } from "@/lib/store";
 import { CopyButton } from "@/components/CopyField";
+import { ViewNav } from "@/components/episode/ViewNav";
 import { getStateRenderer } from "@/components/state/registry";
 
 type Status =
@@ -54,6 +55,7 @@ function LiveBody({ manifest, domainId }: { manifest: Manifest; domainId: string
 
   return (
     <div>
+      <ViewNav domainId={domainId} view="live" />
       <h1 className="display" style={{ marginBottom: 2 }}>
         Live contract state
       </h1>

@@ -15,6 +15,7 @@ import { narrateConsensus } from "@/lib/narrate";
 import { useManifest } from "@/lib/store";
 import { CopyField } from "@/components/CopyField";
 import { Narration } from "@/components/Narration";
+import { ViewNav } from "@/components/episode/ViewNav";
 
 const VOTE_META: Record<
   string,
@@ -48,6 +49,7 @@ function VerificationBody({ manifest, domainId }: { manifest: Manifest; domainId
 
   return (
     <div>
+      <ViewNav domainId={domainId} view="verification" />
       <h1 className="display" style={{ marginBottom: 2 }}>
         On-chain verification
       </h1>

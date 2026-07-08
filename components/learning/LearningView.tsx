@@ -12,6 +12,7 @@ import type { Manifest } from "@/lib/manifest";
 import { narrateLearning } from "@/lib/narrate";
 import { useManifest } from "@/lib/store";
 import { Narration } from "@/components/Narration";
+import { ViewNav } from "@/components/episode/ViewNav";
 import { LearningChart } from "./LearningChart";
 
 export function LearningView({ domainId }: { domainId: string }) {
@@ -24,7 +25,12 @@ export function LearningView({ domainId }: { domainId: string }) {
       </div>
     );
   }
-  return <LearningBody manifest={result.manifest} />;
+  return (
+    <div>
+      <ViewNav domainId={domainId} view="learning" />
+      <LearningBody manifest={result.manifest} />
+    </div>
+  );
 }
 
 function LearningBody({ manifest }: { manifest: Manifest }) {
