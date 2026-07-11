@@ -1,10 +1,10 @@
 "use client";
 
 /*
- * Copy helpers used wherever an address or transaction hash appears. GenLayer
- * studionet has no public block explorer, so nothing here links out. Instead we
- * show the full value in place, selectable, with a one-click copy so a reviewer
- * can copy or share it. This is the honest substitute for a dead explorer link.
+ * Copy helpers used wherever an address or transaction hash appears. The full
+ * value is shown in place, selectable, with a one-click copy so a reviewer can
+ * copy or share it. When an explorer link is available it is offered too, via
+ * the optional `href` slot, so the value can be both copied and opened.
  */
 
 import { useState } from "react";
@@ -46,10 +46,12 @@ export function CopyField({
   label,
   value,
   suffix,
+  href,
 }: {
   label: string;
   value: string;
   suffix?: string;
+  href?: string;
 }) {
   return (
     <div className="copy-field">
@@ -57,6 +59,17 @@ export function CopyField({
       <span className="mono copy-field-value">{value}</span>
       {suffix && <span className="mono muted copy-field-suffix">{suffix}</span>}
       <CopyButton value={value} label={label} />
+      {href && (
+        <a
+          className="chip-icon"
+          href={href}
+          target="_blank"
+          rel="noreferrer"
+          aria-label={`Open ${label} in the studionet explorer`}
+        >
+          explorer
+        </a>
+      )}
     </div>
   );
 }

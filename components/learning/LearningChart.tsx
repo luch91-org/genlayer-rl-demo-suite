@@ -26,6 +26,7 @@ interface SeriesStyle {
   width: number;
   dash?: string;
   opacity?: number;
+  marker?: boolean;
 }
 
 const AGENT: SeriesStyle = { key: "agent", label: "agent (rolling avg)", color: "var(--blue)", width: 2.6 };
@@ -33,7 +34,23 @@ const RANDOM: SeriesStyle = { key: "random", label: "random baseline", color: "v
 const GREEDY: SeriesStyle = { key: "greedy", label: "greedy-only baseline", color: "var(--band-fair)", width: 1.6, dash: "2 5" };
 const RAW: SeriesStyle = { key: "raw", label: "per-episode reward", color: "var(--ink-soft)", width: 1, opacity: 0.22 };
 
-export function LearningChart({ view }: { view: LearningView }) {
+export interface LivePoint {
+  i: number;
+  reward: number;
+}
+
+export function LearningChart({
+  view,
+  showRandom = true,
+  showGreedy = true,
+  live,
+}: {
+  view: LearningView;
+  showRandom?: boolean;
+  showGreedy?: boolean;
+  /** Off-by-default live-run overlay: discrete per-step markers, not a line. */
+  live?: { series: LivePoint[] };
+}) {
   const svgRef = useRef<SVGSVGElement | null>(null);
   const [hover, setHover] = useState<number | null>(null);
 
@@ -83,7 +100,7 @@ export function LearningChart({ view }: { view: LearningView }) {
       <div className="readout-row" aria-hidden="true">
         <ReadoutCell label="episode" value={String(readout.episode)} />
         <ReadoutCell label="agent" value={fmt(readout.agent)} color="var(--blue)" />
-        <ReadoutCell label="random" value={fmt(readout.random)} color="var(--red)" />
+        <ReadoutCell label="random" value={fmt(readout.random)} color="var(--red-ink)" />
         <ReadoutCell label="greedy" value={fmt(readout.greedy)} color="var(--band-fair)" />
       </div>
 
@@ -125,16 +142,45 @@ export function LearningChart({ view }: { view: LearningView }) {
           )}
 
           {paths.raw && <path d={paths.raw} fill="none" stroke={RAW.color} strokeWidth={RAW.width} opacity={RAW.opacity} />}
-          {paths.random && <path d={paths.random} fill="none" stroke={RANDOM.color} strokeWidth={RANDOM.width} strokeDasharray={RANDOM.dash} />}
-          {paths.greedy && <path d={paths.greedy} fill="none" stroke={GREEDY.color} strokeWidth={GREEDY.width} strokeDasharray={GREEDY.dash} />}
+          {showRandom && paths.random && <path d={paths.random} fill="none" stroke={RANDOM.color} strokeWidth={RANDOM.width} strokeDasharray={RANDOM.dash} />}
+          {showGreedy && paths.greedy && <path d={paths.greedy} fill="none" stroke={GREEDY.color} strokeWidth={GREEDY.width} strokeDasharray={GREEDY.dash} />}
           <path d={paths.agent} fill="none" stroke={AGENT.color} strokeWidth={AGENT.width} strokeLinejoin="round" />
+
+          {/* Live run: discrete per-step markers, plotted by step index (not the
+              episode unit of the mock curve), so they are shapes, not a line. */}
+          {live &&
+            live.series.map((p, i) => (
+              <circle
+                key={i}
+                cx={xScale(p.i)}
+                cy={yScale(p.reward)}
+                r={4}
+                fill="var(--ink)"
+                stroke="var(--paper)"
+                strokeWidth={1.5}
+              />
+            ))}
         </svg>
       </div>
 
       <Legend
-        items={[AGENT, RANDOM, GREEDY, RAW].filter(
-          (s) => s.key !== "random" || view.baselines.random,
-        ).filter((s) => s.key !== "greedy" || view.baselines.greedy_only)}
+        items={[
+          AGENT,
+          ...(showRandom && view.baselines.random ? [RANDOM] : []),
+          ...(showGreedy && view.baselines.greedy_only ? [GREEDY] : []),
+          RAW,
+          ...(live
+            ? [
+                {
+                  key: "live",
+                  label: `live run (${live.series.length} steps)`,
+                  color: "var(--ink)",
+                  width: 0,
+                  marker: true,
+                } as SeriesStyle,
+              ]
+            : []),
+        ]}
       />
 
       <details style={{ marginTop: 10 }}>
@@ -166,16 +212,20 @@ function Legend({ items }: { items: SeriesStyle[] }) {
       {items.map((s) => (
         <span className="legend-item" key={s.key}>
           <svg width={26} height={10} aria-hidden="true">
-            <line
-              x1={0}
-              y1={5}
-              x2={26}
-              y2={5}
-              stroke={s.color}
-              strokeWidth={s.width + 0.5}
-              strokeDasharray={s.dash}
-              opacity={s.opacity}
-            />
+            {s.marker ? (
+              <circle cx={13} cy={5} r={3.5} fill={s.color} />
+            ) : (
+              <line
+                x1={0}
+                y1={5}
+                x2={26}
+                y2={5}
+                stroke={s.color}
+                strokeWidth={s.width + 0.5}
+                strokeDasharray={s.dash}
+                opacity={s.opacity}
+              />
+            )}
           </svg>
           {s.label}
         </span>

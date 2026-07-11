@@ -139,6 +139,7 @@ function EpisodeBody({
     return (
       <div>
         <ViewNav domainId={domainId} view="episode" />
+        <h1 className="visually-hidden">{manifest.domain.plain_name} instrument panel</h1>
         <p className="muted">No runs recorded for this domain.</p>
       </div>
     );
@@ -159,6 +160,7 @@ function EpisodeBody({
   return (
     <div>
       <ViewNav domainId={domainId} view="episode" />
+      <h1 className="visually-hidden">{manifest.domain.plain_name} instrument panel</h1>
 
       <div className="toolbar">
         <label>

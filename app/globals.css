@@ -16,8 +16,10 @@
      green splits in two because pure green is invisible on cream. */
   --blue: #0000ff;
   --red: #ff0000;
+  --red-ink: #b30000; /* red TEXT (7.2:1 on white); --red stays for fills/borders */
   --green-sig: #00ff00; /* brand mark and fills only */
-  --green-ink: #068a06; /* green text and borders */
+  --green-ink: #068a06; /* green text and borders (on white/cream) */
+  --green-ink-on-wash: #035403; /* green text specifically on the green wash */
 
   /* Washes and lines */
   --blue-wash: #eaeaff;
@@ -28,7 +30,7 @@
 
   /* Reward bands (paired with glyphs in the UI, never color alone) */
   --band-poor: var(--red);
-  --band-fair: #b8860b; /* amber-ink, readable on cream */
+  --band-fair: #6b4500; /* dark amber, AA on white/cream (8.48:1) */
   --band-strong: var(--green-ink);
 
   --radius: 10px;
@@ -568,13 +570,13 @@ a {
 }
 
 .outcome-majority {
-  color: var(--green-ink);
+  color: var(--green-ink-on-wash); /* green text on the green wash needs the darker ink */
   border-color: var(--green-ink);
   background: var(--green-wash);
 }
 
 .outcome-none {
-  color: var(--red);
+  color: var(--red-ink); /* red text; keep --red for the border */
   border-color: var(--red);
   background: var(--red-wash);
 }
@@ -676,6 +678,44 @@ a {
   clip: rect(0, 0, 0, 0);
   white-space: nowrap;
   border: 0;
+}
+
+/* Learning-chart baseline toggles: pill buttons that show/hide a series.
+   State is carried by aria-pressed plus a strike-through, never color alone. */
+.series-toggles {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.series-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  border: 1px solid var(--hairline);
+  background: var(--paper);
+  color: var(--ink-soft);
+  cursor: pointer;
+}
+
+.series-toggle[aria-pressed="true"] {
+  color: var(--ink);
+  border-color: var(--ink-soft);
+}
+
+.series-toggle[aria-pressed="false"] {
+  opacity: 0.6;
+  text-decoration: line-through;
+}
+
+.series-toggle:hover {
+  border-color: var(--blue);
 }
 
 /* Skip link parks off-screen until focused, then drops into view. */

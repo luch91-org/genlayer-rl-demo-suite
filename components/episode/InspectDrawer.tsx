@@ -3,15 +3,16 @@
 /*
  * Deep detail for one step, in a slide-in drawer so the main screen stays
  * compact. Holds the raw before/after state, the exact reward and scale, how it
- * was scored, timing, epsilon, and the transaction/contract identifiers. Since
- * studionet has no public explorer, the hash and address are shown in full to
- * copy rather than linked out. Closes on the button, the scrim, or Escape, and
- * returns focus to whatever opened it.
+ * was scored, timing, epsilon, and the transaction/contract identifiers. The
+ * hash and address are shown in full to copy and also link out to the studionet
+ * explorer. Closes on the button, the scrim, or Escape, and returns focus to
+ * whatever opened it.
  */
 
 import { useEffect, useRef } from "react";
 import type { Step } from "@/lib/manifest";
 import { CopyField } from "@/components/CopyField";
+import { explorerAddressUrl, explorerTxUrl } from "@/lib/explorer";
 import { getStateRenderer } from "@/components/state/registry";
 
 export function InspectDrawer({
@@ -123,10 +124,20 @@ export function InspectDrawer({
               <Fact label="network" value={chain} />
             </dl>
 
-            {step.tx && <CopyField label="tx hash" value={step.tx.hash} />}
-            <CopyField label="contract" value={contractAddress} />
+            {step.tx && (
+              <CopyField
+                label="tx hash"
+                value={step.tx.hash}
+                href={explorerTxUrl(step.tx.hash, step.tx.explorer)}
+              />
+            )}
+            <CopyField
+              label="contract"
+              value={contractAddress}
+              href={explorerAddressUrl(contractAddress)}
+            />
             <p className="mono muted" style={{ fontSize: 11, marginTop: 4 }}>
-              studionet has no public explorer; identifiers are shown in full to copy.
+              Shown in full to copy; the explorer link opens the studionet page.
             </p>
           </div>
         )}

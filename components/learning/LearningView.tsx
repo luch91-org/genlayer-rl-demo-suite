@@ -6,6 +6,7 @@
  * the exploration rate decaying as it shifts from exploring to exploiting.
  */
 
+import { useState } from "react";
 import { BAND_META, learningView, rewardBand } from "@/lib/adapters";
 import { buildPath, linearScale } from "@/lib/chart";
 import type { Manifest } from "@/lib/manifest";
@@ -33,12 +34,33 @@ export function LearningView({ domainId }: { domainId: string }) {
   );
 }
 
+// A live run needs more than a handful of steps before a per-step series is
+// worth plotting against the 500-episode mock curve. Below this we show an
+// honest note instead of a misleading chart.
+const LIVE_MIN_STEPS = 5;
+
 function LearningBody({ manifest }: { manifest: Manifest }) {
   const view = learningView(manifest.learning);
   const gain = view.finalAverage - view.startAverage;
   const band = BAND_META[rewardBand(view.finalAverage, manifest.reward.scale)];
   const randomFinal = view.baselines.random?.at(-1)?.reward;
   const greedyFinal = view.baselines.greedy_only?.at(-1)?.reward;
+
+  const hasRandom = !!view.baselines.random;
+  const hasGreedy = !!view.baselines.greedy_only;
+
+  // Part B: a non-rolling reward-per-step series from a live run, if one exists.
+  const liveRun = manifest.runs.find((r) => r.mode === "live");
+  const liveSeries = liveRun
+    ? liveRun.episodes.flatMap((ep) => ep.steps).map((s, i) => ({ i, reward: s.reward }))
+    : [];
+  const livePlottable = liveSeries.length >= LIVE_MIN_STEPS;
+
+  // Toggles: baselines default on (unchanged behavior); the live overlay is a
+  // sparser, opt-in comparison and starts off.
+  const [showRandom, setShowRandom] = useState(true);
+  const [showGreedy, setShowGreedy] = useState(true);
+  const [showLive, setShowLive] = useState(false);
 
   return (
     <div>
@@ -68,7 +90,7 @@ function LearningBody({ manifest }: { manifest: Manifest }) {
         </div>
         <div className="stat">
           <div className="stat-label">Gain over training</div>
-          <div className="readout-lg" style={{ color: gain >= 0 ? "var(--green-ink)" : "var(--red)" }}>
+          <div className="readout-lg" style={{ color: gain >= 0 ? "var(--green-ink)" : "var(--red-ink)" }}>
             {gain >= 0 ? "+" : ""}
             {gain.toFixed(2)}
           </div>
@@ -87,9 +109,60 @@ function LearningBody({ manifest }: { manifest: Manifest }) {
         </div>
       </div>
 
+      {(hasRandom || hasGreedy || livePlottable) && (
+        <div className="series-toggles" role="group" aria-label="Baseline overlays">
+          {hasRandom && (
+            <SeriesToggle
+              label="random baseline"
+              color="var(--red)"
+              dash="7 5"
+              pressed={showRandom}
+              onToggle={() => setShowRandom((v) => !v)}
+            />
+          )}
+          {hasGreedy && (
+            <SeriesToggle
+              label="greedy-only baseline"
+              color="var(--band-fair)"
+              dash="2 5"
+              pressed={showGreedy}
+              onToggle={() => setShowGreedy((v) => !v)}
+            />
+          )}
+          {livePlottable && (
+            <SeriesToggle
+              label={`live run (${liveSeries.length} steps)`}
+              color="var(--ink)"
+              marker
+              pressed={showLive}
+              onToggle={() => setShowLive((v) => !v)}
+            />
+          )}
+        </div>
+      )}
+
       <div className="chart-card panel">
-        <LearningChart view={view} />
+        <LearningChart
+          view={view}
+          showRandom={showRandom}
+          showGreedy={showGreedy}
+          live={showLive && livePlottable ? { series: liveSeries } : undefined}
+        />
       </div>
+
+      {showLive && livePlottable && (
+        <p className="mono muted" style={{ marginTop: 8, fontSize: 12 }}>
+          Live-run markers are plotted by step index, not by the episode unit of the mock curve;
+          the two x-axes are not directly comparable.
+        </p>
+      )}
+
+      {liveRun && !livePlottable && (
+        <p className="mono muted" style={{ marginTop: 8, fontSize: 12 }}>
+          Not enough live steps yet to plot a comparable curve
+          {` (${liveSeries.length} recorded, need ${LIVE_MIN_STEPS}).`}
+        </p>
+      )}
 
       {view.epsilon.length > 0 && (
         <div className="chart-card panel" style={{ marginTop: 16 }}>
@@ -103,6 +176,44 @@ function LearningBody({ manifest }: { manifest: Manifest }) {
         </div>
       )}
     </div>
+  );
+}
+
+function SeriesToggle({
+  label,
+  color,
+  dash,
+  marker,
+  pressed,
+  onToggle,
+}: {
+  label: string;
+  color: string;
+  dash?: string;
+  marker?: boolean;
+  pressed: boolean;
+  onToggle: () => void;
+}) {
+  return (
+    <button type="button" className="series-toggle" aria-pressed={pressed} onClick={onToggle}>
+      <svg width={22} height={10} aria-hidden="true">
+        {marker ? (
+          <circle cx={11} cy={5} r={3.5} fill={color} opacity={pressed ? 1 : 0.4} />
+        ) : (
+          <line
+            x1={0}
+            y1={5}
+            x2={22}
+            y2={5}
+            stroke={color}
+            strokeWidth={2}
+            strokeDasharray={dash}
+            opacity={pressed ? 1 : 0.4}
+          />
+        )}
+      </svg>
+      <span>{label}</span>
+    </button>
   );
 }
 

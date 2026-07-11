@@ -13,22 +13,34 @@ import { firstConsensusStep, reachedMajority, tallyVotes } from "@/lib/adapters"
 import type { Consensus, Manifest, ValidatorVote } from "@/lib/manifest";
 import { narrateConsensus } from "@/lib/narrate";
 import { useManifest } from "@/lib/store";
+import { explorerAddressUrl, explorerTxUrl } from "@/lib/explorer";
 import { CopyField } from "@/components/CopyField";
 import { Narration } from "@/components/Narration";
 import { ViewNav } from "@/components/episode/ViewNav";
 
+// `color` is the border/indicator color (may be a pure fill color like --red);
+// `ink` is the text color, which must meet AA contrast. They differ only where
+// the fill color is too light as text (disagree uses --red border but --red-ink
+// text).
 const VOTE_META: Record<
   string,
-  { label: string; color: string; shape: string }
+  { label: string; color: string; ink: string; shape: string }
 > = {
-  agree: { label: "agree", color: "var(--green-ink)", shape: "vote-shape-agree" },
-  disagree: { label: "disagree", color: "var(--red)", shape: "vote-shape-disagree" },
-  idle: { label: "idle", color: "var(--ink-soft)", shape: "vote-shape-idle" },
-  timeout: { label: "timeout", color: "var(--band-fair)", shape: "vote-shape-timeout" },
+  agree: { label: "agree", color: "var(--green-ink)", ink: "var(--green-ink)", shape: "vote-shape-agree" },
+  disagree: { label: "disagree", color: "var(--red)", ink: "var(--red-ink)", shape: "vote-shape-disagree" },
+  idle: { label: "idle", color: "var(--ink-soft)", ink: "var(--ink-soft)", shape: "vote-shape-idle" },
+  timeout: { label: "timeout", color: "var(--band-fair)", ink: "var(--band-fair)", shape: "vote-shape-timeout" },
 };
 
 function voteMeta(vote: string) {
-  return VOTE_META[vote] ?? { label: vote, color: "var(--ink-soft)", shape: "vote-shape-idle" };
+  return (
+    VOTE_META[vote] ?? {
+      label: vote,
+      color: "var(--ink-soft)",
+      ink: "var(--ink-soft)",
+      shape: "vote-shape-idle",
+    }
+  );
 }
 
 export function VerificationView({ domainId }: { domainId: string }) {
@@ -129,6 +141,32 @@ function Receipt({
               tolerance {consensus.tolerance}
             </p>
           )}
+
+          {manifest.reward.prompt_template && (
+            <details style={{ marginTop: 12 }}>
+              <summary className="mono muted" style={{ cursor: "pointer", fontSize: 13 }}>
+                Show the judge&apos;s prompt
+              </summary>
+              <pre
+                className="mono"
+                style={{
+                  whiteSpace: "pre-wrap",
+                  wordBreak: "break-word",
+                  fontSize: 12,
+                  lineHeight: 1.5,
+                  marginTop: 8,
+                  padding: 12,
+                  maxHeight: 320,
+                  overflowY: "auto",
+                  background: "var(--cream)",
+                  border: "1px solid var(--hairline)",
+                  borderRadius: 8,
+                }}
+              >
+                {manifest.reward.prompt_template}
+              </pre>
+            </details>
+          )}
         </div>
 
         <div>
@@ -148,7 +186,7 @@ function Receipt({
             <div className="stat-label">Transaction</div>
             {tx ? (
               <div className="mono" style={{ fontSize: 13 }}>
-                <CopyField label="hash" value={tx.hash} />
+                <CopyField label="hash" value={tx.hash} href={explorerTxUrl(tx.hash, tx.explorer)} />
                 <div className="kv-row">
                   <span className="muted">chain</span>
                   <span>{manifest.contract.chain}</span>
@@ -159,7 +197,11 @@ function Receipt({
                     <span>{tx.elapsed_s}s</span>
                   </div>
                 )}
-                <CopyField label="contract" value={manifest.contract.address} />
+                <CopyField
+                  label="contract"
+                  value={manifest.contract.address}
+                  href={explorerAddressUrl(manifest.contract.address, manifest.contract.explorer)}
+                />
               </div>
             ) : (
               <p className="mono muted" style={{ margin: 0 }}>
@@ -167,7 +209,7 @@ function Receipt({
               </p>
             )}
             <p className="mono muted" style={{ fontSize: 11, marginTop: 8 }}>
-              studionet has no public explorer; the hash and address are shown in full to copy.
+              Shown in full to copy; the explorer link opens the studionet page.
             </p>
             <div style={{ marginTop: 12 }}>
               <Link className="chip" href={`/${domainId}/episode/`}>
@@ -212,7 +254,7 @@ function ValidatorLine({ v }: { v: ValidatorVote }) {
   const meta = voteMeta(v.vote);
   return (
     <div className="validator-row" style={{ borderLeftColor: meta.color }}>
-      <span className="vote-badge" style={{ color: meta.color }}>
+      <span className="vote-badge" style={{ color: meta.ink }}>
         <span className={`vote-shape ${meta.shape}`} aria-hidden="true" />
         {meta.label}
       </span>
