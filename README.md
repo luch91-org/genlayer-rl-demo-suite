@@ -9,23 +9,23 @@ human-like judgment from an on-chain LLM committee on GenLayer.
 
 *Recorded from the live dashboard: the instrument panel stepping through a trained crisis-response rollout. Each step updates the world state, the judge's score, the reward chip, and the policy inspector that explains why the agent chose that action.*
 
-Part of [GenLayer RL Agent Autonomy](https://github.com/luch91-org). Each agent
-has its own repository, linked in the table below.
+Part of [GenLayer RL Agent Autonomy](https://github.com/luch91-org).
 
-Each agent lives in its own repository and publishes a single `manifest.json`
-describing its contract, reward function, learning curve, and recorded runs.
-This suite is a pure reader of those manifests. It never imports source from the
-four domain repositories; the dependency points one way, from the suite to the
-published artifacts.
+The consolidated `genlayer-rl-agent-autonomy` repository publishes one
+manifest per domain under `manifests/`, describing its contract, reward
+function, mock learning curve, and any recorded runs. This suite is a pure
+reader of those manifests. It never imports agent source. Run
+`AUTONOMY_MANIFESTS=../genlayer-rl-agent-autonomy/manifests npm run sync` when
+developing locally, then commit the refreshed `public/data/*.json` files.
 
 ## Domains
 
-| Tab | Repository | The agent learns to |
+| Tab | Source | The agent learns to |
 |---|---|---|
-| Crisis Negotiator | [`genlayer-rl-crisis-negotiator`](https://github.com/luch91-org/genlayer-rl-crisis-negotiator) | Dispatch drones, ambulances, and supplies without wasting capacity |
-| Protocol Immunologist | [`genlayer-rl-protocol-immunologist`](https://github.com/luch91-org/genlayer-rl-protocol-immunologist) | Pause, rotate signers, and hedge only when a threat is real |
-| Scientific Heretic | [`genlayer-rl-scientific-heretic`](https://github.com/luch91-org/genlayer-rl-scientific-heretic) | Propose novel, falsifiable, plausible hypotheses |
-| Diplomatic Interpreter | [`genlayer-rl-diplomatic-interpreter`](https://github.com/luch91-org/genlayer-rl-diplomatic-interpreter) | Draft compromise text that lowers polarization |
+| Crisis Negotiator | [`contracts/crisis_negotiator.py`](https://github.com/luch91-org/genlayer-rl-agent-autonomy/blob/main/contracts/crisis_negotiator.py) | Dispatch drones, ambulances, and supplies without wasting capacity |
+| Protocol Immunologist | [`contracts/protocol_immunologist.py`](https://github.com/luch91-org/genlayer-rl-agent-autonomy/blob/main/contracts/protocol_immunologist.py) | Pause, rotate signers, and hedge only when a threat is real |
+| Scientific Heretic | [`contracts/scientific_heretic.py`](https://github.com/luch91-org/genlayer-rl-agent-autonomy/blob/main/contracts/scientific_heretic.py) | Propose novel, falsifiable, plausible hypotheses |
+| Diplomatic Interpreter | [`contracts/diplomatic_interpreter.py`](https://github.com/luch91-org/genlayer-rl-agent-autonomy/blob/main/contracts/diplomatic_interpreter.py) | Draft compromise text that lowers polarization |
 
 ## Architecture
 

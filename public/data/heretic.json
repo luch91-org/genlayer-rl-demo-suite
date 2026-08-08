@@ -3,21 +3,21 @@
   "domain": {
     "id": "heretic",
     "name": "Scientific Heretic",
-    "plain_name": "Science Ideas",
-    "plain_blurb": "proposes new, testable scientific hypotheses",
-    "world": "Hypothesis generation"
+    "plain_name": "Hypothesis Generation",
+    "plain_blurb": "proposes novel and falsifiable hypotheses",
+    "world": "Scientific research"
   },
   "provenance": {
-    "repo": "genlayer-rl-scientific-heretic",
-    "commit": "2d69a1c",
-    "sdk": "genlayer-py >=0.18.0",
+    "repo": "https://github.com/luch91-org/genlayer-rl-agent-autonomy",
+    "commit": "a05a47bd33d96011f38473067efb18c17b5730ea",
+    "sdk": "genlayer-py >=0.2.9",
     "runner_pin": "py-genlayer:1jb45aa8ynh2a9c9xn3b7qqh8sm5q93hwfp7jqmwsfhh8jpz09h6",
-    "generated_at": "2026-07-08T08:33:19.380299+00:00"
+    "generated_at": "2026-08-08T18:46:51.836404+00:00"
   },
   "contract": {
-    "address": "0xDd169FA2FA5D258f1CCBc8CAe61eA652733435F6",
+    "address": "0x7847A35eA8C3Bb887C20E5B64BF035e99abd4B16",
     "chain": "studionet",
-    "explorer": "https://explorer-studionet.genlayerlabs.com/contracts/0xDd169FA2FA5D258f1CCBc8CAe61eA652733435F6"
+    "explorer": "https://genlayer-explorer.vercel.app/address/0x7847A35eA8C3Bb887C20E5B64BF035e99abd4B16"
   },
   "reward": {
     "kind": "llm_comparative",
@@ -25,8416 +25,4102 @@
       0,
       10
     ],
-    "principle": "The two evaluations agree if their numeric scores are within 1.5 points of each other, any boolean verdicts (such as falsifiability) match, and they express the same overall judgment. Wording may differ.",
-    "prompt_template": "You are a peer reviewer evaluating a newly proposed scientific hypothesis.\nAlready-proposed hypotheses this session: []\nNewly proposed hypothesis: Increasing a city block's tree canopy 10% lowers mean summer surface temp by >=0.5C.\nRound: 1\n\nScore it 0-10 on three merits weighted equally: falsifiability (can it be empirically refuted?), novelty (is it new relative to the already-proposed list, and not a textbook-trivial fact?), and plausibility (is it scientifically reasonable, not absurd?). A vague or untestable claim scores low; a restatement of an existing or textbook fact scores low on novelty; an absurd claim scores low on plausibility.\nReturn ONLY JSON: {\"score\": <number 0-10>, \"falsifiable\": <true|false>, \"reason\": \"<short reason>\"}"
+    "principle": "Validator scores are accepted when they differ by at most 20 points on the 0-100 judge scale.",
+    "prompt_template": "Score the domain action from 0 to 100 and return JSON with an integer score."
   },
   "learning": {
     "rolling_window": 20,
     "episodes": [
       {
         "i": 1,
-        "reward": 3.664
+        "reward": 4.75
       },
       {
         "i": 2,
-        "reward": 3.405
+        "reward": 6.5
       },
       {
         "i": 3,
-        "reward": 6.072
+        "reward": 3.875
       },
       {
         "i": 4,
-        "reward": 5.587
+        "reward": 4.75
       },
       {
         "i": 5,
-        "reward": 4.905
+        "reward": 5.625
       },
       {
         "i": 6,
-        "reward": 4.107
+        "reward": 5.625
       },
       {
         "i": 7,
-        "reward": 4.117
+        "reward": 5.625
       },
       {
         "i": 8,
-        "reward": 4.186
+        "reward": 5.625
       },
       {
         "i": 9,
-        "reward": 5.203
+        "reward": 4.75
       },
       {
         "i": 10,
-        "reward": 4.731
+        "reward": 5.625
       },
       {
         "i": 11,
-        "reward": 4.927
+        "reward": 6.5
       },
       {
         "i": 12,
-        "reward": 4.315
+        "reward": 9.125
       },
       {
         "i": 13,
-        "reward": 4.033
+        "reward": 5.625
       },
       {
         "i": 14,
-        "reward": 4.649
+        "reward": 5.625
       },
       {
         "i": 15,
-        "reward": 1.586
+        "reward": 8.25
       },
       {
         "i": 16,
-        "reward": 4.674
+        "reward": 6.5
       },
       {
         "i": 17,
-        "reward": 3.894
+        "reward": 4.75
       },
       {
         "i": 18,
-        "reward": 4.255
+        "reward": 5.625
       },
       {
         "i": 19,
-        "reward": 4.861
+        "reward": 4.75
       },
       {
         "i": 20,
-        "reward": 7.928
+        "reward": 5.625
       },
       {
         "i": 21,
-        "reward": 4.081
+        "reward": 3.875
       },
       {
         "i": 22,
-        "reward": 5.419
+        "reward": 7.375
       },
       {
         "i": 23,
-        "reward": 5.61
+        "reward": 5.625
       },
       {
         "i": 24,
-        "reward": 5.468
+        "reward": 8.25
       },
       {
         "i": 25,
-        "reward": 4.588
+        "reward": 5.625
       },
       {
         "i": 26,
-        "reward": 6.011
+        "reward": 5.625
       },
       {
         "i": 27,
-        "reward": 5.994
+        "reward": 3.875
       },
       {
         "i": 28,
-        "reward": 2.999
+        "reward": 6.5
       },
       {
         "i": 29,
-        "reward": 3.229
+        "reward": 7.375
       },
       {
         "i": 30,
-        "reward": 2.265
+        "reward": 4.75
       },
       {
         "i": 31,
-        "reward": 5.716
+        "reward": 4.75
       },
       {
         "i": 32,
-        "reward": 4.136
+        "reward": 5.625
       },
       {
         "i": 33,
-        "reward": 5.618
+        "reward": 6.5
       },
       {
         "i": 34,
-        "reward": 5.529
+        "reward": 5.625
       },
       {
         "i": 35,
-        "reward": 4.011
+        "reward": 5.625
       },
       {
         "i": 36,
-        "reward": 5.962
+        "reward": 4.75
       },
       {
         "i": 37,
-        "reward": 2.342
+        "reward": 5.625
       },
       {
         "i": 38,
-        "reward": 4.386
+        "reward": 4.75
       },
       {
         "i": 39,
-        "reward": 4.709
+        "reward": 5.625
       },
       {
         "i": 40,
-        "reward": 4.65
+        "reward": 4.75
       },
       {
         "i": 41,
-        "reward": 7.319
+        "reward": 6.5
       },
       {
         "i": 42,
-        "reward": 5.73
+        "reward": 6.5
       },
       {
         "i": 43,
-        "reward": 5.867
+        "reward": 3.875
       },
       {
         "i": 44,
-        "reward": 5.342
+        "reward": 6.5
       },
       {
         "i": 45,
-        "reward": 4.485
+        "reward": 9.125
       },
       {
         "i": 46,
-        "reward": 4.609
+        "reward": 6.5
       },
       {
         "i": 47,
-        "reward": 5.936
+        "reward": 4.75
       },
       {
         "i": 48,
-        "reward": 6.187
+        "reward": 6.5
       },
       {
         "i": 49,
-        "reward": 6.004
+        "reward": 4.75
       },
       {
         "i": 50,
-        "reward": 4.463
+        "reward": 4.75
       },
       {
         "i": 51,
-        "reward": 5.478
+        "reward": 7.375
       },
       {
         "i": 52,
-        "reward": 5.521
+        "reward": 4.75
       },
       {
         "i": 53,
-        "reward": 4.005
+        "reward": 4.75
       },
       {
         "i": 54,
-        "reward": 4.553
+        "reward": 4.75
       },
       {
         "i": 55,
-        "reward": 5.689
+        "reward": 7.375
       },
       {
         "i": 56,
-        "reward": 6.061
+        "reward": 4.75
       },
       {
         "i": 57,
-        "reward": 5.848
+        "reward": 5.625
       },
       {
         "i": 58,
-        "reward": 2.792
+        "reward": 6.5
       },
       {
         "i": 59,
-        "reward": 7.129
+        "reward": 5.625
       },
       {
         "i": 60,
-        "reward": 5.402
+        "reward": 8.25
       },
       {
         "i": 61,
-        "reward": 5.861
+        "reward": 6.5
       },
       {
         "i": 62,
-        "reward": 7.473
+        "reward": 5.625
       },
       {
         "i": 63,
-        "reward": 6.018
+        "reward": 6.5
       },
       {
         "i": 64,
-        "reward": 6.187
+        "reward": 8.25
       },
       {
         "i": 65,
-        "reward": 2.629
+        "reward": 5.625
       },
       {
         "i": 66,
-        "reward": 4.165
+        "reward": 5.625
       },
       {
         "i": 67,
-        "reward": 5.451
+        "reward": 7.375
       },
       {
         "i": 68,
-        "reward": 4.909
+        "reward": 5.625
       },
       {
         "i": 69,
-        "reward": 6.635
+        "reward": 8.25
       },
       {
         "i": 70,
-        "reward": 5.705
+        "reward": 5.625
       },
       {
         "i": 71,
-        "reward": 6.986
+        "reward": 7.375
       },
       {
         "i": 72,
-        "reward": 5.66
+        "reward": 6.5
       },
       {
         "i": 73,
-        "reward": 4.081
+        "reward": 7.375
       },
       {
         "i": 74,
-        "reward": 5.949
+        "reward": 8.25
       },
       {
         "i": 75,
-        "reward": 6.054
+        "reward": 5.625
       },
       {
         "i": 76,
-        "reward": 3.335
+        "reward": 5.625
       },
       {
         "i": 77,
-        "reward": 6.172
+        "reward": 6.5
       },
       {
         "i": 78,
-        "reward": 4.485
+        "reward": 6.5
       },
       {
         "i": 79,
-        "reward": 7.561
+        "reward": 4.75
       },
       {
         "i": 80,
-        "reward": 6.611
+        "reward": 6.5
       },
       {
         "i": 81,
-        "reward": 5.921
+        "reward": 4.75
       },
       {
         "i": 82,
-        "reward": 5.273
+        "reward": 8.25
       },
       {
         "i": 83,
-        "reward": 6.415
+        "reward": 4.75
       },
       {
         "i": 84,
-        "reward": 6.153
+        "reward": 7.375
       },
       {
         "i": 85,
-        "reward": 7.239
+        "reward": 4.75
       },
       {
         "i": 86,
-        "reward": 3.46
+        "reward": 3.875
       },
       {
         "i": 87,
-        "reward": 7.522
+        "reward": 4.75
       },
       {
         "i": 88,
-        "reward": 5.718
+        "reward": 5.625
       },
       {
         "i": 89,
-        "reward": 7.277
+        "reward": 4.75
       },
       {
         "i": 90,
-        "reward": 5.886
+        "reward": 5.625
       },
       {
         "i": 91,
-        "reward": 5.816
+        "reward": 5.625
       },
       {
         "i": 92,
-        "reward": 4.487
+        "reward": 5.625
       },
       {
         "i": 93,
-        "reward": 5.49
+        "reward": 4.75
       },
       {
         "i": 94,
-        "reward": 4.757
+        "reward": 9.125
       },
       {
         "i": 95,
-        "reward": 5.909
+        "reward": 7.375
       },
       {
         "i": 96,
-        "reward": 9.313
+        "reward": 7.375
       },
       {
         "i": 97,
-        "reward": 5.849
+        "reward": 5.625
       },
       {
         "i": 98,
-        "reward": 6.019
+        "reward": 9.125
       },
       {
         "i": 99,
-        "reward": 8.959
+        "reward": 6.5
       },
       {
         "i": 100,
-        "reward": 5.389
+        "reward": 3.875
       },
       {
         "i": 101,
-        "reward": 7.588
+        "reward": 10.0
       },
       {
         "i": 102,
-        "reward": 8.712
+        "reward": 8.25
       },
       {
         "i": 103,
-        "reward": 5.524
+        "reward": 6.5
       },
       {
         "i": 104,
-        "reward": 8.902
+        "reward": 5.625
       },
       {
         "i": 105,
-        "reward": 5.799
+        "reward": 5.625
       },
       {
         "i": 106,
-        "reward": 9.169
+        "reward": 8.25
       },
       {
         "i": 107,
-        "reward": 6.902
+        "reward": 5.625
       },
       {
         "i": 108,
-        "reward": 6.16
+        "reward": 7.375
       },
       {
         "i": 109,
-        "reward": 5.811
+        "reward": 6.5
       },
       {
         "i": 110,
-        "reward": 8.931
+        "reward": 9.125
       },
       {
         "i": 111,
-        "reward": 5.95
+        "reward": 5.625
       },
       {
         "i": 112,
-        "reward": 8.625
+        "reward": 8.25
       },
       {
         "i": 113,
-        "reward": 6.634
+        "reward": 6.5
       },
       {
         "i": 114,
-        "reward": 8.953
+        "reward": 5.625
       },
       {
         "i": 115,
-        "reward": 9.331
+        "reward": 4.75
       },
       {
         "i": 116,
-        "reward": 8.659
+        "reward": 6.5
       },
       {
         "i": 117,
-        "reward": 8.793
+        "reward": 5.625
       },
       {
         "i": 118,
-        "reward": 5.671
+        "reward": 8.25
       },
       {
         "i": 119,
-        "reward": 5.812
+        "reward": 7.375
       },
       {
         "i": 120,
-        "reward": 7.444
+        "reward": 8.25
       },
       {
         "i": 121,
-        "reward": 8.825
+        "reward": 4.75
       },
       {
         "i": 122,
-        "reward": 9.035
+        "reward": 7.375
       },
       {
         "i": 123,
-        "reward": 8.956
+        "reward": 5.625
       },
       {
         "i": 124,
-        "reward": 8.893
+        "reward": 6.5
       },
       {
         "i": 125,
-        "reward": 5.913
+        "reward": 6.5
       },
       {
         "i": 126,
-        "reward": 5.637
+        "reward": 7.375
       },
       {
         "i": 127,
-        "reward": 8.8
+        "reward": 4.75
       },
       {
         "i": 128,
-        "reward": 7.277
+        "reward": 5.625
       },
       {
         "i": 129,
-        "reward": 6.907
+        "reward": 6.5
       },
       {
         "i": 130,
-        "reward": 6.851
+        "reward": 4.75
       },
       {
         "i": 131,
-        "reward": 7.274
+        "reward": 6.5
       },
       {
         "i": 132,
-        "reward": 8.729
+        "reward": 5.625
       },
       {
         "i": 133,
-        "reward": 6.885
+        "reward": 9.125
       },
       {
         "i": 134,
-        "reward": 8.996
+        "reward": 8.25
       },
       {
         "i": 135,
-        "reward": 8.839
+        "reward": 4.75
       },
       {
         "i": 136,
-        "reward": 6.03
+        "reward": 7.375
       },
       {
         "i": 137,
-        "reward": 6.169
+        "reward": 6.5
       },
       {
         "i": 138,
-        "reward": 8.84
+        "reward": 6.5
       },
       {
         "i": 139,
-        "reward": 5.822
+        "reward": 8.25
       },
       {
         "i": 140,
-        "reward": 9.091
+        "reward": 7.375
       },
       {
         "i": 141,
-        "reward": 7.72
+        "reward": 4.75
       },
       {
         "i": 142,
-        "reward": 4.136
+        "reward": 9.125
       },
       {
         "i": 143,
-        "reward": 6.712
+        "reward": 7.375
       },
       {
         "i": 144,
-        "reward": 8.875
+        "reward": 6.5
       },
       {
         "i": 145,
-        "reward": 6.676
+        "reward": 8.25
       },
       {
         "i": 146,
-        "reward": 8.789
+        "reward": 8.25
       },
       {
         "i": 147,
-        "reward": 8.89
+        "reward": 8.25
       },
       {
         "i": 148,
-        "reward": 4.376
+        "reward": 4.75
       },
       {
         "i": 149,
-        "reward": 8.714
+        "reward": 6.5
       },
       {
         "i": 150,
-        "reward": 7.424
+        "reward": 6.5
       },
       {
         "i": 151,
-        "reward": 5.806
+        "reward": 4.75
       },
       {
         "i": 152,
-        "reward": 7.497
+        "reward": 8.25
       },
       {
         "i": 153,
-        "reward": 5.838
+        "reward": 6.5
       },
       {
         "i": 154,
-        "reward": 8.862
+        "reward": 7.375
       },
       {
         "i": 155,
-        "reward": 2.38
+        "reward": 6.5
       },
       {
         "i": 156,
-        "reward": 8.814
+        "reward": 5.625
       },
       {
         "i": 157,
-        "reward": 5.893
+        "reward": 3.875
       },
       {
         "i": 158,
-        "reward": 8.849
+        "reward": 4.75
       },
       {
         "i": 159,
-        "reward": 8.893
+        "reward": 6.5
       },
       {
         "i": 160,
-        "reward": 5.341
+        "reward": 4.75
       },
       {
         "i": 161,
-        "reward": 5.657
+        "reward": 5.625
       },
       {
         "i": 162,
-        "reward": 5.704
+        "reward": 6.5
       },
       {
         "i": 163,
-        "reward": 8.834
+        "reward": 5.625
       },
       {
         "i": 164,
-        "reward": 7.478
+        "reward": 8.25
       },
       {
         "i": 165,
-        "reward": 8.829
+        "reward": 6.5
       },
       {
         "i": 166,
-        "reward": 5.997
+        "reward": 9.125
       },
       {
         "i": 167,
-        "reward": 7.25
+        "reward": 9.125
       },
       {
         "i": 168,
-        "reward": 7.707
+        "reward": 5.625
       },
       {
         "i": 169,
-        "reward": 6.255
+        "reward": 9.125
       },
       {
         "i": 170,
-        "reward": 8.966
+        "reward": 5.625
       },
       {
         "i": 171,
-        "reward": 2.831
+        "reward": 9.125
       },
       {
         "i": 172,
-        "reward": 8.613
+        "reward": 8.25
       },
       {
         "i": 173,
-        "reward": 9.056
+        "reward": 7.375
       },
       {
         "i": 174,
-        "reward": 5.717
+        "reward": 8.25
       },
       {
         "i": 175,
-        "reward": 8.552
+        "reward": 9.125
       },
       {
         "i": 176,
-        "reward": 8.758
+        "reward": 6.5
       },
       {
         "i": 177,
-        "reward": 8.895
+        "reward": 8.25
       },
       {
         "i": 178,
-        "reward": 6.297
+        "reward": 8.25
       },
       {
         "i": 179,
-        "reward": 6.918
+        "reward": 9.125
       },
       {
         "i": 180,
-        "reward": 8.732
+        "reward": 6.5
       },
       {
         "i": 181,
-        "reward": 6.133
+        "reward": 9.125
       },
       {
         "i": 182,
-        "reward": 8.579
+        "reward": 8.25
       },
       {
         "i": 183,
-        "reward": 7.601
+        "reward": 7.375
       },
       {
         "i": 184,
-        "reward": 8.939
+        "reward": 6.5
       },
       {
         "i": 185,
-        "reward": 8.791
+        "reward": 7.375
       },
       {
         "i": 186,
-        "reward": 8.623
+        "reward": 6.5
       },
       {
         "i": 187,
-        "reward": 9.151
+        "reward": 9.125
       },
       {
         "i": 188,
-        "reward": 8.813
+        "reward": 7.375
       },
       {
         "i": 189,
-        "reward": 9.358
+        "reward": 8.25
       },
       {
         "i": 190,
-        "reward": 7.152
+        "reward": 6.5
       },
       {
         "i": 191,
-        "reward": 8.788
+        "reward": 6.5
       },
       {
         "i": 192,
-        "reward": 8.982
+        "reward": 7.375
       },
       {
         "i": 193,
-        "reward": 8.912
+        "reward": 9.125
       },
       {
         "i": 194,
-        "reward": 5.404
+        "reward": 6.5
       },
       {
         "i": 195,
-        "reward": 6.688
+        "reward": 7.375
       },
       {
         "i": 196,
-        "reward": 8.499
+        "reward": 6.5
       },
       {
         "i": 197,
-        "reward": 6.127
+        "reward": 7.375
       },
       {
         "i": 198,
-        "reward": 8.743
+        "reward": 8.25
       },
       {
         "i": 199,
-        "reward": 9.065
+        "reward": 5.625
       },
       {
         "i": 200,
-        "reward": 6.829
+        "reward": 8.25
       },
       {
         "i": 201,
-        "reward": 8.855
+        "reward": 6.5
       },
       {
         "i": 202,
-        "reward": 8.72
+        "reward": 9.125
       },
       {
         "i": 203,
-        "reward": 8.849
+        "reward": 7.375
       },
       {
         "i": 204,
-        "reward": 6.061
+        "reward": 5.625
       },
       {
         "i": 205,
-        "reward": 8.929
+        "reward": 7.375
       },
       {
         "i": 206,
-        "reward": 9.037
+        "reward": 7.375
       },
       {
         "i": 207,
-        "reward": 6.308
+        "reward": 8.25
       },
       {
         "i": 208,
-        "reward": 5.551
+        "reward": 7.375
       },
       {
         "i": 209,
-        "reward": 8.461
+        "reward": 6.5
       },
       {
         "i": 210,
-        "reward": 7.596
+        "reward": 8.25
       },
       {
         "i": 211,
-        "reward": 8.712
+        "reward": 7.375
       },
       {
         "i": 212,
-        "reward": 8.657
+        "reward": 8.25
       },
       {
         "i": 213,
-        "reward": 8.695
+        "reward": 7.375
       },
       {
         "i": 214,
-        "reward": 8.735
+        "reward": 6.5
       },
       {
         "i": 215,
-        "reward": 8.726
+        "reward": 8.25
       },
       {
         "i": 216,
-        "reward": 7.56
+        "reward": 8.25
       },
       {
         "i": 217,
-        "reward": 8.703
+        "reward": 5.625
       },
       {
         "i": 218,
-        "reward": 8.837
+        "reward": 8.25
       },
       {
         "i": 219,
-        "reward": 8.73
+        "reward": 5.625
       },
       {
         "i": 220,
-        "reward": 9.021
+        "reward": 8.25
       },
       {
         "i": 221,
-        "reward": 7.322
+        "reward": 5.625
       },
       {
         "i": 222,
-        "reward": 8.965
+        "reward": 5.625
       },
       {
         "i": 223,
-        "reward": 8.878
+        "reward": 6.5
       },
       {
         "i": 224,
-        "reward": 8.731
+        "reward": 8.25
       },
       {
         "i": 225,
-        "reward": 8.981
+        "reward": 8.25
       },
       {
         "i": 226,
-        "reward": 6.041
+        "reward": 9.125
       },
       {
         "i": 227,
-        "reward": 8.857
+        "reward": 5.625
       },
       {
         "i": 228,
-        "reward": 8.601
+        "reward": 7.375
       },
       {
         "i": 229,
-        "reward": 7.554
+        "reward": 8.25
       },
       {
         "i": 230,
-        "reward": 8.931
+        "reward": 9.125
       },
       {
         "i": 231,
-        "reward": 4.099
+        "reward": 6.5
       },
       {
         "i": 232,
-        "reward": 8.996
+        "reward": 6.5
       },
       {
         "i": 233,
-        "reward": 7.184
+        "reward": 3.875
       },
       {
         "i": 234,
-        "reward": 8.91
+        "reward": 6.5
       },
       {
         "i": 235,
-        "reward": 8.695
+        "reward": 7.375
       },
       {
         "i": 236,
-        "reward": 8.786
+        "reward": 9.125
       },
       {
         "i": 237,
-        "reward": 8.695
+        "reward": 9.125
       },
       {
         "i": 238,
-        "reward": 5.987
+        "reward": 6.5
       },
       {
         "i": 239,
-        "reward": 8.719
+        "reward": 6.5
       },
       {
         "i": 240,
-        "reward": 8.713
+        "reward": 6.5
       },
       {
         "i": 241,
-        "reward": 8.569
+        "reward": 6.5
       },
       {
         "i": 242,
-        "reward": 8.894
+        "reward": 7.375
       },
       {
         "i": 243,
-        "reward": 8.811
+        "reward": 7.375
       },
       {
         "i": 244,
-        "reward": 9.03
+        "reward": 7.375
       },
       {
         "i": 245,
-        "reward": 8.766
+        "reward": 8.25
       },
       {
         "i": 246,
-        "reward": 7.51
+        "reward": 7.375
       },
       {
         "i": 247,
-        "reward": 8.678
+        "reward": 9.125
       },
       {
         "i": 248,
-        "reward": 8.479
+        "reward": 7.375
       },
       {
         "i": 249,
-        "reward": 8.721
+        "reward": 6.5
       },
       {
         "i": 250,
-        "reward": 8.449
+        "reward": 7.375
       },
       {
         "i": 251,
-        "reward": 8.781
+        "reward": 7.375
       },
       {
         "i": 252,
-        "reward": 7.12
+        "reward": 5.625
       },
       {
         "i": 253,
-        "reward": 8.861
+        "reward": 4.75
       },
       {
         "i": 254,
-        "reward": 5.954
+        "reward": 7.375
       },
       {
         "i": 255,
-        "reward": 8.897
+        "reward": 6.5
       },
       {
         "i": 256,
-        "reward": 8.598
+        "reward": 6.5
       },
       {
         "i": 257,
-        "reward": 8.936
+        "reward": 4.75
       },
       {
         "i": 258,
-        "reward": 8.801
+        "reward": 6.5
       },
       {
         "i": 259,
-        "reward": 6.005
+        "reward": 3.875
       },
       {
         "i": 260,
-        "reward": 9.292
+        "reward": 6.5
       },
       {
         "i": 261,
-        "reward": 8.794
+        "reward": 6.5
       },
       {
         "i": 262,
-        "reward": 7.634
+        "reward": 6.5
       },
       {
         "i": 263,
-        "reward": 7.644
+        "reward": 4.75
       },
       {
         "i": 264,
-        "reward": 8.705
+        "reward": 5.625
       },
       {
         "i": 265,
-        "reward": 8.879
+        "reward": 7.375
       },
       {
         "i": 266,
-        "reward": 8.607
+        "reward": 8.25
       },
       {
         "i": 267,
-        "reward": 7.183
+        "reward": 6.5
       },
       {
         "i": 268,
-        "reward": 8.823
+        "reward": 7.375
       },
       {
         "i": 269,
-        "reward": 8.541
+        "reward": 6.5
       },
       {
         "i": 270,
-        "reward": 8.947
+        "reward": 5.625
       },
       {
         "i": 271,
-        "reward": 5.904
+        "reward": 7.375
       },
       {
         "i": 272,
-        "reward": 8.733
+        "reward": 4.75
       },
       {
         "i": 273,
-        "reward": 9.023
+        "reward": 4.75
       },
       {
         "i": 274,
-        "reward": 9.118
+        "reward": 5.625
       },
       {
         "i": 275,
-        "reward": 7.303
+        "reward": 4.75
       },
       {
         "i": 276,
-        "reward": 9.005
+        "reward": 5.625
       },
       {
         "i": 277,
-        "reward": 8.682
+        "reward": 5.625
       },
       {
         "i": 278,
-        "reward": 8.771
+        "reward": 6.5
       },
       {
         "i": 279,
-        "reward": 8.49
+        "reward": 10.0
       },
       {
         "i": 280,
-        "reward": 8.744
+        "reward": 7.375
       },
       {
         "i": 281,
-        "reward": 9.325
+        "reward": 10.0
       },
       {
         "i": 282,
-        "reward": 8.72
+        "reward": 8.25
       },
       {
         "i": 283,
-        "reward": 9.069
+        "reward": 9.125
       },
       {
         "i": 284,
-        "reward": 7.556
+        "reward": 10.0
       },
       {
         "i": 285,
-        "reward": 7.291
+        "reward": 9.125
       },
       {
         "i": 286,
-        "reward": 8.795
+        "reward": 8.25
       },
       {
         "i": 287,
-        "reward": 8.673
+        "reward": 6.5
       },
       {
         "i": 288,
-        "reward": 9.05
+        "reward": 9.125
       },
       {
         "i": 289,
-        "reward": 8.931
+        "reward": 8.25
       },
       {
         "i": 290,
-        "reward": 8.694
+        "reward": 8.25
       },
       {
         "i": 291,
-        "reward": 8.911
+        "reward": 8.25
       },
       {
         "i": 292,
-        "reward": 8.86
+        "reward": 7.375
       },
       {
         "i": 293,
-        "reward": 6.191
+        "reward": 6.5
       },
       {
         "i": 294,
-        "reward": 8.748
+        "reward": 4.75
       },
       {
         "i": 295,
-        "reward": 8.607
+        "reward": 7.375
       },
       {
         "i": 296,
-        "reward": 8.931
+        "reward": 8.25
       },
       {
         "i": 297,
-        "reward": 8.216
+        "reward": 7.375
       },
       {
         "i": 298,
-        "reward": 8.784
+        "reward": 7.375
       },
       {
         "i": 299,
-        "reward": 8.711
+        "reward": 10.0
       },
       {
         "i": 300,
-        "reward": 8.652
+        "reward": 10.0
       },
       {
         "i": 301,
-        "reward": 8.775
+        "reward": 8.25
       },
       {
         "i": 302,
-        "reward": 9.102
+        "reward": 7.375
       },
       {
         "i": 303,
-        "reward": 8.728
+        "reward": 8.25
       },
       {
         "i": 304,
-        "reward": 8.819
+        "reward": 10.0
       },
       {
         "i": 305,
-        "reward": 8.648
+        "reward": 9.125
       },
       {
         "i": 306,
-        "reward": 8.782
+        "reward": 9.125
       },
       {
         "i": 307,
-        "reward": 8.532
+        "reward": 10.0
       },
       {
         "i": 308,
-        "reward": 8.977
+        "reward": 10.0
       },
       {
         "i": 309,
-        "reward": 9.028
+        "reward": 7.375
       },
       {
         "i": 310,
-        "reward": 8.502
+        "reward": 10.0
       },
       {
         "i": 311,
-        "reward": 8.849
+        "reward": 8.25
       },
       {
         "i": 312,
-        "reward": 8.691
+        "reward": 8.25
       },
       {
         "i": 313,
-        "reward": 8.701
+        "reward": 8.25
       },
       {
         "i": 314,
-        "reward": 8.749
+        "reward": 9.125
       },
       {
         "i": 315,
-        "reward": 8.589
+        "reward": 9.125
       },
       {
         "i": 316,
-        "reward": 8.912
+        "reward": 9.125
       },
       {
         "i": 317,
-        "reward": 7.282
+        "reward": 9.125
       },
       {
         "i": 318,
-        "reward": 8.572
+        "reward": 8.25
       },
       {
         "i": 319,
-        "reward": 8.883
+        "reward": 8.25
       },
       {
         "i": 320,
-        "reward": 8.666
+        "reward": 9.125
       },
       {
         "i": 321,
-        "reward": 8.986
+        "reward": 8.25
       },
       {
         "i": 322,
-        "reward": 9.223
+        "reward": 10.0
       },
       {
         "i": 323,
-        "reward": 8.642
+        "reward": 10.0
       },
       {
         "i": 324,
-        "reward": 8.861
+        "reward": 9.125
       },
       {
         "i": 325,
-        "reward": 9.047
+        "reward": 9.125
       },
       {
         "i": 326,
-        "reward": 8.66
+        "reward": 9.125
       },
       {
         "i": 327,
-        "reward": 8.81
+        "reward": 10.0
       },
       {
         "i": 328,
-        "reward": 8.881
+        "reward": 9.125
       },
       {
         "i": 329,
-        "reward": 9.06
+        "reward": 8.25
       },
       {
         "i": 330,
-        "reward": 8.769
+        "reward": 9.125
       },
       {
         "i": 331,
-        "reward": 8.785
+        "reward": 9.125
       },
       {
         "i": 332,
-        "reward": 9.014
+        "reward": 7.375
       },
       {
         "i": 333,
-        "reward": 8.74
+        "reward": 9.125
       },
       {
         "i": 334,
-        "reward": 9.212
+        "reward": 9.125
       },
       {
         "i": 335,
-        "reward": 8.957
+        "reward": 9.125
       },
       {
         "i": 336,
-        "reward": 9.171
+        "reward": 9.125
       },
       {
         "i": 337,
-        "reward": 9.016
+        "reward": 6.5
       },
       {
         "i": 338,
-        "reward": 8.814
+        "reward": 10.0
       },
       {
         "i": 339,
-        "reward": 7.631
+        "reward": 7.375
       },
       {
         "i": 340,
-        "reward": 8.665
+        "reward": 6.5
       },
       {
         "i": 341,
-        "reward": 9.091
+        "reward": 10.0
       },
       {
         "i": 342,
-        "reward": 9.005
+        "reward": 9.125
       },
       {
         "i": 343,
-        "reward": 5.61
+        "reward": 9.125
       },
       {
         "i": 344,
-        "reward": 8.95
+        "reward": 9.125
       },
       {
         "i": 345,
-        "reward": 9.006
+        "reward": 7.375
       },
       {
         "i": 346,
-        "reward": 8.985
+        "reward": 5.625
       },
       {
         "i": 347,
-        "reward": 8.579
+        "reward": 6.5
       },
       {
         "i": 348,
-        "reward": 9.065
+        "reward": 8.25
       },
       {
         "i": 349,
-        "reward": 8.585
+        "reward": 10.0
       },
       {
         "i": 350,
-        "reward": 9.018
+        "reward": 9.125
       },
       {
         "i": 351,
-        "reward": 6.822
+        "reward": 7.375
       },
       {
         "i": 352,
-        "reward": 8.631
+        "reward": 6.5
       },
       {
         "i": 353,
-        "reward": 8.541
+        "reward": 7.375
       },
       {
         "i": 354,
-        "reward": 8.462
+        "reward": 9.125
       },
       {
         "i": 355,
-        "reward": 8.59
+        "reward": 7.375
       },
       {
         "i": 356,
-        "reward": 8.611
+        "reward": 6.5
       },
       {
         "i": 357,
-        "reward": 8.904
+        "reward": 7.375
       },
       {
         "i": 358,
-        "reward": 8.738
+        "reward": 7.375
       },
       {
         "i": 359,
-        "reward": 9.079
+        "reward": 10.0
       },
       {
         "i": 360,
-        "reward": 8.586
+        "reward": 10.0
       },
       {
         "i": 361,
-        "reward": 8.497
+        "reward": 6.5
       },
       {
         "i": 362,
-        "reward": 8.844
+        "reward": 5.625
       },
       {
         "i": 363,
-        "reward": 8.831
+        "reward": 8.25
       },
       {
         "i": 364,
-        "reward": 8.794
+        "reward": 8.25
       },
       {
         "i": 365,
-        "reward": 7.176
+        "reward": 5.625
       },
       {
         "i": 366,
-        "reward": 8.901
+        "reward": 6.5
       },
       {
         "i": 367,
-        "reward": 9.041
+        "reward": 4.75
       },
       {
         "i": 368,
-        "reward": 8.449
+        "reward": 4.75
       },
       {
         "i": 369,
-        "reward": 9.025
+        "reward": 5.625
       },
       {
         "i": 370,
-        "reward": 8.868
+        "reward": 5.625
       },
       {
         "i": 371,
-        "reward": 9.018
+        "reward": 4.75
       },
       {
         "i": 372,
-        "reward": 8.723
+        "reward": 6.5
       },
       {
         "i": 373,
-        "reward": 8.626
+        "reward": 5.625
       },
       {
         "i": 374,
-        "reward": 8.714
+        "reward": 6.5
       },
       {
         "i": 375,
-        "reward": 8.978
+        "reward": 7.375
       },
       {
         "i": 376,
-        "reward": 9.147
+        "reward": 7.375
       },
       {
         "i": 377,
-        "reward": 5.401
+        "reward": 6.5
       },
       {
         "i": 378,
-        "reward": 8.728
+        "reward": 6.5
       },
       {
         "i": 379,
-        "reward": 8.93
+        "reward": 7.375
       },
       {
         "i": 380,
-        "reward": 9.275
+        "reward": 9.125
       },
       {
         "i": 381,
-        "reward": 8.938
+        "reward": 8.25
       },
       {
         "i": 382,
-        "reward": 9.214
+        "reward": 9.125
       },
       {
         "i": 383,
-        "reward": 9.044
+        "reward": 10.0
       },
       {
         "i": 384,
-        "reward": 8.57
+        "reward": 8.25
       },
       {
         "i": 385,
-        "reward": 8.93
+        "reward": 6.5
       },
       {
         "i": 386,
-        "reward": 8.774
+        "reward": 6.5
       },
       {
         "i": 387,
-        "reward": 8.83
+        "reward": 6.5
       },
       {
         "i": 388,
-        "reward": 5.877
+        "reward": 6.5
       },
       {
         "i": 389,
-        "reward": 8.855
+        "reward": 7.375
       },
       {
         "i": 390,
-        "reward": 9.009
+        "reward": 8.25
       },
       {
         "i": 391,
-        "reward": 9.116
+        "reward": 8.25
       },
       {
         "i": 392,
-        "reward": 8.423
+        "reward": 9.125
       },
       {
         "i": 393,
-        "reward": 8.868
+        "reward": 8.25
       },
       {
         "i": 394,
-        "reward": 8.933
+        "reward": 9.125
       },
       {
         "i": 395,
-        "reward": 8.817
+        "reward": 9.125
       },
       {
         "i": 396,
-        "reward": 8.604
+        "reward": 7.375
       },
       {
         "i": 397,
-        "reward": 8.814
+        "reward": 7.375
       },
       {
         "i": 398,
-        "reward": 8.78
+        "reward": 7.375
       },
       {
         "i": 399,
-        "reward": 9.078
+        "reward": 4.75
       },
       {
         "i": 400,
-        "reward": 9.132
+        "reward": 6.5
       },
       {
         "i": 401,
-        "reward": 8.957
+        "reward": 7.375
       },
       {
         "i": 402,
-        "reward": 6.081
+        "reward": 7.375
       },
       {
         "i": 403,
-        "reward": 9.101
+        "reward": 3.0
       },
       {
         "i": 404,
-        "reward": 8.943
+        "reward": 6.5
       },
       {
         "i": 405,
-        "reward": 8.927
+        "reward": 6.5
       },
       {
         "i": 406,
-        "reward": 8.811
+        "reward": 8.25
       },
       {
         "i": 407,
-        "reward": 9.091
+        "reward": 8.25
       },
       {
         "i": 408,
-        "reward": 8.969
+        "reward": 10.0
       },
       {
         "i": 409,
-        "reward": 8.905
+        "reward": 10.0
       },
       {
         "i": 410,
-        "reward": 8.69
+        "reward": 9.125
       },
       {
         "i": 411,
-        "reward": 8.704
+        "reward": 10.0
       },
       {
         "i": 412,
-        "reward": 8.729
+        "reward": 9.125
       },
       {
         "i": 413,
-        "reward": 9.058
+        "reward": 10.0
       },
       {
         "i": 414,
-        "reward": 8.873
+        "reward": 10.0
       },
       {
         "i": 415,
-        "reward": 8.656
+        "reward": 10.0
       },
       {
         "i": 416,
-        "reward": 8.694
+        "reward": 10.0
       },
       {
         "i": 417,
-        "reward": 8.883
+        "reward": 9.125
       },
       {
         "i": 418,
-        "reward": 8.741
+        "reward": 10.0
       },
       {
         "i": 419,
-        "reward": 8.66
+        "reward": 10.0
       },
       {
         "i": 420,
-        "reward": 8.865
+        "reward": 9.125
       },
       {
         "i": 421,
-        "reward": 9.083
+        "reward": 9.125
       },
       {
         "i": 422,
-        "reward": 8.982
+        "reward": 9.125
       },
       {
         "i": 423,
-        "reward": 8.627
+        "reward": 10.0
       },
       {
         "i": 424,
-        "reward": 8.966
+        "reward": 10.0
       },
       {
         "i": 425,
-        "reward": 8.689
+        "reward": 7.375
       },
       {
         "i": 426,
-        "reward": 8.77
+        "reward": 9.125
       },
       {
         "i": 427,
-        "reward": 8.543
+        "reward": 10.0
       },
       {
         "i": 428,
-        "reward": 8.552
+        "reward": 10.0
       },
       {
         "i": 429,
-        "reward": 8.749
+        "reward": 10.0
       },
       {
         "i": 430,
-        "reward": 8.791
+        "reward": 9.125
       },
       {
         "i": 431,
-        "reward": 8.894
+        "reward": 9.125
       },
       {
         "i": 432,
-        "reward": 8.83
+        "reward": 9.125
       },
       {
         "i": 433,
-        "reward": 8.767
+        "reward": 10.0
       },
       {
         "i": 434,
-        "reward": 8.851
+        "reward": 10.0
       },
       {
         "i": 435,
-        "reward": 7.522
+        "reward": 9.125
       },
       {
         "i": 436,
-        "reward": 8.97
+        "reward": 10.0
       },
       {
         "i": 437,
-        "reward": 9.027
+        "reward": 8.25
       },
       {
         "i": 438,
-        "reward": 8.565
+        "reward": 10.0
       },
       {
         "i": 439,
-        "reward": 8.736
+        "reward": 8.25
       },
       {
         "i": 440,
-        "reward": 8.794
+        "reward": 8.25
       },
       {
         "i": 441,
-        "reward": 8.998
+        "reward": 9.125
       },
       {
         "i": 442,
-        "reward": 8.539
+        "reward": 9.125
       },
       {
         "i": 443,
-        "reward": 8.433
+        "reward": 10.0
       },
       {
         "i": 444,
-        "reward": 8.705
+        "reward": 9.125
       },
       {
         "i": 445,
-        "reward": 8.76
+        "reward": 10.0
       },
       {
         "i": 446,
-        "reward": 8.963
+        "reward": 9.125
       },
       {
         "i": 447,
-        "reward": 8.859
+        "reward": 10.0
       },
       {
         "i": 448,
-        "reward": 8.804
+        "reward": 10.0
       },
       {
         "i": 449,
-        "reward": 8.939
+        "reward": 10.0
       },
       {
         "i": 450,
-        "reward": 7.095
+        "reward": 10.0
       },
       {
         "i": 451,
-        "reward": 8.809
+        "reward": 10.0
       },
       {
         "i": 452,
-        "reward": 8.961
+        "reward": 9.125
       },
       {
         "i": 453,
-        "reward": 8.92
+        "reward": 9.125
       },
       {
         "i": 454,
-        "reward": 8.716
+        "reward": 10.0
       },
       {
         "i": 455,
-        "reward": 8.854
+        "reward": 10.0
       },
       {
         "i": 456,
-        "reward": 8.843
+        "reward": 9.125
       },
       {
         "i": 457,
-        "reward": 8.834
+        "reward": 8.25
       },
       {
         "i": 458,
-        "reward": 8.806
+        "reward": 10.0
       },
       {
         "i": 459,
-        "reward": 8.761
+        "reward": 10.0
       },
       {
         "i": 460,
-        "reward": 8.805
+        "reward": 10.0
       },
       {
         "i": 461,
-        "reward": 8.859
+        "reward": 10.0
       },
       {
         "i": 462,
-        "reward": 8.717
+        "reward": 9.125
       },
       {
         "i": 463,
-        "reward": 8.906
+        "reward": 9.125
       },
       {
         "i": 464,
-        "reward": 7.669
+        "reward": 9.125
       },
       {
         "i": 465,
-        "reward": 8.686
+        "reward": 10.0
       },
       {
         "i": 466,
-        "reward": 8.634
+        "reward": 10.0
       },
       {
         "i": 467,
-        "reward": 8.887
+        "reward": 10.0
       },
       {
         "i": 468,
-        "reward": 8.696
+        "reward": 7.375
       },
       {
         "i": 469,
-        "reward": 8.831
+        "reward": 10.0
       },
       {
         "i": 470,
-        "reward": 8.701
+        "reward": 10.0
       },
       {
         "i": 471,
-        "reward": 8.683
+        "reward": 9.125
       },
       {
         "i": 472,
-        "reward": 9.059
+        "reward": 7.375
       },
       {
         "i": 473,
-        "reward": 8.871
+        "reward": 9.125
       },
       {
         "i": 474,
-        "reward": 8.912
+        "reward": 10.0
       },
       {
         "i": 475,
-        "reward": 9.168
+        "reward": 10.0
       },
       {
         "i": 476,
-        "reward": 8.915
+        "reward": 9.125
       },
       {
         "i": 477,
-        "reward": 8.917
+        "reward": 10.0
       },
       {
         "i": 478,
-        "reward": 8.822
+        "reward": 9.125
       },
       {
         "i": 479,
-        "reward": 8.877
+        "reward": 10.0
       },
       {
         "i": 480,
-        "reward": 6.164
+        "reward": 10.0
       },
       {
         "i": 481,
-        "reward": 8.951
+        "reward": 9.125
       },
       {
         "i": 482,
-        "reward": 8.63
+        "reward": 9.125
       },
       {
         "i": 483,
-        "reward": 8.691
+        "reward": 10.0
       },
       {
         "i": 484,
-        "reward": 8.886
+        "reward": 10.0
       },
       {
         "i": 485,
-        "reward": 8.949
+        "reward": 8.25
       },
       {
         "i": 486,
-        "reward": 8.517
+        "reward": 10.0
       },
       {
         "i": 487,
-        "reward": 8.871
+        "reward": 9.125
       },
       {
         "i": 488,
-        "reward": 8.825
+        "reward": 10.0
       },
       {
         "i": 489,
-        "reward": 8.64
+        "reward": 10.0
       },
       {
         "i": 490,
-        "reward": 8.83
+        "reward": 10.0
       },
       {
         "i": 491,
-        "reward": 8.885
+        "reward": 10.0
       },
       {
         "i": 492,
-        "reward": 9.053
+        "reward": 10.0
       },
       {
         "i": 493,
-        "reward": 9.061
+        "reward": 10.0
       },
       {
         "i": 494,
-        "reward": 8.882
+        "reward": 10.0
       },
       {
         "i": 495,
-        "reward": 8.588
+        "reward": 10.0
       },
       {
         "i": 496,
-        "reward": 8.802
+        "reward": 9.125
       },
       {
         "i": 497,
-        "reward": 8.966
+        "reward": 10.0
       },
       {
         "i": 498,
-        "reward": 8.554
+        "reward": 9.125
       },
       {
         "i": 499,
-        "reward": 8.742
+        "reward": 10.0
       },
       {
         "i": 500,
-        "reward": 8.726
+        "reward": 10.0
       }
     ],
     "epsilon": [
       {
         "i": 1,
-        "value": 0.99
+        "value": 0.995
       },
       {
         "i": 2,
-        "value": 0.9801
+        "value": 0.990025
       },
       {
         "i": 3,
-        "value": 0.9703
+        "value": 0.985075
       },
       {
         "i": 4,
-        "value": 0.9606
+        "value": 0.98015
       },
       {
         "i": 5,
-        "value": 0.951
+        "value": 0.975249
       },
       {
         "i": 6,
-        "value": 0.9415
+        "value": 0.970373
       },
       {
         "i": 7,
-        "value": 0.9321
+        "value": 0.965521
       },
       {
         "i": 8,
-        "value": 0.9227
+        "value": 0.960693
       },
       {
         "i": 9,
-        "value": 0.9135
+        "value": 0.95589
       },
       {
         "i": 10,
-        "value": 0.9044
+        "value": 0.95111
       },
       {
         "i": 11,
-        "value": 0.8953
+        "value": 0.946355
       },
       {
         "i": 12,
-        "value": 0.8864
+        "value": 0.941623
       },
       {
         "i": 13,
-        "value": 0.8775
+        "value": 0.936915
       },
       {
         "i": 14,
-        "value": 0.8687
+        "value": 0.93223
       },
       {
         "i": 15,
-        "value": 0.8601
+        "value": 0.927569
       },
       {
         "i": 16,
-        "value": 0.8515
+        "value": 0.922931
       },
       {
         "i": 17,
-        "value": 0.8429
+        "value": 0.918316
       },
       {
         "i": 18,
-        "value": 0.8345
+        "value": 0.913725
       },
       {
         "i": 19,
-        "value": 0.8262
+        "value": 0.909156
       },
       {
         "i": 20,
-        "value": 0.8179
+        "value": 0.90461
       },
       {
         "i": 21,
-        "value": 0.8097
+        "value": 0.900087
       },
       {
         "i": 22,
-        "value": 0.8016
+        "value": 0.895587
       },
       {
         "i": 23,
-        "value": 0.7936
+        "value": 0.891109
       },
       {
         "i": 24,
-        "value": 0.7857
+        "value": 0.886654
       },
       {
         "i": 25,
-        "value": 0.7778
+        "value": 0.88222
       },
       {
         "i": 26,
-        "value": 0.77
+        "value": 0.877809
       },
       {
         "i": 27,
-        "value": 0.7623
+        "value": 0.87342
       },
       {
         "i": 28,
-        "value": 0.7547
+        "value": 0.869053
       },
       {
         "i": 29,
-        "value": 0.7472
+        "value": 0.864708
       },
       {
         "i": 30,
-        "value": 0.7397
+        "value": 0.860384
       },
       {
         "i": 31,
-        "value": 0.7323
+        "value": 0.856082
       },
       {
         "i": 32,
-        "value": 0.725
+        "value": 0.851802
       },
       {
         "i": 33,
-        "value": 0.7177
+        "value": 0.847543
       },
       {
         "i": 34,
-        "value": 0.7106
+        "value": 0.843305
       },
       {
         "i": 35,
-        "value": 0.7034
+        "value": 0.839089
       },
       {
         "i": 36,
-        "value": 0.6964
+        "value": 0.834893
       },
       {
         "i": 37,
-        "value": 0.6894
+        "value": 0.830719
       },
       {
         "i": 38,
-        "value": 0.6826
+        "value": 0.826565
       },
       {
         "i": 39,
-        "value": 0.6757
+        "value": 0.822432
       },
       {
         "i": 40,
-        "value": 0.669
+        "value": 0.81832
       },
       {
         "i": 41,
-        "value": 0.6623
+        "value": 0.814229
       },
       {
         "i": 42,
-        "value": 0.6557
+        "value": 0.810157
       },
       {
         "i": 43,
-        "value": 0.6491
+        "value": 0.806107
       },
       {
         "i": 44,
-        "value": 0.6426
+        "value": 0.802076
       },
       {
         "i": 45,
-        "value": 0.6362
+        "value": 0.798066
       },
       {
         "i": 46,
-        "value": 0.6298
+        "value": 0.794075
       },
       {
         "i": 47,
-        "value": 0.6235
+        "value": 0.790105
       },
       {
         "i": 48,
-        "value": 0.6173
+        "value": 0.786154
       },
       {
         "i": 49,
-        "value": 0.6111
+        "value": 0.782224
       },
       {
         "i": 50,
-        "value": 0.605
+        "value": 0.778313
       },
       {
         "i": 51,
-        "value": 0.599
+        "value": 0.774421
       },
       {
         "i": 52,
-        "value": 0.593
+        "value": 0.770549
       },
       {
         "i": 53,
-        "value": 0.587
+        "value": 0.766696
       },
       {
         "i": 54,
-        "value": 0.5812
+        "value": 0.762863
       },
       {
         "i": 55,
-        "value": 0.5754
+        "value": 0.759048
       },
       {
         "i": 56,
-        "value": 0.5696
+        "value": 0.755253
       },
       {
         "i": 57,
-        "value": 0.5639
+        "value": 0.751477
       },
       {
         "i": 58,
-        "value": 0.5583
+        "value": 0.747719
       },
       {
         "i": 59,
-        "value": 0.5527
+        "value": 0.743981
       },
       {
         "i": 60,
-        "value": 0.5472
+        "value": 0.740261
       },
       {
         "i": 61,
-        "value": 0.5417
+        "value": 0.73656
       },
       {
         "i": 62,
-        "value": 0.5363
+        "value": 0.732877
       },
       {
         "i": 63,
-        "value": 0.5309
+        "value": 0.729212
       },
       {
         "i": 64,
-        "value": 0.5256
+        "value": 0.725566
       },
       {
         "i": 65,
-        "value": 0.5203
+        "value": 0.721939
       },
       {
         "i": 66,
-        "value": 0.5151
+        "value": 0.718329
       },
       {
         "i": 67,
-        "value": 0.51
+        "value": 0.714737
       },
       {
         "i": 68,
-        "value": 0.5049
+        "value": 0.711164
       },
       {
         "i": 69,
-        "value": 0.4998
+        "value": 0.707608
       },
       {
         "i": 70,
-        "value": 0.4948
+        "value": 0.70407
       },
       {
         "i": 71,
-        "value": 0.4899
+        "value": 0.700549
       },
       {
         "i": 72,
-        "value": 0.485
+        "value": 0.697047
       },
       {
         "i": 73,
-        "value": 0.4801
+        "value": 0.693561
       },
       {
         "i": 74,
-        "value": 0.4753
+        "value": 0.690094
       },
       {
         "i": 75,
-        "value": 0.4706
+        "value": 0.686643
       },
       {
         "i": 76,
-        "value": 0.4659
+        "value": 0.68321
       },
       {
         "i": 77,
-        "value": 0.4612
+        "value": 0.679794
       },
       {
         "i": 78,
-        "value": 0.4566
+        "value": 0.676395
       },
       {
         "i": 79,
-        "value": 0.452
+        "value": 0.673013
       },
       {
         "i": 80,
-        "value": 0.4475
+        "value": 0.669648
       },
       {
         "i": 81,
-        "value": 0.443
+        "value": 0.6663
       },
       {
         "i": 82,
-        "value": 0.4386
+        "value": 0.662968
       },
       {
         "i": 83,
-        "value": 0.4342
+        "value": 0.659653
       },
       {
         "i": 84,
-        "value": 0.4299
+        "value": 0.656355
       },
       {
         "i": 85,
-        "value": 0.4256
+        "value": 0.653073
       },
       {
         "i": 86,
-        "value": 0.4213
+        "value": 0.649808
       },
       {
         "i": 87,
-        "value": 0.4171
+        "value": 0.646559
       },
       {
         "i": 88,
-        "value": 0.4129
+        "value": 0.643326
       },
       {
         "i": 89,
-        "value": 0.4088
+        "value": 0.640109
       },
       {
         "i": 90,
-        "value": 0.4047
+        "value": 0.636909
       },
       {
         "i": 91,
-        "value": 0.4007
+        "value": 0.633724
       },
       {
         "i": 92,
-        "value": 0.3967
+        "value": 0.630556
       },
       {
         "i": 93,
-        "value": 0.3927
+        "value": 0.627403
       },
       {
         "i": 94,
-        "value": 0.3888
+        "value": 0.624266
       },
       {
         "i": 95,
-        "value": 0.3849
+        "value": 0.621145
       },
       {
         "i": 96,
-        "value": 0.381
+        "value": 0.618039
       },
       {
         "i": 97,
-        "value": 0.3772
+        "value": 0.614949
       },
       {
         "i": 98,
-        "value": 0.3735
+        "value": 0.611874
       },
       {
         "i": 99,
-        "value": 0.3697
+        "value": 0.608815
       },
       {
         "i": 100,
-        "value": 0.366
+        "value": 0.60577
       },
       {
         "i": 101,
-        "value": 0.3624
+        "value": 0.602742
       },
       {
         "i": 102,
-        "value": 0.3587
+        "value": 0.599728
       },
       {
         "i": 103,
-        "value": 0.3552
+        "value": 0.596729
       },
       {
         "i": 104,
-        "value": 0.3516
+        "value": 0.593746
       },
       {
         "i": 105,
-        "value": 0.3481
+        "value": 0.590777
       },
       {
         "i": 106,
-        "value": 0.3446
+        "value": 0.587823
       },
       {
         "i": 107,
-        "value": 0.3412
+        "value": 0.584884
       },
       {
         "i": 108,
-        "value": 0.3378
+        "value": 0.581959
       },
       {
         "i": 109,
-        "value": 0.3344
+        "value": 0.57905
       },
       {
         "i": 110,
-        "value": 0.331
+        "value": 0.576154
       },
       {
         "i": 111,
-        "value": 0.3277
+        "value": 0.573274
       },
       {
         "i": 112,
-        "value": 0.3244
+        "value": 0.570407
       },
       {
         "i": 113,
-        "value": 0.3212
+        "value": 0.567555
       },
       {
         "i": 114,
-        "value": 0.318
+        "value": 0.564717
       },
       {
         "i": 115,
-        "value": 0.3148
+        "value": 0.561894
       },
       {
         "i": 116,
-        "value": 0.3117
+        "value": 0.559084
       },
       {
         "i": 117,
-        "value": 0.3085
+        "value": 0.556289
       },
       {
         "i": 118,
-        "value": 0.3055
+        "value": 0.553508
       },
       {
         "i": 119,
-        "value": 0.3024
+        "value": 0.55074
       },
       {
         "i": 120,
-        "value": 0.2994
+        "value": 0.547986
       },
       {
         "i": 121,
-        "value": 0.2964
+        "value": 0.545246
       },
       {
         "i": 122,
-        "value": 0.2934
+        "value": 0.54252
       },
       {
         "i": 123,
-        "value": 0.2905
+        "value": 0.539808
       },
       {
         "i": 124,
-        "value": 0.2876
+        "value": 0.537108
       },
       {
         "i": 125,
-        "value": 0.2847
+        "value": 0.534423
       },
       {
         "i": 126,
-        "value": 0.2819
+        "value": 0.531751
       },
       {
         "i": 127,
-        "value": 0.279
+        "value": 0.529092
       },
       {
         "i": 128,
-        "value": 0.2763
+        "value": 0.526447
       },
       {
         "i": 129,
-        "value": 0.2735
+        "value": 0.523814
       },
       {
         "i": 130,
-        "value": 0.2708
+        "value": 0.521195
       },
       {
         "i": 131,
-        "value": 0.268
+        "value": 0.518589
       },
       {
         "i": 132,
-        "value": 0.2654
+        "value": 0.515996
       },
       {
         "i": 133,
-        "value": 0.2627
+        "value": 0.513416
       },
       {
         "i": 134,
-        "value": 0.2601
+        "value": 0.510849
       },
       {
         "i": 135,
-        "value": 0.2575
+        "value": 0.508295
       },
       {
         "i": 136,
-        "value": 0.2549
+        "value": 0.505754
       },
       {
         "i": 137,
-        "value": 0.2524
+        "value": 0.503225
       },
       {
         "i": 138,
-        "value": 0.2498
+        "value": 0.500709
       },
       {
         "i": 139,
-        "value": 0.2473
+        "value": 0.498205
       },
       {
         "i": 140,
-        "value": 0.2449
+        "value": 0.495714
       },
       {
         "i": 141,
-        "value": 0.2424
+        "value": 0.493236
       },
       {
         "i": 142,
-        "value": 0.24
+        "value": 0.490769
       },
       {
         "i": 143,
-        "value": 0.2376
+        "value": 0.488316
       },
       {
         "i": 144,
-        "value": 0.2352
+        "value": 0.485874
       },
       {
         "i": 145,
-        "value": 0.2329
+        "value": 0.483445
       },
       {
         "i": 146,
-        "value": 0.2305
+        "value": 0.481027
       },
       {
         "i": 147,
-        "value": 0.2282
+        "value": 0.478622
       },
       {
         "i": 148,
-        "value": 0.2259
+        "value": 0.476229
       },
       {
         "i": 149,
-        "value": 0.2237
+        "value": 0.473848
       },
       {
         "i": 150,
-        "value": 0.2215
+        "value": 0.471479
       },
       {
         "i": 151,
-        "value": 0.2192
+        "value": 0.469121
       },
       {
         "i": 152,
-        "value": 0.217
+        "value": 0.466776
       },
       {
         "i": 153,
-        "value": 0.2149
+        "value": 0.464442
       },
       {
         "i": 154,
-        "value": 0.2127
+        "value": 0.46212
       },
       {
         "i": 155,
-        "value": 0.2106
+        "value": 0.459809
       },
       {
         "i": 156,
-        "value": 0.2085
+        "value": 0.45751
       },
       {
         "i": 157,
-        "value": 0.2064
+        "value": 0.455222
       },
       {
         "i": 158,
-        "value": 0.2043
+        "value": 0.452946
       },
       {
         "i": 159,
-        "value": 0.2023
+        "value": 0.450682
       },
       {
         "i": 160,
-        "value": 0.2003
+        "value": 0.448428
       },
       {
         "i": 161,
-        "value": 0.1983
+        "value": 0.446186
       },
       {
         "i": 162,
-        "value": 0.1963
+        "value": 0.443955
       },
       {
         "i": 163,
-        "value": 0.1943
+        "value": 0.441735
       },
       {
         "i": 164,
-        "value": 0.1924
+        "value": 0.439527
       },
       {
         "i": 165,
-        "value": 0.1905
+        "value": 0.437329
       },
       {
         "i": 166,
-        "value": 0.1886
+        "value": 0.435142
       },
       {
         "i": 167,
-        "value": 0.1867
+        "value": 0.432967
       },
       {
         "i": 168,
-        "value": 0.1848
+        "value": 0.430802
       },
       {
         "i": 169,
-        "value": 0.183
+        "value": 0.428648
       },
       {
         "i": 170,
-        "value": 0.1811
+        "value": 0.426505
       },
       {
         "i": 171,
-        "value": 0.1793
+        "value": 0.424372
       },
       {
         "i": 172,
-        "value": 0.1775
+        "value": 0.42225
       },
       {
         "i": 173,
-        "value": 0.1757
+        "value": 0.420139
       },
       {
         "i": 174,
-        "value": 0.174
+        "value": 0.418038
       },
       {
         "i": 175,
-        "value": 0.1722
+        "value": 0.415948
       },
       {
         "i": 176,
-        "value": 0.1705
+        "value": 0.413868
       },
       {
         "i": 177,
-        "value": 0.1688
+        "value": 0.411799
       },
       {
         "i": 178,
-        "value": 0.1671
+        "value": 0.40974
       },
       {
         "i": 179,
-        "value": 0.1655
+        "value": 0.407691
       },
       {
         "i": 180,
-        "value": 0.1638
+        "value": 0.405653
       },
       {
         "i": 181,
-        "value": 0.1622
+        "value": 0.403625
       },
       {
         "i": 182,
-        "value": 0.1605
+        "value": 0.401606
       },
       {
         "i": 183,
-        "value": 0.1589
+        "value": 0.399598
       },
       {
         "i": 184,
-        "value": 0.1574
+        "value": 0.3976
       },
       {
         "i": 185,
-        "value": 0.1558
+        "value": 0.395612
       },
       {
         "i": 186,
-        "value": 0.1542
+        "value": 0.393634
       },
       {
         "i": 187,
-        "value": 0.1527
+        "value": 0.391666
       },
       {
         "i": 188,
-        "value": 0.1512
+        "value": 0.389708
       },
       {
         "i": 189,
-        "value": 0.1496
+        "value": 0.387759
       },
       {
         "i": 190,
-        "value": 0.1481
+        "value": 0.385821
       },
       {
         "i": 191,
-        "value": 0.1467
+        "value": 0.383891
       },
       {
         "i": 192,
-        "value": 0.1452
+        "value": 0.381972
       },
       {
         "i": 193,
-        "value": 0.1437
+        "value": 0.380062
       },
       {
         "i": 194,
-        "value": 0.1423
+        "value": 0.378162
       },
       {
         "i": 195,
-        "value": 0.1409
+        "value": 0.376271
       },
       {
         "i": 196,
-        "value": 0.1395
+        "value": 0.37439
       },
       {
         "i": 197,
-        "value": 0.1381
+        "value": 0.372518
       },
       {
         "i": 198,
-        "value": 0.1367
+        "value": 0.370655
       },
       {
         "i": 199,
-        "value": 0.1353
+        "value": 0.368802
       },
       {
         "i": 200,
-        "value": 0.134
+        "value": 0.366958
       },
       {
         "i": 201,
-        "value": 0.1326
+        "value": 0.365123
       },
       {
         "i": 202,
-        "value": 0.1313
+        "value": 0.363297
       },
       {
         "i": 203,
-        "value": 0.13
+        "value": 0.361481
       },
       {
         "i": 204,
-        "value": 0.1287
+        "value": 0.359674
       },
       {
         "i": 205,
-        "value": 0.1274
+        "value": 0.357875
       },
       {
         "i": 206,
-        "value": 0.1261
+        "value": 0.356086
       },
       {
         "i": 207,
-        "value": 0.1249
+        "value": 0.354305
       },
       {
         "i": 208,
-        "value": 0.1236
+        "value": 0.352534
       },
       {
         "i": 209,
-        "value": 0.1224
+        "value": 0.350771
       },
       {
         "i": 210,
-        "value": 0.1212
+        "value": 0.349017
       },
       {
         "i": 211,
-        "value": 0.12
+        "value": 0.347272
       },
       {
         "i": 212,
-        "value": 0.1188
+        "value": 0.345536
       },
       {
         "i": 213,
-        "value": 0.1176
+        "value": 0.343808
       },
       {
         "i": 214,
-        "value": 0.1164
+        "value": 0.342089
       },
       {
         "i": 215,
-        "value": 0.1152
+        "value": 0.340379
       },
       {
         "i": 216,
-        "value": 0.1141
+        "value": 0.338677
       },
       {
         "i": 217,
-        "value": 0.1129
+        "value": 0.336983
       },
       {
         "i": 218,
-        "value": 0.1118
+        "value": 0.335298
       },
       {
         "i": 219,
-        "value": 0.1107
+        "value": 0.333622
       },
       {
         "i": 220,
-        "value": 0.1096
+        "value": 0.331954
       },
       {
         "i": 221,
-        "value": 0.1085
+        "value": 0.330294
       },
       {
         "i": 222,
-        "value": 0.1074
+        "value": 0.328643
       },
       {
         "i": 223,
-        "value": 0.1063
+        "value": 0.326999
       },
       {
         "i": 224,
-        "value": 0.1053
+        "value": 0.325364
       },
       {
         "i": 225,
-        "value": 0.1042
+        "value": 0.323738
       },
       {
         "i": 226,
-        "value": 0.1032
+        "value": 0.322119
       },
       {
         "i": 227,
-        "value": 0.1021
+        "value": 0.320508
       },
       {
         "i": 228,
-        "value": 0.1011
+        "value": 0.318906
       },
       {
         "i": 229,
-        "value": 0.1001
+        "value": 0.317311
       },
       {
         "i": 230,
-        "value": 0.0991
+        "value": 0.315725
       },
       {
         "i": 231,
-        "value": 0.0981
+        "value": 0.314146
       },
       {
         "i": 232,
-        "value": 0.0971
+        "value": 0.312575
       },
       {
         "i": 233,
-        "value": 0.0962
+        "value": 0.311012
       },
       {
         "i": 234,
-        "value": 0.0952
+        "value": 0.309457
       },
       {
         "i": 235,
-        "value": 0.0942
+        "value": 0.30791
       },
       {
         "i": 236,
-        "value": 0.0933
+        "value": 0.306371
       },
       {
         "i": 237,
-        "value": 0.0924
+        "value": 0.304839
       },
       {
         "i": 238,
-        "value": 0.0914
+        "value": 0.303315
       },
       {
         "i": 239,
-        "value": 0.0905
+        "value": 0.301798
       },
       {
         "i": 240,
-        "value": 0.0896
+        "value": 0.300289
       },
       {
         "i": 241,
-        "value": 0.0887
+        "value": 0.298788
       },
       {
         "i": 242,
-        "value": 0.0878
+        "value": 0.297294
       },
       {
         "i": 243,
-        "value": 0.087
+        "value": 0.295807
       },
       {
         "i": 244,
-        "value": 0.0861
+        "value": 0.294328
       },
       {
         "i": 245,
-        "value": 0.0852
+        "value": 0.292856
       },
       {
         "i": 246,
-        "value": 0.0844
+        "value": 0.291392
       },
       {
         "i": 247,
-        "value": 0.0835
+        "value": 0.289935
       },
       {
         "i": 248,
-        "value": 0.0827
+        "value": 0.288486
       },
       {
         "i": 249,
-        "value": 0.0819
+        "value": 0.287043
       },
       {
         "i": 250,
-        "value": 0.0811
+        "value": 0.285608
       },
       {
         "i": 251,
-        "value": 0.0802
+        "value": 0.28418
       },
       {
         "i": 252,
-        "value": 0.0794
+        "value": 0.282759
       },
       {
         "i": 253,
-        "value": 0.0787
+        "value": 0.281345
       },
       {
         "i": 254,
-        "value": 0.0779
+        "value": 0.279938
       },
       {
         "i": 255,
-        "value": 0.0771
+        "value": 0.278539
       },
       {
         "i": 256,
-        "value": 0.0763
+        "value": 0.277146
       },
       {
         "i": 257,
-        "value": 0.0756
+        "value": 0.27576
       },
       {
         "i": 258,
-        "value": 0.0748
+        "value": 0.274382
       },
       {
         "i": 259,
-        "value": 0.074
+        "value": 0.27301
       },
       {
         "i": 260,
-        "value": 0.0733
+        "value": 0.271645
       },
       {
         "i": 261,
-        "value": 0.0726
+        "value": 0.270286
       },
       {
         "i": 262,
-        "value": 0.0718
+        "value": 0.268935
       },
       {
         "i": 263,
-        "value": 0.0711
+        "value": 0.26759
       },
       {
         "i": 264,
-        "value": 0.0704
+        "value": 0.266252
       },
       {
         "i": 265,
-        "value": 0.0697
+        "value": 0.264921
       },
       {
         "i": 266,
-        "value": 0.069
+        "value": 0.263596
       },
       {
         "i": 267,
-        "value": 0.0683
+        "value": 0.262278
       },
       {
         "i": 268,
-        "value": 0.0676
+        "value": 0.260967
       },
       {
         "i": 269,
-        "value": 0.067
+        "value": 0.259662
       },
       {
         "i": 270,
-        "value": 0.0663
+        "value": 0.258364
       },
       {
         "i": 271,
-        "value": 0.0656
+        "value": 0.257072
       },
       {
         "i": 272,
-        "value": 0.065
+        "value": 0.255787
       },
       {
         "i": 273,
-        "value": 0.0643
+        "value": 0.254508
       },
       {
         "i": 274,
-        "value": 0.0637
+        "value": 0.253235
       },
       {
         "i": 275,
-        "value": 0.063
+        "value": 0.251969
       },
       {
         "i": 276,
-        "value": 0.0624
+        "value": 0.250709
       },
       {
         "i": 277,
-        "value": 0.0618
+        "value": 0.249456
       },
       {
         "i": 278,
-        "value": 0.0612
+        "value": 0.248208
       },
       {
         "i": 279,
-        "value": 0.0606
+        "value": 0.246967
       },
       {
         "i": 280,
-        "value": 0.06
+        "value": 0.245733
       },
       {
         "i": 281,
-        "value": 0.0594
+        "value": 0.244504
       },
       {
         "i": 282,
-        "value": 0.0588
+        "value": 0.243281
       },
       {
         "i": 283,
-        "value": 0.0582
+        "value": 0.242065
       },
       {
         "i": 284,
-        "value": 0.0576
+        "value": 0.240855
       },
       {
         "i": 285,
-        "value": 0.057
+        "value": 0.23965
       },
       {
         "i": 286,
-        "value": 0.0565
+        "value": 0.238452
       },
       {
         "i": 287,
-        "value": 0.0559
+        "value": 0.23726
       },
       {
         "i": 288,
-        "value": 0.0553
+        "value": 0.236074
       },
       {
         "i": 289,
-        "value": 0.0548
+        "value": 0.234893
       },
       {
         "i": 290,
-        "value": 0.0542
+        "value": 0.233719
       },
       {
         "i": 291,
-        "value": 0.0537
+        "value": 0.23255
       },
       {
         "i": 292,
-        "value": 0.0531
+        "value": 0.231387
       },
       {
         "i": 293,
-        "value": 0.0526
+        "value": 0.23023
       },
       {
         "i": 294,
-        "value": 0.0521
+        "value": 0.229079
       },
       {
         "i": 295,
-        "value": 0.0516
+        "value": 0.227934
       },
       {
         "i": 296,
-        "value": 0.0511
+        "value": 0.226794
       },
       {
         "i": 297,
-        "value": 0.0505
+        "value": 0.22566
       },
       {
         "i": 298,
-        "value": 0.05
+        "value": 0.224532
       },
       {
         "i": 299,
-        "value": 0.0495
+        "value": 0.223409
       },
       {
         "i": 300,
-        "value": 0.049
+        "value": 0.222292
       },
       {
         "i": 301,
-        "value": 0.0486
+        "value": 0.221181
       },
       {
         "i": 302,
-        "value": 0.0481
+        "value": 0.220075
       },
       {
         "i": 303,
-        "value": 0.0476
+        "value": 0.218974
       },
       {
         "i": 304,
-        "value": 0.0471
+        "value": 0.21788
       },
       {
         "i": 305,
-        "value": 0.0466
+        "value": 0.21679
       },
       {
         "i": 306,
-        "value": 0.0462
+        "value": 0.215706
       },
       {
         "i": 307,
-        "value": 0.0457
+        "value": 0.214628
       },
       {
         "i": 308,
-        "value": 0.0453
+        "value": 0.213555
       },
       {
         "i": 309,
-        "value": 0.0448
+        "value": 0.212487
       },
       {
         "i": 310,
-        "value": 0.0444
+        "value": 0.211424
       },
       {
         "i": 311,
-        "value": 0.0439
+        "value": 0.210367
       },
       {
         "i": 312,
-        "value": 0.0435
+        "value": 0.209315
       },
       {
         "i": 313,
-        "value": 0.043
+        "value": 0.208269
       },
       {
         "i": 314,
-        "value": 0.0426
+        "value": 0.207227
       },
       {
         "i": 315,
-        "value": 0.0422
+        "value": 0.206191
       },
       {
         "i": 316,
-        "value": 0.0418
+        "value": 0.20516
       },
       {
         "i": 317,
-        "value": 0.0413
+        "value": 0.204135
       },
       {
         "i": 318,
-        "value": 0.0409
+        "value": 0.203114
       },
       {
         "i": 319,
-        "value": 0.0405
+        "value": 0.202098
       },
       {
         "i": 320,
-        "value": 0.0401
+        "value": 0.201088
       },
       {
         "i": 321,
-        "value": 0.0397
+        "value": 0.200082
       },
       {
         "i": 322,
-        "value": 0.0393
+        "value": 0.199082
       },
       {
         "i": 323,
-        "value": 0.0389
+        "value": 0.198087
       },
       {
         "i": 324,
-        "value": 0.0385
+        "value": 0.197096
       },
       {
         "i": 325,
-        "value": 0.0381
+        "value": 0.196111
       },
       {
         "i": 326,
-        "value": 0.0378
+        "value": 0.19513
       },
       {
         "i": 327,
-        "value": 0.0374
+        "value": 0.194154
       },
       {
         "i": 328,
-        "value": 0.037
+        "value": 0.193184
       },
       {
         "i": 329,
-        "value": 0.0366
+        "value": 0.192218
       },
       {
         "i": 330,
-        "value": 0.0363
+        "value": 0.191257
       },
       {
         "i": 331,
-        "value": 0.0359
+        "value": 0.1903
       },
       {
         "i": 332,
-        "value": 0.0356
+        "value": 0.189349
       },
       {
         "i": 333,
-        "value": 0.0352
+        "value": 0.188402
       },
       {
         "i": 334,
-        "value": 0.0348
+        "value": 0.18746
       },
       {
         "i": 335,
-        "value": 0.0345
+        "value": 0.186523
       },
       {
         "i": 336,
-        "value": 0.0342
+        "value": 0.18559
       },
       {
         "i": 337,
-        "value": 0.0338
+        "value": 0.184662
       },
       {
         "i": 338,
-        "value": 0.0335
+        "value": 0.183739
       },
       {
         "i": 339,
-        "value": 0.0331
+        "value": 0.18282
       },
       {
         "i": 340,
-        "value": 0.0328
+        "value": 0.181906
       },
       {
         "i": 341,
-        "value": 0.0325
+        "value": 0.180997
       },
       {
         "i": 342,
-        "value": 0.0322
+        "value": 0.180092
       },
       {
         "i": 343,
-        "value": 0.0318
+        "value": 0.179191
       },
       {
         "i": 344,
-        "value": 0.0315
+        "value": 0.178295
       },
       {
         "i": 345,
-        "value": 0.0312
+        "value": 0.177404
       },
       {
         "i": 346,
-        "value": 0.0309
+        "value": 0.176517
       },
       {
         "i": 347,
-        "value": 0.0306
+        "value": 0.175634
       },
       {
         "i": 348,
-        "value": 0.0303
+        "value": 0.174756
       },
       {
         "i": 349,
-        "value": 0.03
+        "value": 0.173882
       },
       {
         "i": 350,
-        "value": 0.0297
+        "value": 0.173013
       },
       {
         "i": 351,
-        "value": 0.0294
+        "value": 0.172148
       },
       {
         "i": 352,
-        "value": 0.0291
+        "value": 0.171287
       },
       {
         "i": 353,
-        "value": 0.0288
+        "value": 0.170431
       },
       {
         "i": 354,
-        "value": 0.0285
+        "value": 0.169578
       },
       {
         "i": 355,
-        "value": 0.0282
+        "value": 0.168731
       },
       {
         "i": 356,
-        "value": 0.0279
+        "value": 0.167887
       },
       {
         "i": 357,
-        "value": 0.0277
+        "value": 0.167047
       },
       {
         "i": 358,
-        "value": 0.0274
+        "value": 0.166212
       },
       {
         "i": 359,
-        "value": 0.0271
+        "value": 0.165381
       },
       {
         "i": 360,
-        "value": 0.0268
+        "value": 0.164554
       },
       {
         "i": 361,
-        "value": 0.0266
+        "value": 0.163731
       },
       {
         "i": 362,
-        "value": 0.0263
+        "value": 0.162913
       },
       {
         "i": 363,
-        "value": 0.026
+        "value": 0.162098
       },
       {
         "i": 364,
-        "value": 0.0258
+        "value": 0.161288
       },
       {
         "i": 365,
-        "value": 0.0255
+        "value": 0.160481
       },
       {
         "i": 366,
-        "value": 0.0253
+        "value": 0.159679
       },
       {
         "i": 367,
-        "value": 0.025
+        "value": 0.158881
       },
       {
         "i": 368,
-        "value": 0.0248
+        "value": 0.158086
       },
       {
         "i": 369,
-        "value": 0.0245
+        "value": 0.157296
       },
       {
         "i": 370,
-        "value": 0.0243
+        "value": 0.156509
       },
       {
         "i": 371,
-        "value": 0.024
+        "value": 0.155727
       },
       {
         "i": 372,
-        "value": 0.0238
+        "value": 0.154948
       },
       {
         "i": 373,
-        "value": 0.0235
+        "value": 0.154173
       },
       {
         "i": 374,
-        "value": 0.0233
+        "value": 0.153402
       },
       {
         "i": 375,
-        "value": 0.0231
+        "value": 0.152635
       },
       {
         "i": 376,
-        "value": 0.0228
+        "value": 0.151872
       },
       {
         "i": 377,
-        "value": 0.0226
+        "value": 0.151113
       },
       {
         "i": 378,
-        "value": 0.0224
+        "value": 0.150357
       },
       {
         "i": 379,
-        "value": 0.0222
+        "value": 0.149606
       },
       {
         "i": 380,
-        "value": 0.0219
+        "value": 0.148857
       },
       {
         "i": 381,
-        "value": 0.0217
+        "value": 0.148113
       },
       {
         "i": 382,
-        "value": 0.0215
+        "value": 0.147373
       },
       {
         "i": 383,
-        "value": 0.0213
+        "value": 0.146636
       },
       {
         "i": 384,
-        "value": 0.0211
+        "value": 0.145903
       },
       {
         "i": 385,
-        "value": 0.0209
+        "value": 0.145173
       },
       {
         "i": 386,
-        "value": 0.0207
+        "value": 0.144447
       },
       {
         "i": 387,
-        "value": 0.0205
+        "value": 0.143725
       },
       {
         "i": 388,
-        "value": 0.0203
+        "value": 0.143006
       },
       {
         "i": 389,
-        "value": 0.02
+        "value": 0.142291
       },
       {
         "i": 390,
-        "value": 0.0198
+        "value": 0.14158
       },
       {
         "i": 391,
-        "value": 0.0196
+        "value": 0.140872
       },
       {
         "i": 392,
-        "value": 0.0195
+        "value": 0.140168
       },
       {
         "i": 393,
-        "value": 0.0193
+        "value": 0.139467
       },
       {
         "i": 394,
-        "value": 0.0191
+        "value": 0.138769
       },
       {
         "i": 395,
-        "value": 0.0189
+        "value": 0.138076
       },
       {
         "i": 396,
-        "value": 0.0187
+        "value": 0.137385
       },
       {
         "i": 397,
-        "value": 0.0185
+        "value": 0.136698
       },
       {
         "i": 398,
-        "value": 0.0183
+        "value": 0.136015
       },
       {
         "i": 399,
-        "value": 0.0181
+        "value": 0.135335
       },
       {
         "i": 400,
-        "value": 0.018
+        "value": 0.134658
       },
       {
         "i": 401,
-        "value": 0.0178
+        "value": 0.133985
       },
       {
         "i": 402,
-        "value": 0.0176
+        "value": 0.133315
       },
       {
         "i": 403,
-        "value": 0.0174
+        "value": 0.132648
       },
       {
         "i": 404,
-        "value": 0.0172
+        "value": 0.131985
       },
       {
         "i": 405,
-        "value": 0.0171
+        "value": 0.131325
       },
       {
         "i": 406,
-        "value": 0.0169
+        "value": 0.130668
       },
       {
         "i": 407,
-        "value": 0.0167
+        "value": 0.130015
       },
       {
         "i": 408,
-        "value": 0.0166
+        "value": 0.129365
       },
       {
         "i": 409,
-        "value": 0.0164
+        "value": 0.128718
       },
       {
         "i": 410,
-        "value": 0.0162
+        "value": 0.128075
       },
       {
         "i": 411,
-        "value": 0.0161
+        "value": 0.127434
       },
       {
         "i": 412,
-        "value": 0.0159
+        "value": 0.126797
       },
       {
         "i": 413,
-        "value": 0.0158
+        "value": 0.126163
       },
       {
         "i": 414,
-        "value": 0.0156
+        "value": 0.125532
       },
       {
         "i": 415,
-        "value": 0.0154
+        "value": 0.124905
       },
       {
         "i": 416,
-        "value": 0.0153
+        "value": 0.12428
       },
       {
         "i": 417,
-        "value": 0.0151
+        "value": 0.123659
       },
       {
         "i": 418,
-        "value": 0.015
+        "value": 0.12304
       },
       {
         "i": 419,
-        "value": 0.0148
+        "value": 0.122425
       },
       {
         "i": 420,
-        "value": 0.0147
+        "value": 0.121813
       },
       {
         "i": 421,
-        "value": 0.0145
+        "value": 0.121204
       },
       {
         "i": 422,
-        "value": 0.0144
+        "value": 0.120598
       },
       {
         "i": 423,
-        "value": 0.0142
+        "value": 0.119995
       },
       {
         "i": 424,
-        "value": 0.0141
+        "value": 0.119395
       },
       {
         "i": 425,
-        "value": 0.014
+        "value": 0.118798
       },
       {
         "i": 426,
-        "value": 0.0138
+        "value": 0.118204
       },
       {
         "i": 427,
-        "value": 0.0137
+        "value": 0.117613
       },
       {
         "i": 428,
-        "value": 0.0135
+        "value": 0.117025
       },
       {
         "i": 429,
-        "value": 0.0134
+        "value": 0.11644
       },
       {
         "i": 430,
-        "value": 0.0133
+        "value": 0.115858
       },
       {
         "i": 431,
-        "value": 0.0131
+        "value": 0.115278
       },
       {
         "i": 432,
-        "value": 0.013
+        "value": 0.114702
       },
       {
         "i": 433,
-        "value": 0.0129
+        "value": 0.114128
       },
       {
         "i": 434,
-        "value": 0.0128
+        "value": 0.113558
       },
       {
         "i": 435,
-        "value": 0.0126
+        "value": 0.11299
       },
       {
         "i": 436,
-        "value": 0.0125
+        "value": 0.112425
       },
       {
         "i": 437,
-        "value": 0.0124
+        "value": 0.111863
       },
       {
         "i": 438,
-        "value": 0.0123
+        "value": 0.111304
       },
       {
         "i": 439,
-        "value": 0.0121
+        "value": 0.110747
       },
       {
         "i": 440,
-        "value": 0.012
+        "value": 0.110193
       },
       {
         "i": 441,
-        "value": 0.0119
+        "value": 0.109642
       },
       {
         "i": 442,
-        "value": 0.0118
+        "value": 0.109094
       },
       {
         "i": 443,
-        "value": 0.0117
+        "value": 0.108549
       },
       {
         "i": 444,
-        "value": 0.0115
+        "value": 0.108006
       },
       {
         "i": 445,
-        "value": 0.0114
+        "value": 0.107466
       },
       {
         "i": 446,
-        "value": 0.0113
+        "value": 0.106929
       },
       {
         "i": 447,
-        "value": 0.0112
+        "value": 0.106394
       },
       {
         "i": 448,
-        "value": 0.0111
+        "value": 0.105862
       },
       {
         "i": 449,
-        "value": 0.011
+        "value": 0.105333
       },
       {
         "i": 450,
-        "value": 0.0109
+        "value": 0.104806
       },
       {
         "i": 451,
-        "value": 0.0108
+        "value": 0.104282
       },
       {
         "i": 452,
-        "value": 0.0106
+        "value": 0.103761
       },
       {
         "i": 453,
-        "value": 0.0105
+        "value": 0.103242
       },
       {
         "i": 454,
-        "value": 0.0104
+        "value": 0.102726
       },
       {
         "i": 455,
-        "value": 0.0103
+        "value": 0.102212
       },
       {
         "i": 456,
-        "value": 0.0102
+        "value": 0.101701
       },
       {
         "i": 457,
-        "value": 0.0101
+        "value": 0.101192
       },
       {
         "i": 458,
-        "value": 0.01
+        "value": 0.100686
       },
       {
         "i": 459,
-        "value": 0.01
+        "value": 0.100183
       },
       {
         "i": 460,
-        "value": 0.01
+        "value": 0.099682
       },
       {
         "i": 461,
-        "value": 0.01
+        "value": 0.099184
       },
       {
         "i": 462,
-        "value": 0.01
+        "value": 0.098688
       },
       {
         "i": 463,
-        "value": 0.01
+        "value": 0.098194
       },
       {
         "i": 464,
-        "value": 0.01
+        "value": 0.097703
       },
       {
         "i": 465,
-        "value": 0.01
+        "value": 0.097215
       },
       {
         "i": 466,
-        "value": 0.01
+        "value": 0.096729
       },
       {
         "i": 467,
-        "value": 0.01
+        "value": 0.096245
       },
       {
         "i": 468,
-        "value": 0.01
+        "value": 0.095764
       },
       {
         "i": 469,
-        "value": 0.01
+        "value": 0.095285
       },
       {
         "i": 470,
-        "value": 0.01
+        "value": 0.094809
       },
       {
         "i": 471,
-        "value": 0.01
+        "value": 0.094335
       },
       {
         "i": 472,
-        "value": 0.01
+        "value": 0.093863
       },
       {
         "i": 473,
-        "value": 0.01
+        "value": 0.093394
       },
       {
         "i": 474,
-        "value": 0.01
+        "value": 0.092927
       },
       {
         "i": 475,
-        "value": 0.01
+        "value": 0.092462
       },
       {
         "i": 476,
-        "value": 0.01
+        "value": 0.092
       },
       {
         "i": 477,
-        "value": 0.01
+        "value": 0.09154
       },
       {
         "i": 478,
-        "value": 0.01
+        "value": 0.091082
       },
       {
         "i": 479,
-        "value": 0.01
+        "value": 0.090627
       },
       {
         "i": 480,
-        "value": 0.01
+        "value": 0.090173
       },
       {
         "i": 481,
-        "value": 0.01
+        "value": 0.089723
       },
       {
         "i": 482,
-        "value": 0.01
+        "value": 0.089274
       },
       {
         "i": 483,
-        "value": 0.01
+        "value": 0.088828
       },
       {
         "i": 484,
-        "value": 0.01
+        "value": 0.088383
       },
       {
         "i": 485,
-        "value": 0.01
+        "value": 0.087942
       },
       {
         "i": 486,
-        "value": 0.01
+        "value": 0.087502
       },
       {
         "i": 487,
-        "value": 0.01
+        "value": 0.087064
       },
       {
         "i": 488,
-        "value": 0.01
+        "value": 0.086629
       },
       {
         "i": 489,
-        "value": 0.01
+        "value": 0.086196
       },
       {
         "i": 490,
-        "value": 0.01
+        "value": 0.085765
       },
       {
         "i": 491,
-        "value": 0.01
+        "value": 0.085336
       },
       {
         "i": 492,
-        "value": 0.01
+        "value": 0.084909
       },
       {
         "i": 493,
-        "value": 0.01
+        "value": 0.084485
       },
       {
         "i": 494,
-        "value": 0.01
+        "value": 0.084062
       },
       {
         "i": 495,
-        "value": 0.01
+        "value": 0.083642
       },
       {
         "i": 496,
-        "value": 0.01
+        "value": 0.083224
       },
       {
         "i": 497,
-        "value": 0.01
+        "value": 0.082808
       },
       {
         "i": 498,
-        "value": 0.01
+        "value": 0.082394
       },
       {
         "i": 499,
-        "value": 0.01
+        "value": 0.081982
       },
       {
         "i": 500,
-        "value": 0.01
+        "value": 0.081572
       }
-    ],
-    "baselines": {
-      "random": [
-        {
-          "i": 1,
-          "reward": 3.664
-        },
-        {
-          "i": 2,
-          "reward": 3.405
-        },
-        {
-          "i": 3,
-          "reward": 6.072
-        },
-        {
-          "i": 4,
-          "reward": 5.587
-        },
-        {
-          "i": 5,
-          "reward": 4.905
-        },
-        {
-          "i": 6,
-          "reward": 4.107
-        },
-        {
-          "i": 7,
-          "reward": 4.117
-        },
-        {
-          "i": 8,
-          "reward": 5.815
-        },
-        {
-          "i": 9,
-          "reward": 4.138
-        },
-        {
-          "i": 10,
-          "reward": 5.326
-        },
-        {
-          "i": 11,
-          "reward": 5.57
-        },
-        {
-          "i": 12,
-          "reward": 4.435
-        },
-        {
-          "i": 13,
-          "reward": 4.761
-        },
-        {
-          "i": 14,
-          "reward": 4.008
-        },
-        {
-          "i": 15,
-          "reward": 4.152
-        },
-        {
-          "i": 16,
-          "reward": 2.691
-        },
-        {
-          "i": 17,
-          "reward": 1.672
-        },
-        {
-          "i": 18,
-          "reward": 3.543
-        },
-        {
-          "i": 19,
-          "reward": 5.913
-        },
-        {
-          "i": 20,
-          "reward": 4.95
-        },
-        {
-          "i": 21,
-          "reward": 5.575
-        },
-        {
-          "i": 22,
-          "reward": 4.189
-        },
-        {
-          "i": 23,
-          "reward": 4.102
-        },
-        {
-          "i": 24,
-          "reward": 5.145
-        },
-        {
-          "i": 25,
-          "reward": 4.603
-        },
-        {
-          "i": 26,
-          "reward": 6.101
-        },
-        {
-          "i": 27,
-          "reward": 5.118
-        },
-        {
-          "i": 28,
-          "reward": 4.809
-        },
-        {
-          "i": 29,
-          "reward": 2.124
-        },
-        {
-          "i": 30,
-          "reward": 1.88
-        },
-        {
-          "i": 31,
-          "reward": 4.013
-        },
-        {
-          "i": 32,
-          "reward": 3.522
-        },
-        {
-          "i": 33,
-          "reward": 2.958
-        },
-        {
-          "i": 34,
-          "reward": 5.065
-        },
-        {
-          "i": 35,
-          "reward": 2.46
-        },
-        {
-          "i": 36,
-          "reward": 4.57
-        },
-        {
-          "i": 37,
-          "reward": 4.243
-        },
-        {
-          "i": 38,
-          "reward": 2.308
-        },
-        {
-          "i": 39,
-          "reward": 2.328
-        },
-        {
-          "i": 40,
-          "reward": 5.915
-        },
-        {
-          "i": 41,
-          "reward": 4.342
-        },
-        {
-          "i": 42,
-          "reward": 3.6
-        },
-        {
-          "i": 43,
-          "reward": 4.561
-        },
-        {
-          "i": 44,
-          "reward": 4.196
-        },
-        {
-          "i": 45,
-          "reward": 5.999
-        },
-        {
-          "i": 46,
-          "reward": 2.861
-        },
-        {
-          "i": 47,
-          "reward": 6.123
-        },
-        {
-          "i": 48,
-          "reward": 2.415
-        },
-        {
-          "i": 49,
-          "reward": 5.374
-        },
-        {
-          "i": 50,
-          "reward": 3.66
-        },
-        {
-          "i": 51,
-          "reward": 3.44
-        },
-        {
-          "i": 52,
-          "reward": 2.446
-        },
-        {
-          "i": 53,
-          "reward": 3.397
-        },
-        {
-          "i": 54,
-          "reward": 4.064
-        },
-        {
-          "i": 55,
-          "reward": 5.548
-        },
-        {
-          "i": 56,
-          "reward": 2.311
-        },
-        {
-          "i": 57,
-          "reward": 4.133
-        },
-        {
-          "i": 58,
-          "reward": 3.086
-        },
-        {
-          "i": 59,
-          "reward": 2.046
-        },
-        {
-          "i": 60,
-          "reward": 3.665
-        },
-        {
-          "i": 61,
-          "reward": 4.472
-        },
-        {
-          "i": 62,
-          "reward": 4.323
-        },
-        {
-          "i": 63,
-          "reward": 5.825
-        },
-        {
-          "i": 64,
-          "reward": 6.282
-        },
-        {
-          "i": 65,
-          "reward": 1.713
-        },
-        {
-          "i": 66,
-          "reward": 4.089
-        },
-        {
-          "i": 67,
-          "reward": 4.606
-        },
-        {
-          "i": 68,
-          "reward": 4.009
-        },
-        {
-          "i": 69,
-          "reward": 3.676
-        },
-        {
-          "i": 70,
-          "reward": 3.714
-        },
-        {
-          "i": 71,
-          "reward": 1.85
-        },
-        {
-          "i": 72,
-          "reward": 4.78
-        },
-        {
-          "i": 73,
-          "reward": 2.587
-        },
-        {
-          "i": 74,
-          "reward": 6.272
-        },
-        {
-          "i": 75,
-          "reward": 4.603
-        },
-        {
-          "i": 76,
-          "reward": 4.55
-        },
-        {
-          "i": 77,
-          "reward": 3.776
-        },
-        {
-          "i": 78,
-          "reward": 3.399
-        },
-        {
-          "i": 79,
-          "reward": 4.058
-        },
-        {
-          "i": 80,
-          "reward": 3.523
-        },
-        {
-          "i": 81,
-          "reward": 2.442
-        },
-        {
-          "i": 82,
-          "reward": 4.949
-        },
-        {
-          "i": 83,
-          "reward": 2.985
-        },
-        {
-          "i": 84,
-          "reward": 3.257
-        },
-        {
-          "i": 85,
-          "reward": 4.387
-        },
-        {
-          "i": 86,
-          "reward": 5.667
-        },
-        {
-          "i": 87,
-          "reward": 4.15
-        },
-        {
-          "i": 88,
-          "reward": 2.399
-        },
-        {
-          "i": 89,
-          "reward": 3.391
-        },
-        {
-          "i": 90,
-          "reward": 2.696
-        },
-        {
-          "i": 91,
-          "reward": 2.427
-        },
-        {
-          "i": 92,
-          "reward": 4.181
-        },
-        {
-          "i": 93,
-          "reward": 5.727
-        },
-        {
-          "i": 94,
-          "reward": 4.494
-        },
-        {
-          "i": 95,
-          "reward": 6.07
-        },
-        {
-          "i": 96,
-          "reward": 4.278
-        },
-        {
-          "i": 97,
-          "reward": 1.934
-        },
-        {
-          "i": 98,
-          "reward": 4.035
-        },
-        {
-          "i": 99,
-          "reward": 4.7
-        },
-        {
-          "i": 100,
-          "reward": 4.039
-        },
-        {
-          "i": 101,
-          "reward": 7.778
-        },
-        {
-          "i": 102,
-          "reward": 5.326
-        },
-        {
-          "i": 103,
-          "reward": 5.666
-        },
-        {
-          "i": 104,
-          "reward": 3.983
-        },
-        {
-          "i": 105,
-          "reward": 2.156
-        },
-        {
-          "i": 106,
-          "reward": 3.444
-        },
-        {
-          "i": 107,
-          "reward": 2.009
-        },
-        {
-          "i": 108,
-          "reward": 5.109
-        },
-        {
-          "i": 109,
-          "reward": 3.522
-        },
-        {
-          "i": 110,
-          "reward": 4.044
-        },
-        {
-          "i": 111,
-          "reward": 7.227
-        },
-        {
-          "i": 112,
-          "reward": 4.113
-        },
-        {
-          "i": 113,
-          "reward": 5.234
-        },
-        {
-          "i": 114,
-          "reward": 5.075
-        },
-        {
-          "i": 115,
-          "reward": 2.199
-        },
-        {
-          "i": 116,
-          "reward": 2.254
-        },
-        {
-          "i": 117,
-          "reward": 2.376
-        },
-        {
-          "i": 118,
-          "reward": 3.885
-        },
-        {
-          "i": 119,
-          "reward": 4.128
-        },
-        {
-          "i": 120,
-          "reward": 4.067
-        },
-        {
-          "i": 121,
-          "reward": 2.681
-        },
-        {
-          "i": 122,
-          "reward": 4.436
-        },
-        {
-          "i": 123,
-          "reward": 4.13
-        },
-        {
-          "i": 124,
-          "reward": 2.494
-        },
-        {
-          "i": 125,
-          "reward": 2.66
-        },
-        {
-          "i": 126,
-          "reward": 4.277
-        },
-        {
-          "i": 127,
-          "reward": 4.998
-        },
-        {
-          "i": 128,
-          "reward": 4.951
-        },
-        {
-          "i": 129,
-          "reward": 3.783
-        },
-        {
-          "i": 130,
-          "reward": 3.561
-        },
-        {
-          "i": 131,
-          "reward": 4.243
-        },
-        {
-          "i": 132,
-          "reward": 2.114
-        },
-        {
-          "i": 133,
-          "reward": 4.376
-        },
-        {
-          "i": 134,
-          "reward": 3.797
-        },
-        {
-          "i": 135,
-          "reward": 3.832
-        },
-        {
-          "i": 136,
-          "reward": 5.367
-        },
-        {
-          "i": 137,
-          "reward": 4.257
-        },
-        {
-          "i": 138,
-          "reward": 3.98
-        },
-        {
-          "i": 139,
-          "reward": 5.332
-        },
-        {
-          "i": 140,
-          "reward": 5.989
-        },
-        {
-          "i": 141,
-          "reward": 2.533
-        },
-        {
-          "i": 142,
-          "reward": 2.515
-        },
-        {
-          "i": 143,
-          "reward": 3.816
-        },
-        {
-          "i": 144,
-          "reward": 7.514
-        },
-        {
-          "i": 145,
-          "reward": 5.884
-        },
-        {
-          "i": 146,
-          "reward": 4.403
-        },
-        {
-          "i": 147,
-          "reward": 5.881
-        },
-        {
-          "i": 148,
-          "reward": 1.553
-        },
-        {
-          "i": 149,
-          "reward": 5.657
-        },
-        {
-          "i": 150,
-          "reward": 6.455
-        },
-        {
-          "i": 151,
-          "reward": 4.856
-        },
-        {
-          "i": 152,
-          "reward": 4.403
-        },
-        {
-          "i": 153,
-          "reward": 2.614
-        },
-        {
-          "i": 154,
-          "reward": 5.346
-        },
-        {
-          "i": 155,
-          "reward": 5.161
-        },
-        {
-          "i": 156,
-          "reward": 4.668
-        },
-        {
-          "i": 157,
-          "reward": 3.341
-        },
-        {
-          "i": 158,
-          "reward": 5.971
-        },
-        {
-          "i": 159,
-          "reward": 2.54
-        },
-        {
-          "i": 160,
-          "reward": 4.826
-        },
-        {
-          "i": 161,
-          "reward": 2.384
-        },
-        {
-          "i": 162,
-          "reward": 1.675
-        },
-        {
-          "i": 163,
-          "reward": 6.051
-        },
-        {
-          "i": 164,
-          "reward": 2.558
-        },
-        {
-          "i": 165,
-          "reward": 5.26
-        },
-        {
-          "i": 166,
-          "reward": 5.84
-        },
-        {
-          "i": 167,
-          "reward": 4.093
-        },
-        {
-          "i": 168,
-          "reward": 2.392
-        },
-        {
-          "i": 169,
-          "reward": 2.051
-        },
-        {
-          "i": 170,
-          "reward": 1.81
-        },
-        {
-          "i": 171,
-          "reward": 5.811
-        },
-        {
-          "i": 172,
-          "reward": 2.966
-        },
-        {
-          "i": 173,
-          "reward": 2.344
-        },
-        {
-          "i": 174,
-          "reward": 2.359
-        },
-        {
-          "i": 175,
-          "reward": 6.181
-        },
-        {
-          "i": 176,
-          "reward": 4.428
-        },
-        {
-          "i": 177,
-          "reward": 3.073
-        },
-        {
-          "i": 178,
-          "reward": 4.609
-        },
-        {
-          "i": 179,
-          "reward": 1.967
-        },
-        {
-          "i": 180,
-          "reward": 2.54
-        },
-        {
-          "i": 181,
-          "reward": 4.317
-        },
-        {
-          "i": 182,
-          "reward": 4.306
-        },
-        {
-          "i": 183,
-          "reward": 4.036
-        },
-        {
-          "i": 184,
-          "reward": 4.244
-        },
-        {
-          "i": 185,
-          "reward": 1.956
-        },
-        {
-          "i": 186,
-          "reward": 4.605
-        },
-        {
-          "i": 187,
-          "reward": 4.073
-        },
-        {
-          "i": 188,
-          "reward": 6.084
-        },
-        {
-          "i": 189,
-          "reward": 4.132
-        },
-        {
-          "i": 190,
-          "reward": 1.67
-        },
-        {
-          "i": 191,
-          "reward": 2.233
-        },
-        {
-          "i": 192,
-          "reward": 4.737
-        },
-        {
-          "i": 193,
-          "reward": 1.697
-        },
-        {
-          "i": 194,
-          "reward": 5.981
-        },
-        {
-          "i": 195,
-          "reward": 2.499
-        },
-        {
-          "i": 196,
-          "reward": 5.718
-        },
-        {
-          "i": 197,
-          "reward": 4.109
-        },
-        {
-          "i": 198,
-          "reward": 2.58
-        },
-        {
-          "i": 199,
-          "reward": 2.064
-        },
-        {
-          "i": 200,
-          "reward": 4.128
-        },
-        {
-          "i": 201,
-          "reward": 2.797
-        },
-        {
-          "i": 202,
-          "reward": 3.958
-        },
-        {
-          "i": 203,
-          "reward": 4.979
-        },
-        {
-          "i": 204,
-          "reward": 4.439
-        },
-        {
-          "i": 205,
-          "reward": 3.73
-        },
-        {
-          "i": 206,
-          "reward": 3.58
-        },
-        {
-          "i": 207,
-          "reward": 4.345
-        },
-        {
-          "i": 208,
-          "reward": 3.969
-        },
-        {
-          "i": 209,
-          "reward": 1.82
-        },
-        {
-          "i": 210,
-          "reward": 4.567
-        },
-        {
-          "i": 211,
-          "reward": 6.24
-        },
-        {
-          "i": 212,
-          "reward": 2.404
-        },
-        {
-          "i": 213,
-          "reward": 6.442
-        },
-        {
-          "i": 214,
-          "reward": 3.316
-        },
-        {
-          "i": 215,
-          "reward": 4.203
-        },
-        {
-          "i": 216,
-          "reward": 2.177
-        },
-        {
-          "i": 217,
-          "reward": 7.067
-        },
-        {
-          "i": 218,
-          "reward": 3.533
-        },
-        {
-          "i": 219,
-          "reward": 5.064
-        },
-        {
-          "i": 220,
-          "reward": 6.026
-        },
-        {
-          "i": 221,
-          "reward": 4.338
-        },
-        {
-          "i": 222,
-          "reward": 7.023
-        },
-        {
-          "i": 223,
-          "reward": 2.454
-        },
-        {
-          "i": 224,
-          "reward": 3.696
-        },
-        {
-          "i": 225,
-          "reward": 3.978
-        },
-        {
-          "i": 226,
-          "reward": 3.311
-        },
-        {
-          "i": 227,
-          "reward": 4.427
-        },
-        {
-          "i": 228,
-          "reward": 1.958
-        },
-        {
-          "i": 229,
-          "reward": 3.959
-        },
-        {
-          "i": 230,
-          "reward": 1.609
-        },
-        {
-          "i": 231,
-          "reward": 4.404
-        },
-        {
-          "i": 232,
-          "reward": 4.151
-        },
-        {
-          "i": 233,
-          "reward": 6.031
-        },
-        {
-          "i": 234,
-          "reward": 3.961
-        },
-        {
-          "i": 235,
-          "reward": 5.731
-        },
-        {
-          "i": 236,
-          "reward": 3.856
-        },
-        {
-          "i": 237,
-          "reward": 3.719
-        },
-        {
-          "i": 238,
-          "reward": 4.322
-        },
-        {
-          "i": 239,
-          "reward": 3.072
-        },
-        {
-          "i": 240,
-          "reward": 5.882
-        },
-        {
-          "i": 241,
-          "reward": 3.923
-        },
-        {
-          "i": 242,
-          "reward": 5.217
-        },
-        {
-          "i": 243,
-          "reward": 7.389
-        },
-        {
-          "i": 244,
-          "reward": 5.554
-        },
-        {
-          "i": 245,
-          "reward": 5.565
-        },
-        {
-          "i": 246,
-          "reward": 5.326
-        },
-        {
-          "i": 247,
-          "reward": 1.868
-        },
-        {
-          "i": 248,
-          "reward": 5.472
-        },
-        {
-          "i": 249,
-          "reward": 4.021
-        },
-        {
-          "i": 250,
-          "reward": 3.907
-        },
-        {
-          "i": 251,
-          "reward": 2.658
-        },
-        {
-          "i": 252,
-          "reward": 4.117
-        },
-        {
-          "i": 253,
-          "reward": 5.911
-        },
-        {
-          "i": 254,
-          "reward": 4.425
-        },
-        {
-          "i": 255,
-          "reward": 5.717
-        },
-        {
-          "i": 256,
-          "reward": 4.141
-        },
-        {
-          "i": 257,
-          "reward": 1.884
-        },
-        {
-          "i": 258,
-          "reward": 2.914
-        },
-        {
-          "i": 259,
-          "reward": 2.262
-        },
-        {
-          "i": 260,
-          "reward": 4.727
-        },
-        {
-          "i": 261,
-          "reward": 2.957
-        },
-        {
-          "i": 262,
-          "reward": 5.393
-        },
-        {
-          "i": 263,
-          "reward": 5.552
-        },
-        {
-          "i": 264,
-          "reward": 2.872
-        },
-        {
-          "i": 265,
-          "reward": 3.796
-        },
-        {
-          "i": 266,
-          "reward": 4.535
-        },
-        {
-          "i": 267,
-          "reward": 6.09
-        },
-        {
-          "i": 268,
-          "reward": 3.868
-        },
-        {
-          "i": 269,
-          "reward": 3.384
-        },
-        {
-          "i": 270,
-          "reward": 4.266
-        },
-        {
-          "i": 271,
-          "reward": 1.801
-        },
-        {
-          "i": 272,
-          "reward": 1.283
-        },
-        {
-          "i": 273,
-          "reward": 4.901
-        },
-        {
-          "i": 274,
-          "reward": 2.567
-        },
-        {
-          "i": 275,
-          "reward": 4.114
-        },
-        {
-          "i": 276,
-          "reward": 2.67
-        },
-        {
-          "i": 277,
-          "reward": 5.422
-        },
-        {
-          "i": 278,
-          "reward": 2.458
-        },
-        {
-          "i": 279,
-          "reward": 4.108
-        },
-        {
-          "i": 280,
-          "reward": 2.917
-        },
-        {
-          "i": 281,
-          "reward": 3.249
-        },
-        {
-          "i": 282,
-          "reward": 6.161
-        },
-        {
-          "i": 283,
-          "reward": 5.095
-        },
-        {
-          "i": 284,
-          "reward": 5.718
-        },
-        {
-          "i": 285,
-          "reward": 4.879
-        },
-        {
-          "i": 286,
-          "reward": 4.171
-        },
-        {
-          "i": 287,
-          "reward": 3.886
-        },
-        {
-          "i": 288,
-          "reward": 4.648
-        },
-        {
-          "i": 289,
-          "reward": 4.866
-        },
-        {
-          "i": 290,
-          "reward": 4.349
-        },
-        {
-          "i": 291,
-          "reward": 5.929
-        },
-        {
-          "i": 292,
-          "reward": 2.052
-        },
-        {
-          "i": 293,
-          "reward": 5.805
-        },
-        {
-          "i": 294,
-          "reward": 5.889
-        },
-        {
-          "i": 295,
-          "reward": 5.784
-        },
-        {
-          "i": 296,
-          "reward": 4.398
-        },
-        {
-          "i": 297,
-          "reward": 6.01
-        },
-        {
-          "i": 298,
-          "reward": 1.958
-        },
-        {
-          "i": 299,
-          "reward": 4.264
-        },
-        {
-          "i": 300,
-          "reward": 4.427
-        },
-        {
-          "i": 301,
-          "reward": 3.562
-        },
-        {
-          "i": 302,
-          "reward": 5.958
-        },
-        {
-          "i": 303,
-          "reward": 4.645
-        },
-        {
-          "i": 304,
-          "reward": 4.656
-        },
-        {
-          "i": 305,
-          "reward": 2.139
-        },
-        {
-          "i": 306,
-          "reward": 3.547
-        },
-        {
-          "i": 307,
-          "reward": 3.853
-        },
-        {
-          "i": 308,
-          "reward": 2.521
-        },
-        {
-          "i": 309,
-          "reward": 3.982
-        },
-        {
-          "i": 310,
-          "reward": 1.664
-        },
-        {
-          "i": 311,
-          "reward": 3.943
-        },
-        {
-          "i": 312,
-          "reward": 2.573
-        },
-        {
-          "i": 313,
-          "reward": 2.018
-        },
-        {
-          "i": 314,
-          "reward": 6.001
-        },
-        {
-          "i": 315,
-          "reward": 5.621
-        },
-        {
-          "i": 316,
-          "reward": 3.677
-        },
-        {
-          "i": 317,
-          "reward": 1.383
-        },
-        {
-          "i": 318,
-          "reward": 5.196
-        },
-        {
-          "i": 319,
-          "reward": 4.067
-        },
-        {
-          "i": 320,
-          "reward": 4.459
-        },
-        {
-          "i": 321,
-          "reward": 4.128
-        },
-        {
-          "i": 322,
-          "reward": 3.755
-        },
-        {
-          "i": 323,
-          "reward": 7.511
-        },
-        {
-          "i": 324,
-          "reward": 4.997
-        },
-        {
-          "i": 325,
-          "reward": 5.69
-        },
-        {
-          "i": 326,
-          "reward": 4.465
-        },
-        {
-          "i": 327,
-          "reward": 3.364
-        },
-        {
-          "i": 328,
-          "reward": 4.986
-        },
-        {
-          "i": 329,
-          "reward": 3.735
-        },
-        {
-          "i": 330,
-          "reward": 7.647
-        },
-        {
-          "i": 331,
-          "reward": 4.143
-        },
-        {
-          "i": 332,
-          "reward": 5.6
-        },
-        {
-          "i": 333,
-          "reward": 4.252
-        },
-        {
-          "i": 334,
-          "reward": 5.792
-        },
-        {
-          "i": 335,
-          "reward": 1.923
-        },
-        {
-          "i": 336,
-          "reward": 3.749
-        },
-        {
-          "i": 337,
-          "reward": 2.921
-        },
-        {
-          "i": 338,
-          "reward": 4.366
-        },
-        {
-          "i": 339,
-          "reward": 2.569
-        },
-        {
-          "i": 340,
-          "reward": 4.178
-        },
-        {
-          "i": 341,
-          "reward": 4.217
-        },
-        {
-          "i": 342,
-          "reward": 4.217
-        },
-        {
-          "i": 343,
-          "reward": 4.547
-        },
-        {
-          "i": 344,
-          "reward": 2.6
-        },
-        {
-          "i": 345,
-          "reward": 2.586
-        },
-        {
-          "i": 346,
-          "reward": 2.341
-        },
-        {
-          "i": 347,
-          "reward": 2.508
-        },
-        {
-          "i": 348,
-          "reward": 4.782
-        },
-        {
-          "i": 349,
-          "reward": 2.447
-        },
-        {
-          "i": 350,
-          "reward": 3.739
-        },
-        {
-          "i": 351,
-          "reward": 4.192
-        },
-        {
-          "i": 352,
-          "reward": 3.148
-        },
-        {
-          "i": 353,
-          "reward": 3.752
-        },
-        {
-          "i": 354,
-          "reward": 4.449
-        },
-        {
-          "i": 355,
-          "reward": 4.712
-        },
-        {
-          "i": 356,
-          "reward": 3.699
-        },
-        {
-          "i": 357,
-          "reward": 4.398
-        },
-        {
-          "i": 358,
-          "reward": 3.821
-        },
-        {
-          "i": 359,
-          "reward": 5.741
-        },
-        {
-          "i": 360,
-          "reward": 5.312
-        },
-        {
-          "i": 361,
-          "reward": 3.781
-        },
-        {
-          "i": 362,
-          "reward": 6.129
-        },
-        {
-          "i": 363,
-          "reward": 4.783
-        },
-        {
-          "i": 364,
-          "reward": 4.905
-        },
-        {
-          "i": 365,
-          "reward": 6.523
-        },
-        {
-          "i": 366,
-          "reward": 2.198
-        },
-        {
-          "i": 367,
-          "reward": 2.292
-        },
-        {
-          "i": 368,
-          "reward": 4.712
-        },
-        {
-          "i": 369,
-          "reward": 2.622
-        },
-        {
-          "i": 370,
-          "reward": 6.175
-        },
-        {
-          "i": 371,
-          "reward": 3.69
-        },
-        {
-          "i": 372,
-          "reward": 4.118
-        },
-        {
-          "i": 373,
-          "reward": 2.047
-        },
-        {
-          "i": 374,
-          "reward": 6.21
-        },
-        {
-          "i": 375,
-          "reward": 2.367
-        },
-        {
-          "i": 376,
-          "reward": 5.658
-        },
-        {
-          "i": 377,
-          "reward": 2.04
-        },
-        {
-          "i": 378,
-          "reward": 4.014
-        },
-        {
-          "i": 379,
-          "reward": 5.685
-        },
-        {
-          "i": 380,
-          "reward": 4.081
-        },
-        {
-          "i": 381,
-          "reward": 5.955
-        },
-        {
-          "i": 382,
-          "reward": 3.882
-        },
-        {
-          "i": 383,
-          "reward": 3.349
-        },
-        {
-          "i": 384,
-          "reward": 4.056
-        },
-        {
-          "i": 385,
-          "reward": 1.847
-        },
-        {
-          "i": 386,
-          "reward": 4.701
-        },
-        {
-          "i": 387,
-          "reward": 4.631
-        },
-        {
-          "i": 388,
-          "reward": 4.163
-        },
-        {
-          "i": 389,
-          "reward": 2.695
-        },
-        {
-          "i": 390,
-          "reward": 5.597
-        },
-        {
-          "i": 391,
-          "reward": 4.355
-        },
-        {
-          "i": 392,
-          "reward": 5.984
-        },
-        {
-          "i": 393,
-          "reward": 3.416
-        },
-        {
-          "i": 394,
-          "reward": 3.948
-        },
-        {
-          "i": 395,
-          "reward": 5.245
-        },
-        {
-          "i": 396,
-          "reward": 6.29
-        },
-        {
-          "i": 397,
-          "reward": 5.936
-        },
-        {
-          "i": 398,
-          "reward": 4.542
-        },
-        {
-          "i": 399,
-          "reward": 2.406
-        },
-        {
-          "i": 400,
-          "reward": 7.301
-        },
-        {
-          "i": 401,
-          "reward": 2.815
-        },
-        {
-          "i": 402,
-          "reward": 4.532
-        },
-        {
-          "i": 403,
-          "reward": 2.441
-        },
-        {
-          "i": 404,
-          "reward": 9.236
-        },
-        {
-          "i": 405,
-          "reward": 4.797
-        },
-        {
-          "i": 406,
-          "reward": 5.469
-        },
-        {
-          "i": 407,
-          "reward": 3.784
-        },
-        {
-          "i": 408,
-          "reward": 4.036
-        },
-        {
-          "i": 409,
-          "reward": 4.777
-        },
-        {
-          "i": 410,
-          "reward": 3.321
-        },
-        {
-          "i": 411,
-          "reward": 4.395
-        },
-        {
-          "i": 412,
-          "reward": 1.945
-        },
-        {
-          "i": 413,
-          "reward": 4.125
-        },
-        {
-          "i": 414,
-          "reward": 2.169
-        },
-        {
-          "i": 415,
-          "reward": 4.631
-        },
-        {
-          "i": 416,
-          "reward": 1.882
-        },
-        {
-          "i": 417,
-          "reward": 4.343
-        },
-        {
-          "i": 418,
-          "reward": 2.268
-        },
-        {
-          "i": 419,
-          "reward": 3.867
-        },
-        {
-          "i": 420,
-          "reward": 3.964
-        },
-        {
-          "i": 421,
-          "reward": 5.659
-        },
-        {
-          "i": 422,
-          "reward": 2.887
-        },
-        {
-          "i": 423,
-          "reward": 4.282
-        },
-        {
-          "i": 424,
-          "reward": 1.68
-        },
-        {
-          "i": 425,
-          "reward": 4.315
-        },
-        {
-          "i": 426,
-          "reward": 2.385
-        },
-        {
-          "i": 427,
-          "reward": 4.008
-        },
-        {
-          "i": 428,
-          "reward": 5.398
-        },
-        {
-          "i": 429,
-          "reward": 7.433
-        },
-        {
-          "i": 430,
-          "reward": 5.176
-        },
-        {
-          "i": 431,
-          "reward": 2.683
-        },
-        {
-          "i": 432,
-          "reward": 6.148
-        },
-        {
-          "i": 433,
-          "reward": 1.996
-        },
-        {
-          "i": 434,
-          "reward": 5.703
-        },
-        {
-          "i": 435,
-          "reward": 3.6
-        },
-        {
-          "i": 436,
-          "reward": 3.213
-        },
-        {
-          "i": 437,
-          "reward": 1.8
-        },
-        {
-          "i": 438,
-          "reward": 3.043
-        },
-        {
-          "i": 439,
-          "reward": 5.874
-        },
-        {
-          "i": 440,
-          "reward": 4.875
-        },
-        {
-          "i": 441,
-          "reward": 2.402
-        },
-        {
-          "i": 442,
-          "reward": 4.197
-        },
-        {
-          "i": 443,
-          "reward": 3.924
-        },
-        {
-          "i": 444,
-          "reward": 4.446
-        },
-        {
-          "i": 445,
-          "reward": 2.918
-        },
-        {
-          "i": 446,
-          "reward": 5.586
-        },
-        {
-          "i": 447,
-          "reward": 4.269
-        },
-        {
-          "i": 448,
-          "reward": 5.731
-        },
-        {
-          "i": 449,
-          "reward": 2.607
-        },
-        {
-          "i": 450,
-          "reward": 4.704
-        },
-        {
-          "i": 451,
-          "reward": 2.507
-        },
-        {
-          "i": 452,
-          "reward": 2.408
-        },
-        {
-          "i": 453,
-          "reward": 5.736
-        },
-        {
-          "i": 454,
-          "reward": 2.399
-        },
-        {
-          "i": 455,
-          "reward": 5.922
-        },
-        {
-          "i": 456,
-          "reward": 4.191
-        },
-        {
-          "i": 457,
-          "reward": 5.775
-        },
-        {
-          "i": 458,
-          "reward": 4.354
-        },
-        {
-          "i": 459,
-          "reward": 4.544
-        },
-        {
-          "i": 460,
-          "reward": 4.72
-        },
-        {
-          "i": 461,
-          "reward": 2.249
-        },
-        {
-          "i": 462,
-          "reward": 6.029
-        },
-        {
-          "i": 463,
-          "reward": 3.536
-        },
-        {
-          "i": 464,
-          "reward": 5.483
-        },
-        {
-          "i": 465,
-          "reward": 3.698
-        },
-        {
-          "i": 466,
-          "reward": 1.977
-        },
-        {
-          "i": 467,
-          "reward": 3.956
-        },
-        {
-          "i": 468,
-          "reward": 5.638
-        },
-        {
-          "i": 469,
-          "reward": 7.631
-        },
-        {
-          "i": 470,
-          "reward": 7.747
-        },
-        {
-          "i": 471,
-          "reward": 5.517
-        },
-        {
-          "i": 472,
-          "reward": 4.124
-        },
-        {
-          "i": 473,
-          "reward": 7.39
-        },
-        {
-          "i": 474,
-          "reward": 3.442
-        },
-        {
-          "i": 475,
-          "reward": 3.432
-        },
-        {
-          "i": 476,
-          "reward": 4.177
-        },
-        {
-          "i": 477,
-          "reward": 5.136
-        },
-        {
-          "i": 478,
-          "reward": 4.064
-        },
-        {
-          "i": 479,
-          "reward": 1.85
-        },
-        {
-          "i": 480,
-          "reward": 2.663
-        },
-        {
-          "i": 481,
-          "reward": 2.596
-        },
-        {
-          "i": 482,
-          "reward": 4.044
-        },
-        {
-          "i": 483,
-          "reward": 2.68
-        },
-        {
-          "i": 484,
-          "reward": 4.328
-        },
-        {
-          "i": 485,
-          "reward": 4.464
-        },
-        {
-          "i": 486,
-          "reward": 3.279
-        },
-        {
-          "i": 487,
-          "reward": 2.769
-        },
-        {
-          "i": 488,
-          "reward": 3.861
-        },
-        {
-          "i": 489,
-          "reward": 3.882
-        },
-        {
-          "i": 490,
-          "reward": 3.949
-        },
-        {
-          "i": 491,
-          "reward": 2.687
-        },
-        {
-          "i": 492,
-          "reward": 3.858
-        },
-        {
-          "i": 493,
-          "reward": 1.676
-        },
-        {
-          "i": 494,
-          "reward": 6.03
-        },
-        {
-          "i": 495,
-          "reward": 2.619
-        },
-        {
-          "i": 496,
-          "reward": 5.841
-        },
-        {
-          "i": 497,
-          "reward": 6.173
-        },
-        {
-          "i": 498,
-          "reward": 3.679
-        },
-        {
-          "i": 499,
-          "reward": 2.682
-        },
-        {
-          "i": 500,
-          "reward": 4.61
-        }
-      ],
-      "greedy_only": [
-        {
-          "i": 1,
-          "reward": 3.664
-        },
-        {
-          "i": 2,
-          "reward": 3.435
-        },
-        {
-          "i": 3,
-          "reward": 3.792
-        },
-        {
-          "i": 4,
-          "reward": 3.507
-        },
-        {
-          "i": 5,
-          "reward": 3.817
-        },
-        {
-          "i": 6,
-          "reward": 3.537
-        },
-        {
-          "i": 7,
-          "reward": 3.787
-        },
-        {
-          "i": 8,
-          "reward": 3.47
-        },
-        {
-          "i": 9,
-          "reward": 3.222
-        },
-        {
-          "i": 10,
-          "reward": 3.541
-        },
-        {
-          "i": 11,
-          "reward": 3.699
-        },
-        {
-          "i": 12,
-          "reward": 3.895
-        },
-        {
-          "i": 13,
-          "reward": 3.466
-        },
-        {
-          "i": 14,
-          "reward": 3.651
-        },
-        {
-          "i": 15,
-          "reward": 4.071
-        },
-        {
-          "i": 16,
-          "reward": 3.552
-        },
-        {
-          "i": 17,
-          "reward": 3.604
-        },
-        {
-          "i": 18,
-          "reward": 4.044
-        },
-        {
-          "i": 19,
-          "reward": 3.457
-        },
-        {
-          "i": 20,
-          "reward": 3.763
-        },
-        {
-          "i": 21,
-          "reward": 3.137
-        },
-        {
-          "i": 22,
-          "reward": 3.758
-        },
-        {
-          "i": 23,
-          "reward": 3.931
-        },
-        {
-          "i": 24,
-          "reward": 3.698
-        },
-        {
-          "i": 25,
-          "reward": 3.979
-        },
-        {
-          "i": 26,
-          "reward": 3.638
-        },
-        {
-          "i": 27,
-          "reward": 3.977
-        },
-        {
-          "i": 28,
-          "reward": 3.423
-        },
-        {
-          "i": 29,
-          "reward": 3.635
-        },
-        {
-          "i": 30,
-          "reward": 3.645
-        },
-        {
-          "i": 31,
-          "reward": 3.363
-        },
-        {
-          "i": 32,
-          "reward": 4.062
-        },
-        {
-          "i": 33,
-          "reward": 3.663
-        },
-        {
-          "i": 34,
-          "reward": 3.836
-        },
-        {
-          "i": 35,
-          "reward": 3.852
-        },
-        {
-          "i": 36,
-          "reward": 3.727
-        },
-        {
-          "i": 37,
-          "reward": 3.348
-        },
-        {
-          "i": 38,
-          "reward": 3.941
-        },
-        {
-          "i": 39,
-          "reward": 3.674
-        },
-        {
-          "i": 40,
-          "reward": 3.783
-        },
-        {
-          "i": 41,
-          "reward": 4.17
-        },
-        {
-          "i": 42,
-          "reward": 3.823
-        },
-        {
-          "i": 43,
-          "reward": 3.795
-        },
-        {
-          "i": 44,
-          "reward": 3.404
-        },
-        {
-          "i": 45,
-          "reward": 3.755
-        },
-        {
-          "i": 46,
-          "reward": 3.471
-        },
-        {
-          "i": 47,
-          "reward": 3.591
-        },
-        {
-          "i": 48,
-          "reward": 3.765
-        },
-        {
-          "i": 49,
-          "reward": 3.768
-        },
-        {
-          "i": 50,
-          "reward": 3.816
-        },
-        {
-          "i": 51,
-          "reward": 3.837
-        },
-        {
-          "i": 52,
-          "reward": 3.541
-        },
-        {
-          "i": 53,
-          "reward": 3.814
-        },
-        {
-          "i": 54,
-          "reward": 3.828
-        },
-        {
-          "i": 55,
-          "reward": 3.521
-        },
-        {
-          "i": 56,
-          "reward": 3.505
-        },
-        {
-          "i": 57,
-          "reward": 3.594
-        },
-        {
-          "i": 58,
-          "reward": 4.179
-        },
-        {
-          "i": 59,
-          "reward": 3.438
-        },
-        {
-          "i": 60,
-          "reward": 3.402
-        },
-        {
-          "i": 61,
-          "reward": 3.235
-        },
-        {
-          "i": 62,
-          "reward": 4.011
-        },
-        {
-          "i": 63,
-          "reward": 3.594
-        },
-        {
-          "i": 64,
-          "reward": 4.227
-        },
-        {
-          "i": 65,
-          "reward": 4.008
-        },
-        {
-          "i": 66,
-          "reward": 3.647
-        },
-        {
-          "i": 67,
-          "reward": 3.039
-        },
-        {
-          "i": 68,
-          "reward": 3.555
-        },
-        {
-          "i": 69,
-          "reward": 3.311
-        },
-        {
-          "i": 70,
-          "reward": 3.998
-        },
-        {
-          "i": 71,
-          "reward": 3.392
-        },
-        {
-          "i": 72,
-          "reward": 3.365
-        },
-        {
-          "i": 73,
-          "reward": 3.807
-        },
-        {
-          "i": 74,
-          "reward": 3.326
-        },
-        {
-          "i": 75,
-          "reward": 3.971
-        },
-        {
-          "i": 76,
-          "reward": 3.611
-        },
-        {
-          "i": 77,
-          "reward": 3.875
-        },
-        {
-          "i": 78,
-          "reward": 3.481
-        },
-        {
-          "i": 79,
-          "reward": 3.482
-        },
-        {
-          "i": 80,
-          "reward": 3.982
-        },
-        {
-          "i": 81,
-          "reward": 3.455
-        },
-        {
-          "i": 82,
-          "reward": 3.972
-        },
-        {
-          "i": 83,
-          "reward": 3.419
-        },
-        {
-          "i": 84,
-          "reward": 3.58
-        },
-        {
-          "i": 85,
-          "reward": 3.819
-        },
-        {
-          "i": 86,
-          "reward": 3.662
-        },
-        {
-          "i": 87,
-          "reward": 3.81
-        },
-        {
-          "i": 88,
-          "reward": 3.588
-        },
-        {
-          "i": 89,
-          "reward": 3.727
-        },
-        {
-          "i": 90,
-          "reward": 3.89
-        },
-        {
-          "i": 91,
-          "reward": 3.298
-        },
-        {
-          "i": 92,
-          "reward": 3.806
-        },
-        {
-          "i": 93,
-          "reward": 3.677
-        },
-        {
-          "i": 94,
-          "reward": 3.439
-        },
-        {
-          "i": 95,
-          "reward": 3.605
-        },
-        {
-          "i": 96,
-          "reward": 3.579
-        },
-        {
-          "i": 97,
-          "reward": 3.789
-        },
-        {
-          "i": 98,
-          "reward": 3.779
-        },
-        {
-          "i": 99,
-          "reward": 3.833
-        },
-        {
-          "i": 100,
-          "reward": 3.357
-        },
-        {
-          "i": 101,
-          "reward": 3.36
-        },
-        {
-          "i": 102,
-          "reward": 3.785
-        },
-        {
-          "i": 103,
-          "reward": 3.368
-        },
-        {
-          "i": 104,
-          "reward": 3.545
-        },
-        {
-          "i": 105,
-          "reward": 3.766
-        },
-        {
-          "i": 106,
-          "reward": 3.816
-        },
-        {
-          "i": 107,
-          "reward": 3.522
-        },
-        {
-          "i": 108,
-          "reward": 3.602
-        },
-        {
-          "i": 109,
-          "reward": 4.008
-        },
-        {
-          "i": 110,
-          "reward": 3.718
-        },
-        {
-          "i": 111,
-          "reward": 2.698
-        },
-        {
-          "i": 112,
-          "reward": 3.481
-        },
-        {
-          "i": 113,
-          "reward": 3.609
-        },
-        {
-          "i": 114,
-          "reward": 3.731
-        },
-        {
-          "i": 115,
-          "reward": 3.352
-        },
-        {
-          "i": 116,
-          "reward": 3.862
-        },
-        {
-          "i": 117,
-          "reward": 3.761
-        },
-        {
-          "i": 118,
-          "reward": 3.529
-        },
-        {
-          "i": 119,
-          "reward": 3.492
-        },
-        {
-          "i": 120,
-          "reward": 3.332
-        },
-        {
-          "i": 121,
-          "reward": 3.672
-        },
-        {
-          "i": 122,
-          "reward": 3.491
-        },
-        {
-          "i": 123,
-          "reward": 3.521
-        },
-        {
-          "i": 124,
-          "reward": 3.678
-        },
-        {
-          "i": 125,
-          "reward": 3.56
-        },
-        {
-          "i": 126,
-          "reward": 3.562
-        },
-        {
-          "i": 127,
-          "reward": 4.033
-        },
-        {
-          "i": 128,
-          "reward": 3.918
-        },
-        {
-          "i": 129,
-          "reward": 3.284
-        },
-        {
-          "i": 130,
-          "reward": 3.854
-        },
-        {
-          "i": 131,
-          "reward": 3.442
-        },
-        {
-          "i": 132,
-          "reward": 3.391
-        },
-        {
-          "i": 133,
-          "reward": 3.973
-        },
-        {
-          "i": 134,
-          "reward": 3.246
-        },
-        {
-          "i": 135,
-          "reward": 3.801
-        },
-        {
-          "i": 136,
-          "reward": 3.513
-        },
-        {
-          "i": 137,
-          "reward": 3.821
-        },
-        {
-          "i": 138,
-          "reward": 3.343
-        },
-        {
-          "i": 139,
-          "reward": 3.894
-        },
-        {
-          "i": 140,
-          "reward": 4.048
-        },
-        {
-          "i": 141,
-          "reward": 3.456
-        },
-        {
-          "i": 142,
-          "reward": 4.024
-        },
-        {
-          "i": 143,
-          "reward": 3.134
-        },
-        {
-          "i": 144,
-          "reward": 3.471
-        },
-        {
-          "i": 145,
-          "reward": 3.35
-        },
-        {
-          "i": 146,
-          "reward": 3.824
-        },
-        {
-          "i": 147,
-          "reward": 3.506
-        },
-        {
-          "i": 148,
-          "reward": 3.612
-        },
-        {
-          "i": 149,
-          "reward": 3.979
-        },
-        {
-          "i": 150,
-          "reward": 3.827
-        },
-        {
-          "i": 151,
-          "reward": 3.709
-        },
-        {
-          "i": 152,
-          "reward": 3.188
-        },
-        {
-          "i": 153,
-          "reward": 3.615
-        },
-        {
-          "i": 154,
-          "reward": 3.283
-        },
-        {
-          "i": 155,
-          "reward": 3.391
-        },
-        {
-          "i": 156,
-          "reward": 3.774
-        },
-        {
-          "i": 157,
-          "reward": 3.491
-        },
-        {
-          "i": 158,
-          "reward": 3.579
-        },
-        {
-          "i": 159,
-          "reward": 3.79
-        },
-        {
-          "i": 160,
-          "reward": 3.539
-        },
-        {
-          "i": 161,
-          "reward": 3.679
-        },
-        {
-          "i": 162,
-          "reward": 3.618
-        },
-        {
-          "i": 163,
-          "reward": 3.577
-        },
-        {
-          "i": 164,
-          "reward": 3.653
-        },
-        {
-          "i": 165,
-          "reward": 3.957
-        },
-        {
-          "i": 166,
-          "reward": 3.551
-        },
-        {
-          "i": 167,
-          "reward": 3.412
-        },
-        {
-          "i": 168,
-          "reward": 3.331
-        },
-        {
-          "i": 169,
-          "reward": 3.487
-        },
-        {
-          "i": 170,
-          "reward": 3.414
-        },
-        {
-          "i": 171,
-          "reward": 3.596
-        },
-        {
-          "i": 172,
-          "reward": 3.625
-        },
-        {
-          "i": 173,
-          "reward": 3.676
-        },
-        {
-          "i": 174,
-          "reward": 3.13
-        },
-        {
-          "i": 175,
-          "reward": 3.16
-        },
-        {
-          "i": 176,
-          "reward": 3.227
-        },
-        {
-          "i": 177,
-          "reward": 3.613
-        },
-        {
-          "i": 178,
-          "reward": 3.425
-        },
-        {
-          "i": 179,
-          "reward": 3.667
-        },
-        {
-          "i": 180,
-          "reward": 3.835
-        },
-        {
-          "i": 181,
-          "reward": 4.016
-        },
-        {
-          "i": 182,
-          "reward": 3.815
-        },
-        {
-          "i": 183,
-          "reward": 3.741
-        },
-        {
-          "i": 184,
-          "reward": 3.415
-        },
-        {
-          "i": 185,
-          "reward": 3.605
-        },
-        {
-          "i": 186,
-          "reward": 3.371
-        },
-        {
-          "i": 187,
-          "reward": 3.767
-        },
-        {
-          "i": 188,
-          "reward": 3.706
-        },
-        {
-          "i": 189,
-          "reward": 3.76
-        },
-        {
-          "i": 190,
-          "reward": 3.626
-        },
-        {
-          "i": 191,
-          "reward": 3.383
-        },
-        {
-          "i": 192,
-          "reward": 3.164
-        },
-        {
-          "i": 193,
-          "reward": 3.975
-        },
-        {
-          "i": 194,
-          "reward": 3.779
-        },
-        {
-          "i": 195,
-          "reward": 3.847
-        },
-        {
-          "i": 196,
-          "reward": 3.398
-        },
-        {
-          "i": 197,
-          "reward": 3.911
-        },
-        {
-          "i": 198,
-          "reward": 3.536
-        },
-        {
-          "i": 199,
-          "reward": 3.821
-        },
-        {
-          "i": 200,
-          "reward": 3.285
-        },
-        {
-          "i": 201,
-          "reward": 3.077
-        },
-        {
-          "i": 202,
-          "reward": 3.425
-        },
-        {
-          "i": 203,
-          "reward": 3.356
-        },
-        {
-          "i": 204,
-          "reward": 3.76
-        },
-        {
-          "i": 205,
-          "reward": 3.397
-        },
-        {
-          "i": 206,
-          "reward": 3.244
-        },
-        {
-          "i": 207,
-          "reward": 3.935
-        },
-        {
-          "i": 208,
-          "reward": 3.281
-        },
-        {
-          "i": 209,
-          "reward": 3.323
-        },
-        {
-          "i": 210,
-          "reward": 3.269
-        },
-        {
-          "i": 211,
-          "reward": 3.35
-        },
-        {
-          "i": 212,
-          "reward": 3.575
-        },
-        {
-          "i": 213,
-          "reward": 3.381
-        },
-        {
-          "i": 214,
-          "reward": 4.038
-        },
-        {
-          "i": 215,
-          "reward": 3.741
-        },
-        {
-          "i": 216,
-          "reward": 3.28
-        },
-        {
-          "i": 217,
-          "reward": 3.991
-        },
-        {
-          "i": 218,
-          "reward": 3.554
-        },
-        {
-          "i": 219,
-          "reward": 3.692
-        },
-        {
-          "i": 220,
-          "reward": 4.117
-        },
-        {
-          "i": 221,
-          "reward": 3.962
-        },
-        {
-          "i": 222,
-          "reward": 3.86
-        },
-        {
-          "i": 223,
-          "reward": 3.488
-        },
-        {
-          "i": 224,
-          "reward": 4.027
-        },
-        {
-          "i": 225,
-          "reward": 3.33
-        },
-        {
-          "i": 226,
-          "reward": 3.886
-        },
-        {
-          "i": 227,
-          "reward": 3.494
-        },
-        {
-          "i": 228,
-          "reward": 3.579
-        },
-        {
-          "i": 229,
-          "reward": 3.634
-        },
-        {
-          "i": 230,
-          "reward": 3.117
-        },
-        {
-          "i": 231,
-          "reward": 2.918
-        },
-        {
-          "i": 232,
-          "reward": 3.386
-        },
-        {
-          "i": 233,
-          "reward": 3.711
-        },
-        {
-          "i": 234,
-          "reward": 3.314
-        },
-        {
-          "i": 235,
-          "reward": 3.268
-        },
-        {
-          "i": 236,
-          "reward": 3.445
-        },
-        {
-          "i": 237,
-          "reward": 3.701
-        },
-        {
-          "i": 238,
-          "reward": 3.484
-        },
-        {
-          "i": 239,
-          "reward": 3.823
-        },
-        {
-          "i": 240,
-          "reward": 3.671
-        },
-        {
-          "i": 241,
-          "reward": 3.27
-        },
-        {
-          "i": 242,
-          "reward": 4.055
-        },
-        {
-          "i": 243,
-          "reward": 3.321
-        },
-        {
-          "i": 244,
-          "reward": 3.588
-        },
-        {
-          "i": 245,
-          "reward": 4.144
-        },
-        {
-          "i": 246,
-          "reward": 4.188
-        },
-        {
-          "i": 247,
-          "reward": 3.43
-        },
-        {
-          "i": 248,
-          "reward": 3.534
-        },
-        {
-          "i": 249,
-          "reward": 3.532
-        },
-        {
-          "i": 250,
-          "reward": 3.794
-        },
-        {
-          "i": 251,
-          "reward": 3.469
-        },
-        {
-          "i": 252,
-          "reward": 3.731
-        },
-        {
-          "i": 253,
-          "reward": 3.351
-        },
-        {
-          "i": 254,
-          "reward": 3.524
-        },
-        {
-          "i": 255,
-          "reward": 4.14
-        },
-        {
-          "i": 256,
-          "reward": 3.732
-        },
-        {
-          "i": 257,
-          "reward": 4.258
-        },
-        {
-          "i": 258,
-          "reward": 3.8
-        },
-        {
-          "i": 259,
-          "reward": 3.831
-        },
-        {
-          "i": 260,
-          "reward": 3.804
-        },
-        {
-          "i": 261,
-          "reward": 3.324
-        },
-        {
-          "i": 262,
-          "reward": 3.717
-        },
-        {
-          "i": 263,
-          "reward": 3.459
-        },
-        {
-          "i": 264,
-          "reward": 3.508
-        },
-        {
-          "i": 265,
-          "reward": 3.331
-        },
-        {
-          "i": 266,
-          "reward": 3.878
-        },
-        {
-          "i": 267,
-          "reward": 3.539
-        },
-        {
-          "i": 268,
-          "reward": 3.635
-        },
-        {
-          "i": 269,
-          "reward": 3.243
-        },
-        {
-          "i": 270,
-          "reward": 3.23
-        },
-        {
-          "i": 271,
-          "reward": 3.615
-        },
-        {
-          "i": 272,
-          "reward": 3.526
-        },
-        {
-          "i": 273,
-          "reward": 3.65
-        },
-        {
-          "i": 274,
-          "reward": 3.894
-        },
-        {
-          "i": 275,
-          "reward": 3.322
-        },
-        {
-          "i": 276,
-          "reward": 3.69
-        },
-        {
-          "i": 277,
-          "reward": 3.039
-        },
-        {
-          "i": 278,
-          "reward": 3.35
-        },
-        {
-          "i": 279,
-          "reward": 3.846
-        },
-        {
-          "i": 280,
-          "reward": 3.34
-        },
-        {
-          "i": 281,
-          "reward": 3.456
-        },
-        {
-          "i": 282,
-          "reward": 3.7
-        },
-        {
-          "i": 283,
-          "reward": 3.566
-        },
-        {
-          "i": 284,
-          "reward": 3.627
-        },
-        {
-          "i": 285,
-          "reward": 3.57
-        },
-        {
-          "i": 286,
-          "reward": 3.496
-        },
-        {
-          "i": 287,
-          "reward": 3.506
-        },
-        {
-          "i": 288,
-          "reward": 3.926
-        },
-        {
-          "i": 289,
-          "reward": 3.297
-        },
-        {
-          "i": 290,
-          "reward": 3.513
-        },
-        {
-          "i": 291,
-          "reward": 3.388
-        },
-        {
-          "i": 292,
-          "reward": 3.548
-        },
-        {
-          "i": 293,
-          "reward": 3.823
-        },
-        {
-          "i": 294,
-          "reward": 3.955
-        },
-        {
-          "i": 295,
-          "reward": 3.611
-        },
-        {
-          "i": 296,
-          "reward": 3.88
-        },
-        {
-          "i": 297,
-          "reward": 3.76
-        },
-        {
-          "i": 298,
-          "reward": 3.252
-        },
-        {
-          "i": 299,
-          "reward": 3.765
-        },
-        {
-          "i": 300,
-          "reward": 3.317
-        },
-        {
-          "i": 301,
-          "reward": 3.395
-        },
-        {
-          "i": 302,
-          "reward": 3.645
-        },
-        {
-          "i": 303,
-          "reward": 4.044
-        },
-        {
-          "i": 304,
-          "reward": 3.4
-        },
-        {
-          "i": 305,
-          "reward": 3.698
-        },
-        {
-          "i": 306,
-          "reward": 3.226
-        },
-        {
-          "i": 307,
-          "reward": 3.301
-        },
-        {
-          "i": 308,
-          "reward": 3.217
-        },
-        {
-          "i": 309,
-          "reward": 3.176
-        },
-        {
-          "i": 310,
-          "reward": 3.871
-        },
-        {
-          "i": 311,
-          "reward": 3.898
-        },
-        {
-          "i": 312,
-          "reward": 4.271
-        },
-        {
-          "i": 313,
-          "reward": 3.454
-        },
-        {
-          "i": 314,
-          "reward": 3.372
-        },
-        {
-          "i": 315,
-          "reward": 3.594
-        },
-        {
-          "i": 316,
-          "reward": 4.068
-        },
-        {
-          "i": 317,
-          "reward": 3.606
-        },
-        {
-          "i": 318,
-          "reward": 3.681
-        },
-        {
-          "i": 319,
-          "reward": 3.896
-        },
-        {
-          "i": 320,
-          "reward": 3.553
-        },
-        {
-          "i": 321,
-          "reward": 3.567
-        },
-        {
-          "i": 322,
-          "reward": 3.49
-        },
-        {
-          "i": 323,
-          "reward": 3.854
-        },
-        {
-          "i": 324,
-          "reward": 3.755
-        },
-        {
-          "i": 325,
-          "reward": 3.685
-        },
-        {
-          "i": 326,
-          "reward": 3.448
-        },
-        {
-          "i": 327,
-          "reward": 3.245
-        },
-        {
-          "i": 328,
-          "reward": 3.759
-        },
-        {
-          "i": 329,
-          "reward": 3.797
-        },
-        {
-          "i": 330,
-          "reward": 4.256
-        },
-        {
-          "i": 331,
-          "reward": 3.676
-        },
-        {
-          "i": 332,
-          "reward": 3.57
-        },
-        {
-          "i": 333,
-          "reward": 3.505
-        },
-        {
-          "i": 334,
-          "reward": 3.437
-        },
-        {
-          "i": 335,
-          "reward": 3.431
-        },
-        {
-          "i": 336,
-          "reward": 3.421
-        },
-        {
-          "i": 337,
-          "reward": 3.811
-        },
-        {
-          "i": 338,
-          "reward": 3.546
-        },
-        {
-          "i": 339,
-          "reward": 3.764
-        },
-        {
-          "i": 340,
-          "reward": 3.808
-        },
-        {
-          "i": 341,
-          "reward": 3.947
-        },
-        {
-          "i": 342,
-          "reward": 3.558
-        },
-        {
-          "i": 343,
-          "reward": 3.625
-        },
-        {
-          "i": 344,
-          "reward": 3.824
-        },
-        {
-          "i": 345,
-          "reward": 4.016
-        },
-        {
-          "i": 346,
-          "reward": 3.437
-        },
-        {
-          "i": 347,
-          "reward": 3.698
-        },
-        {
-          "i": 348,
-          "reward": 3.897
-        },
-        {
-          "i": 349,
-          "reward": 3.705
-        },
-        {
-          "i": 350,
-          "reward": 3.602
-        },
-        {
-          "i": 351,
-          "reward": 3.567
-        },
-        {
-          "i": 352,
-          "reward": 3.633
-        },
-        {
-          "i": 353,
-          "reward": 3.868
-        },
-        {
-          "i": 354,
-          "reward": 3.686
-        },
-        {
-          "i": 355,
-          "reward": 3.596
-        },
-        {
-          "i": 356,
-          "reward": 3.606
-        },
-        {
-          "i": 357,
-          "reward": 3.114
-        },
-        {
-          "i": 358,
-          "reward": 3.568
-        },
-        {
-          "i": 359,
-          "reward": 3.262
-        },
-        {
-          "i": 360,
-          "reward": 3.359
-        },
-        {
-          "i": 361,
-          "reward": 3.777
-        },
-        {
-          "i": 362,
-          "reward": 3.59
-        },
-        {
-          "i": 363,
-          "reward": 3.66
-        },
-        {
-          "i": 364,
-          "reward": 3.576
-        },
-        {
-          "i": 365,
-          "reward": 3.433
-        },
-        {
-          "i": 366,
-          "reward": 3.656
-        },
-        {
-          "i": 367,
-          "reward": 3.826
-        },
-        {
-          "i": 368,
-          "reward": 3.772
-        },
-        {
-          "i": 369,
-          "reward": 3.1
-        },
-        {
-          "i": 370,
-          "reward": 3.247
-        },
-        {
-          "i": 371,
-          "reward": 3.743
-        },
-        {
-          "i": 372,
-          "reward": 3.645
-        },
-        {
-          "i": 373,
-          "reward": 3.632
-        },
-        {
-          "i": 374,
-          "reward": 3.992
-        },
-        {
-          "i": 375,
-          "reward": 3.893
-        },
-        {
-          "i": 376,
-          "reward": 3.459
-        },
-        {
-          "i": 377,
-          "reward": 3.891
-        },
-        {
-          "i": 378,
-          "reward": 3.414
-        },
-        {
-          "i": 379,
-          "reward": 3.229
-        },
-        {
-          "i": 380,
-          "reward": 3.387
-        },
-        {
-          "i": 381,
-          "reward": 3.532
-        },
-        {
-          "i": 382,
-          "reward": 3.703
-        },
-        {
-          "i": 383,
-          "reward": 3.583
-        },
-        {
-          "i": 384,
-          "reward": 3.543
-        },
-        {
-          "i": 385,
-          "reward": 3.919
-        },
-        {
-          "i": 386,
-          "reward": 3.613
-        },
-        {
-          "i": 387,
-          "reward": 3.266
-        },
-        {
-          "i": 388,
-          "reward": 3.608
-        },
-        {
-          "i": 389,
-          "reward": 4.06
-        },
-        {
-          "i": 390,
-          "reward": 3.825
-        },
-        {
-          "i": 391,
-          "reward": 3.56
-        },
-        {
-          "i": 392,
-          "reward": 3.583
-        },
-        {
-          "i": 393,
-          "reward": 3.754
-        },
-        {
-          "i": 394,
-          "reward": 3.578
-        },
-        {
-          "i": 395,
-          "reward": 3.919
-        },
-        {
-          "i": 396,
-          "reward": 3.575
-        },
-        {
-          "i": 397,
-          "reward": 3.824
-        },
-        {
-          "i": 398,
-          "reward": 3.749
-        },
-        {
-          "i": 399,
-          "reward": 3.725
-        },
-        {
-          "i": 400,
-          "reward": 3.648
-        },
-        {
-          "i": 401,
-          "reward": 3.396
-        },
-        {
-          "i": 402,
-          "reward": 2.987
-        },
-        {
-          "i": 403,
-          "reward": 3.444
-        },
-        {
-          "i": 404,
-          "reward": 3.267
-        },
-        {
-          "i": 405,
-          "reward": 3.683
-        },
-        {
-          "i": 406,
-          "reward": 3.291
-        },
-        {
-          "i": 407,
-          "reward": 3.609
-        },
-        {
-          "i": 408,
-          "reward": 3.95
-        },
-        {
-          "i": 409,
-          "reward": 3.414
-        },
-        {
-          "i": 410,
-          "reward": 3.705
-        },
-        {
-          "i": 411,
-          "reward": 3.858
-        },
-        {
-          "i": 412,
-          "reward": 3.869
-        },
-        {
-          "i": 413,
-          "reward": 3.637
-        },
-        {
-          "i": 414,
-          "reward": 3.336
-        },
-        {
-          "i": 415,
-          "reward": 3.735
-        },
-        {
-          "i": 416,
-          "reward": 3.705
-        },
-        {
-          "i": 417,
-          "reward": 3.184
-        },
-        {
-          "i": 418,
-          "reward": 3.213
-        },
-        {
-          "i": 419,
-          "reward": 3.4
-        },
-        {
-          "i": 420,
-          "reward": 3.458
-        },
-        {
-          "i": 421,
-          "reward": 3.711
-        },
-        {
-          "i": 422,
-          "reward": 3.65
-        },
-        {
-          "i": 423,
-          "reward": 3.668
-        },
-        {
-          "i": 424,
-          "reward": 3.78
-        },
-        {
-          "i": 425,
-          "reward": 3.675
-        },
-        {
-          "i": 426,
-          "reward": 3.49
-        },
-        {
-          "i": 427,
-          "reward": 4.043
-        },
-        {
-          "i": 428,
-          "reward": 3.478
-        },
-        {
-          "i": 429,
-          "reward": 3.789
-        },
-        {
-          "i": 430,
-          "reward": 3.639
-        },
-        {
-          "i": 431,
-          "reward": 3.322
-        },
-        {
-          "i": 432,
-          "reward": 3.193
-        },
-        {
-          "i": 433,
-          "reward": 3.28
-        },
-        {
-          "i": 434,
-          "reward": 3.567
-        },
-        {
-          "i": 435,
-          "reward": 3.788
-        },
-        {
-          "i": 436,
-          "reward": 3.83
-        },
-        {
-          "i": 437,
-          "reward": 3.683
-        },
-        {
-          "i": 438,
-          "reward": 3.831
-        },
-        {
-          "i": 439,
-          "reward": 3.878
-        },
-        {
-          "i": 440,
-          "reward": 3.493
-        },
-        {
-          "i": 441,
-          "reward": 3.245
-        },
-        {
-          "i": 442,
-          "reward": 4.178
-        },
-        {
-          "i": 443,
-          "reward": 3.938
-        },
-        {
-          "i": 444,
-          "reward": 3.802
-        },
-        {
-          "i": 445,
-          "reward": 3.52
-        },
-        {
-          "i": 446,
-          "reward": 3.984
-        },
-        {
-          "i": 447,
-          "reward": 3.566
-        },
-        {
-          "i": 448,
-          "reward": 3.502
-        },
-        {
-          "i": 449,
-          "reward": 3.191
-        },
-        {
-          "i": 450,
-          "reward": 3.59
-        },
-        {
-          "i": 451,
-          "reward": 3.585
-        },
-        {
-          "i": 452,
-          "reward": 3.551
-        },
-        {
-          "i": 453,
-          "reward": 3.185
-        },
-        {
-          "i": 454,
-          "reward": 4.041
-        },
-        {
-          "i": 455,
-          "reward": 3.73
-        },
-        {
-          "i": 456,
-          "reward": 3.093
-        },
-        {
-          "i": 457,
-          "reward": 3.661
-        },
-        {
-          "i": 458,
-          "reward": 3.769
-        },
-        {
-          "i": 459,
-          "reward": 3.915
-        },
-        {
-          "i": 460,
-          "reward": 4.303
-        },
-        {
-          "i": 461,
-          "reward": 3.719
-        },
-        {
-          "i": 462,
-          "reward": 3.7
-        },
-        {
-          "i": 463,
-          "reward": 3.666
-        },
-        {
-          "i": 464,
-          "reward": 3.782
-        },
-        {
-          "i": 465,
-          "reward": 3.511
-        },
-        {
-          "i": 466,
-          "reward": 3.822
-        },
-        {
-          "i": 467,
-          "reward": 3.763
-        },
-        {
-          "i": 468,
-          "reward": 3.443
-        },
-        {
-          "i": 469,
-          "reward": 3.95
-        },
-        {
-          "i": 470,
-          "reward": 3.724
-        },
-        {
-          "i": 471,
-          "reward": 3.625
-        },
-        {
-          "i": 472,
-          "reward": 3.702
-        },
-        {
-          "i": 473,
-          "reward": 3.608
-        },
-        {
-          "i": 474,
-          "reward": 3.4
-        },
-        {
-          "i": 475,
-          "reward": 3.385
-        },
-        {
-          "i": 476,
-          "reward": 3.842
-        },
-        {
-          "i": 477,
-          "reward": 3.728
-        },
-        {
-          "i": 478,
-          "reward": 3.667
-        },
-        {
-          "i": 479,
-          "reward": 3.716
-        },
-        {
-          "i": 480,
-          "reward": 4.041
-        },
-        {
-          "i": 481,
-          "reward": 3.402
-        },
-        {
-          "i": 482,
-          "reward": 3.692
-        },
-        {
-          "i": 483,
-          "reward": 3.419
-        },
-        {
-          "i": 484,
-          "reward": 4.298
-        },
-        {
-          "i": 485,
-          "reward": 3.671
-        },
-        {
-          "i": 486,
-          "reward": 3.32
-        },
-        {
-          "i": 487,
-          "reward": 3.564
-        },
-        {
-          "i": 488,
-          "reward": 3.616
-        },
-        {
-          "i": 489,
-          "reward": 3.255
-        },
-        {
-          "i": 490,
-          "reward": 3.602
-        },
-        {
-          "i": 491,
-          "reward": 3.761
-        },
-        {
-          "i": 492,
-          "reward": 3.144
-        },
-        {
-          "i": 493,
-          "reward": 3.99
-        },
-        {
-          "i": 494,
-          "reward": 3.486
-        },
-        {
-          "i": 495,
-          "reward": 3.491
-        },
-        {
-          "i": 496,
-          "reward": 3.404
-        },
-        {
-          "i": 497,
-          "reward": 3.866
-        },
-        {
-          "i": 498,
-          "reward": 4.115
-        },
-        {
-          "i": 499,
-          "reward": 3.675
-        },
-        {
-          "i": 500,
-          "reward": 3.42
-        }
-      ]
-    }
+    ]
   },
   "runs": [
     {
-      "id": "policy-rollout",
+      "id": "mock-replay",
       "mode": "mock",
-      "label": "Trained policy, deterministic replay",
+      "label": "Local deterministic mock replay (no live receipts)",
       "episodes": [
         {
           "i": 1,
           "steps": [
             {
-              "i": 0,
-              "action": {
-                "id": "propose_1",
-                "label": "propose 2",
-                "args": {
-                  "type": "propose"
-                }
-              },
-              "state_before": {
-                "num_hypotheses": 0,
-                "hypothesis_validated": [],
-                "hypothesis_score_x100": [],
-                "round": 0
-              },
-              "state_after": {
-                "num_hypotheses": 1,
-                "hypothesis_validated": [
-                  0
-                ],
-                "hypothesis_score_x100": [
-                  907
-                ],
-                "round": 1
-              },
-              "reward": 9.07,
-              "reward_kind": "deterministic",
-              "reason": "proposed hypothesis (merit base 8.6)",
-              "policy": [
-                {
-                  "action": "propose 1",
-                  "q": 53.186,
-                  "chosen": false
-                },
-                {
-                  "action": "propose 2",
-                  "q": 73.479,
-                  "chosen": true
-                },
-                {
-                  "action": "propose 3",
-                  "q": 55.456,
-                  "chosen": false
-                },
-                {
-                  "action": "propose 4",
-                  "q": 52.193,
-                  "chosen": false
-                },
-                {
-                  "action": "propose 5",
-                  "q": 51.923,
-                  "chosen": false
-                },
-                {
-                  "action": "propose 6",
-                  "q": 52.662,
-                  "chosen": false
-                },
-                {
-                  "action": "test",
-                  "q": 60.394,
-                  "chosen": false
-                }
-              ]
-            },
-            {
               "i": 1,
               "action": {
-                "id": "test",
-                "label": "test",
-                "args": {
-                  "type": "test"
-                }
+                "id": "action-0",
+                "label": "action 0"
               },
               "state_before": {
-                "num_hypotheses": 1,
-                "hypothesis_validated": [
-                  0
-                ],
-                "hypothesis_score_x100": [
-                  907
-                ],
-                "round": 1
+                "bucket": 0,
+                "step": 1
               },
               "state_after": {
-                "num_hypotheses": 1,
-                "hypothesis_validated": [
-                  1
-                ],
-                "hypothesis_score_x100": [
-                  907
-                ],
-                "round": 2
+                "bucket": 1,
+                "step": 2
               },
-              "reward": 9.0,
+              "reward": 10.0,
               "reward_kind": "deterministic",
-              "reason": "[validated] tested a falsifiable, high-merit hypothesis",
-              "policy": [
+              "reason": "Recorded from the local MockEnvironment; no live receipt is claimed.",
+              "epsilon": 0.0,
+              "illustrative": true,
+              "notes": [
                 {
-                  "action": "propose 1",
-                  "q": 52.154,
-                  "chosen": false
-                },
-                {
-                  "action": "propose 2",
-                  "q": 53.572,
-                  "chosen": false
-                },
-                {
-                  "action": "propose 3",
-                  "q": 59.339,
-                  "chosen": false
-                },
-                {
-                  "action": "propose 4",
-                  "q": 52.319,
-                  "chosen": false
-                },
-                {
-                  "action": "propose 5",
-                  "q": 51.43,
-                  "chosen": false
-                },
-                {
-                  "action": "propose 6",
-                  "q": 51.713,
-                  "chosen": false
-                },
-                {
-                  "action": "test",
-                  "q": 68.331,
-                  "chosen": true
+                  "text": "Mock replay only; this step has no on-chain transaction or validator receipt.",
+                  "source": "MockEnvironment"
                 }
               ]
             },
             {
               "i": 2,
               "action": {
-                "id": "propose_2",
-                "label": "propose 3",
-                "args": {
-                  "type": "propose"
-                }
+                "id": "action-1",
+                "label": "action 1"
               },
               "state_before": {
-                "num_hypotheses": 1,
-                "hypothesis_validated": [
-                  1
-                ],
-                "hypothesis_score_x100": [
-                  907
-                ],
-                "round": 2
+                "bucket": 1,
+                "step": 2
               },
               "state_after": {
-                "num_hypotheses": 2,
-                "hypothesis_validated": [
-                  1,
-                  0
-                ],
-                "hypothesis_score_x100": [
-                  907,
-                  810
-                ],
-                "round": 3
+                "bucket": 3,
+                "step": 3
               },
-              "reward": 8.1,
+              "reward": 10.0,
               "reward_kind": "deterministic",
-              "reason": "proposed hypothesis (merit base 8.8)",
-              "policy": [
+              "reason": "Recorded from the local MockEnvironment; no live receipt is claimed.",
+              "epsilon": 0.0,
+              "illustrative": true,
+              "notes": [
                 {
-                  "action": "propose 1",
-                  "q": 49.966,
-                  "chosen": false
-                },
-                {
-                  "action": "propose 2",
-                  "q": 52.597,
-                  "chosen": false
-                },
-                {
-                  "action": "propose 3",
-                  "q": 62.326,
-                  "chosen": true
-                },
-                {
-                  "action": "propose 4",
-                  "q": 50.781,
-                  "chosen": false
-                },
-                {
-                  "action": "propose 5",
-                  "q": 50.417,
-                  "chosen": false
-                },
-                {
-                  "action": "propose 6",
-                  "q": 50.175,
-                  "chosen": false
-                },
-                {
-                  "action": "test",
-                  "q": 52.116,
-                  "chosen": false
+                  "text": "Mock replay only; this step has no on-chain transaction or validator receipt.",
+                  "source": "MockEnvironment"
                 }
               ]
             },
             {
               "i": 3,
               "action": {
-                "id": "test",
-                "label": "test",
-                "args": {
-                  "type": "test"
-                }
+                "id": "action-0",
+                "label": "action 0"
               },
               "state_before": {
-                "num_hypotheses": 2,
-                "hypothesis_validated": [
-                  1,
-                  0
-                ],
-                "hypothesis_score_x100": [
-                  907,
-                  810
-                ],
-                "round": 3
+                "bucket": 3,
+                "step": 3
               },
               "state_after": {
-                "num_hypotheses": 2,
-                "hypothesis_validated": [
-                  1,
-                  1
-                ],
-                "hypothesis_score_x100": [
-                  907,
-                  810
-                ],
-                "round": 4
+                "bucket": 4,
+                "step": 4
               },
-              "reward": 9.0,
+              "reward": 10.0,
               "reward_kind": "deterministic",
-              "reason": "[validated] tested a falsifiable, high-merit hypothesis",
-              "policy": [
+              "reason": "Recorded from the local MockEnvironment; no live receipt is claimed.",
+              "epsilon": 0.0,
+              "illustrative": true,
+              "notes": [
                 {
-                  "action": "propose 1",
-                  "q": 50.035,
-                  "chosen": false
-                },
-                {
-                  "action": "propose 2",
-                  "q": 51.978,
-                  "chosen": false
-                },
-                {
-                  "action": "propose 3",
-                  "q": 53.339,
-                  "chosen": false
-                },
-                {
-                  "action": "propose 4",
-                  "q": 51.808,
-                  "chosen": false
-                },
-                {
-                  "action": "propose 5",
-                  "q": 50.456,
-                  "chosen": false
-                },
-                {
-                  "action": "propose 6",
-                  "q": 50.268,
-                  "chosen": false
-                },
-                {
-                  "action": "test",
-                  "q": 56.5,
-                  "chosen": true
+                  "text": "Mock replay only; this step has no on-chain transaction or validator receipt.",
+                  "source": "MockEnvironment"
                 }
               ]
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "id": "live-capture",
-      "mode": "live",
-      "label": "Live studionet step (2 of 4 agreed)",
-      "episodes": [
-        {
-          "i": 1,
-          "steps": [
-            {
-              "i": 1,
-              "action": {
-                "id": "propose_canopy",
-                "label": "propose the tree-canopy hypothesis"
-              },
-              "reward": 1.0,
-              "reward_kind": "llm",
-              "reason": "This hypothesis is an exact duplicate of the first already-proposed hypothesis in this session, scoring near zero on novelty. While it is falsifiable and plausible, the direct restatement eliminates any novelty credit, dragging the overall score to the minimum.",
-              "consensus": {
-                "outcome": "MAJORITY",
-                "tolerance": 1.5,
-                "leader_model": "policy:prd-sonnet",
-                "leader_score": 1.0,
-                "leader_reason": "This hypothesis is an exact duplicate of the first already-proposed hypothesis in this session, scoring near zero on novelty. While it is falsifiable and plausible, the direct restatement eliminates any novelty credit, dragging the overall score to the minimum.",
-                "validators": [
-                  {
-                    "model": "policy:prd-gemini",
-                    "vote": "agree"
-                  },
-                  {
-                    "model": "policy:prd-gpt-5-4",
-                    "vote": "agree"
-                  },
-                  {
-                    "model": null,
-                    "vote": "timeout"
-                  },
-                  {
-                    "model": null,
-                    "vote": "idle"
-                  }
-                ]
-              },
-              "tx": {
-                "hash": "0x71bb80ec7438f55b0f3681e3f5da0c4186c6ef1705d26981a196a9ff1a1a9479",
-                "explorer": "https://explorer-studionet.genlayerlabs.com/tx/0x71bb80ec7438f55b0f3681e3f5da0c4186c6ef1705d26981a196a9ff1a1a9479",
-                "elapsed_s": 29
-              }
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "id": "replay-studionet",
-      "mode": "replay",
-      "label": "Saved studionet run",
-      "episodes": [
-        {
-          "i": 1,
-          "steps": [
-            {
-              "i": 1,
-              "action": {
-                "id": "propose#1",
-                "label": "propose 1"
-              },
-              "reward": 7.0,
-              "reward_kind": "llm",
-              "reason": "Quantitative and empirically testable via canopy and surface-temperature me"
-            },
-            {
-              "i": 2,
-              "action": {
-                "id": "test",
-                "label": "test"
-              },
-              "reward": 9.0,
-              "reward_kind": "llm",
-              "reason": "[validated] tested a falsifiable, high-merit hypothesis"
-            },
-            {
-              "i": 3,
-              "action": {
-                "id": "propose#2",
-                "label": "propose 2"
-              },
-              "reward": 7.0,
-              "reward_kind": "llm",
-              "reason": "The hypothesis is clearly falsifiable via prospective clinical studies meas"
-            },
-            {
-              "i": 4,
-              "action": {
-                "id": "test",
-                "label": "test"
-              },
-              "reward": 9.0,
-              "reward_kind": "llm",
-              "reason": "[validated] tested a falsifiable, high-merit hypothesis"
             }
           ]
         }

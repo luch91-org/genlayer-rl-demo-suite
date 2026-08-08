@@ -5,9 +5,11 @@
  * reader. The vendored copies remain committed, so the suite still builds
  * standalone and offline; this script just refreshes them.
  *
- * By default it looks for the four repos as siblings of this one. Point it
- * elsewhere with REPOS_DIR. After syncing, run `npm test` to validate the
- * refreshed manifests against the schema.
+ * By default it looks for the four repos as siblings of this one. For the
+ * consolidated monorepo submission, set AUTONOMY_MANIFESTS to its `manifests`
+ * directory. Point the legacy sibling lookup elsewhere with REPOS_DIR. After
+ * syncing, run `npm test` to validate the refreshed manifests against the
+ * schema.
  */
 
 import { existsSync, readFileSync, writeFileSync } from "node:fs";
@@ -17,6 +19,9 @@ import { fileURLToPath } from "node:url";
 const here = dirname(fileURLToPath(import.meta.url));
 const suiteRoot = resolve(here, "..");
 const reposDir = process.env.REPOS_DIR ? resolve(process.env.REPOS_DIR) : resolve(suiteRoot, "..");
+const autonomyManifests = process.env.AUTONOMY_MANIFESTS
+  ? resolve(process.env.AUTONOMY_MANIFESTS)
+  : null;
 
 const DOMAINS = [
   { id: "crisis", repo: "genlayer-rl-crisis-negotiator" },
@@ -27,7 +32,9 @@ const DOMAINS = [
 
 let failed = 0;
 for (const { id, repo } of DOMAINS) {
-  const src = join(reposDir, repo, "manifest.json");
+  const src = autonomyManifests
+    ? join(autonomyManifests, `${id}.json`)
+    : join(reposDir, repo, "manifest.json");
   if (!existsSync(src)) {
     console.warn(`skip ${id}: no manifest at ${src}`);
     failed++;
@@ -48,7 +55,7 @@ for (const { id, repo } of DOMAINS) {
     continue;
   }
   writeFileSync(join(suiteRoot, "public", "data", `${id}.json`), raw);
-  console.log(`synced ${id} from ${repo}`);
+  console.log(`synced ${id} from ${autonomyManifests ? autonomyManifests : repo}`);
 }
 
 if (failed > 0) {
